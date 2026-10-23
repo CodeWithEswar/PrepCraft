@@ -1,0 +1,57 @@
+/* PrepCraft identity only. Application design tokens live separately. */
+:root {
+  --brand-sienna: #a15f4b;
+  --brand-logo-highlight: #ffe2ca;
+  --brand-logo-mid: #c58766;
+  --brand-logo-shadow: #653c31;
+  --brand-mineral-light: #f3ece4;
+  --brand-mineral-dark: #171514;
+}
+
+.pc-brand {
+  --brand-word: #171514;
+  --brand-word-accent: #a15f4b;
+  --brand-flat: #a15f4b;
+  --brand-edge: #855a48;
+}
+.dark .pc-brand:not([data-appearance="light"]):not([data-appearance="monochrome"]),
+.pc-brand[data-appearance="dark"] {
+  --brand-word: #faf8f5;
+  --brand-word-accent: #d99a78;
+  --brand-flat: #d99a78;
+  --brand-edge: #e6ab87;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .pc-brand[data-appearance="auto"] {
+    --brand-word: #faf8f5;
+    --brand-word-accent: #d99a78;
+    --brand-flat: #d99a78;
+    --brand-edge: #e6ab87;
+  }
+}
+.pc-brand[data-appearance="light"] {
+  --brand-word: #171514;
+  --brand-word-accent: #a15f4b;
+  --brand-flat: #a15f4b;
+  --brand-edge: #855a48;
+}
+.pc-brand[data-appearance="monochrome"] {
+  --brand-word: currentColor;
+  --brand-word-accent: currentColor;
+  --brand-flat: currentColor;
+}
+.pc-symbol, .pc-wordmark { display: block; flex: none; overflow: visible; }
+.pc-logo { display: inline-flex; align-items: center; }
+/* Visible symbol right edge is .875s; gap .09375s = one scaled u. */
+.pc-logo-horizontal { gap: 0; }
+.pc-logo-horizontal > .pc-logo-lettering { margin-left: calc(var(--pc-logo-size) * -.03125); }
+.pc-logo-lettering { display: flex; flex-direction: column; align-items: center; }
+.pc-logo-vertical { flex-direction: column; gap: calc(var(--pc-logo-size) * .046875); }
+.pc-tagline { color: var(--brand-word); font-size: calc(var(--pc-logo-size) * .035); letter-spacing: .21em; white-space: nowrap; text-transform: uppercase; }
+.pc-loader { position: relative; display: inline-grid; place-items: center; color: var(--brand-flat); }
+.pc-loader-ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pc-loader-orbit { transform-origin: 256px 256px; animation: pc-brand-orbit 2.4s linear infinite; }
+@keyframes pc-brand-orbit { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .pc-loader-orbit { animation: none; }
+}

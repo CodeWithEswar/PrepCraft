@@ -16,7 +16,11 @@ export interface BrandProps {
 export const symbolSizes = { sm: 24, md: 32, lg: 48, xl: 64 } as const
 export const logoSizes = { sm: 32, md: 48, lg: 64, xl: 96 } as const
 export const verticalSizes = { sm: 160, md: 224, lg: 288, xl: 360 } as const
+export type BrandSizePreset = "sm" | "md" | "lg" | "xl"
 
-export function resolveSize(size: BrandSize, scale = symbolSizes) {
+export function resolveSize(
+  size: BrandSize,
+  scale: Record<BrandSizePreset, number> = symbolSizes
+): number {
   return typeof size === "number" ? Math.max(1, size) : scale[size]
 }

@@ -1,7 +1,8 @@
-import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { AppProviders } from "@/providers"
+import { brandMetadata, brandViewport } from "@/lib/metadata"
 import "./globals.css"
+import "@/styles/brand.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,11 +14,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
-export const metadata: Metadata = {
-  title: "PrepCraft — Craft your way to ready.",
-  description:
-    "Preparation and tracking workspace for DSA, coding practice, revision, mistake tracking, pattern recognition, and career readiness.",
-}
+export const metadata = brandMetadata
+export const viewport = brandViewport
 
 export default function RootLayout({
   children,
