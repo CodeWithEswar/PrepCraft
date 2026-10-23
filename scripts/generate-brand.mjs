@@ -24,12 +24,9 @@ function mark(id, variant = "dimensional", color = "#A15F4B", light = false) {
 }
 
 // The installed Next.js distribution includes Geist (SIL Open Font License).
-// Freeze weight 650 and outline every glyph; no runtime font dependency in assets.
+// Outline every glyph; no runtime font dependency in exported assets.
 const fontPath = require.resolve("next/dist/next-devtools/server/font/geist-latin.woff2")
-// Set coordinates on the WOFF2 decoder: getVariation() in Next's bundled
-// fontkit assumes a TTF directory and cannot decode a WOFF2 variation.
 const font = fontkit(await fs.readFile(fontPath))
-font.variationCoords = [650]
 const regular = fontkit(await fs.readFile(fontPath))
 function outline(text, face = font, tracking = -18) {
   const run = face.layout(text)
@@ -40,7 +37,7 @@ function outline(text, face = font, tracking = -18) {
     x += pos.xAdvance + tracking
     return item
   })
-  return { paths, width: x - tracking, units: face.unitsPerEm, capHeight: face.capHeight }
+  return { paths, width: x - tracking, units: face.unitsPerEm, capHeight: face.capHeight, stroke: face === font ? 32 : 0 }
 }
 const word = outline("PrepCraft")
 const tagline = outline("CRAFT YOUR WAY TO READY.", regular, 200)
@@ -48,7 +45,7 @@ const actions = outline("PLAN  •  PRACTICE  •  REVISE  •  TRACK  •  IMPR
 await write("src/components/brand/brand-wordmark-paths.json", JSON.stringify({ word, tagline }, null, 2) + "\n")
 function lettering(data, x, baseline, size, main, accent = main) {
   const scale = size / data.units
-  return `<g transform="translate(${x} ${baseline}) scale(${scale} ${-scale})">${data.paths.map(g => `<path fill="${g.craft ? accent : main}" transform="translate(${g.x} ${g.y})" d="${g.d}"/>`).join("")}</g>`
+  return `<g transform="translate(${x} ${baseline}) scale(${scale} ${-scale})">${data.paths.map(g => `<path fill="${g.craft ? accent : main}" stroke="${g.craft ? accent : main}" stroke-width="${data.stroke}" stroke-linejoin="round" transform="translate(${g.x} ${g.y})" d="${g.d}"/>`).join("")}</g>`
 }
 const widthAt = (data, size) => data.width * size / data.units
 for (const [name, variant, color, light] of [
@@ -60,7 +57,7 @@ for (const [name, variant, color, light] of [
 
 const wordWidth = Math.ceil(widthAt(word, 144))
 for (const [suffix, main, accent] of [["", "#171514", "#A15F4B"], ["-light", "#171514", "#A15F4B"], ["-dark", "#FAF8F5", "#D99A78"], ["-monochrome", "currentColor", "currentColor"]]) {
-  await write(`public/brand/logo/prepcraft-wordmark${suffix}.svg`, svg(`0 0 ${wordWidth} 160`, lettering(word, 0, 126, 144, main, accent)))
+  await write(`public/brand/logo/prepcraft-wordmark${suffix}.svg`, svg(`-4 0 ${wordWidth + 8} 160`, lettering(word, 0, 126, 144, main, accent)))
   // 256-unit symbol; gap is one scaled u=24 from the visible right edge.
   await write(`public/brand/logo/prepcraft-horizontal${suffix}.svg`, svg(`0 0 ${248 + wordWidth} 256`, `<g transform="scale(.5)">${mark(`horizontal${suffix}`)}</g>${lettering(word, 248, 178, 144, main, accent)}`))
 }
@@ -122,5 +119,5 @@ faviconPngs.forEach((png, i) => {
   offset += png.length
 })
 await write("src/app/favicon.ico", Buffer.concat([header, ...faviconPngs]))
-await write("docs/brand/GENERATED-FILES.md", `# Generated brand files\n\nRegenerate with \`npm run brand:generate\`. SVGs use canonical paths; lettering is outlined Geist at weight 650 (tagline at 400).\n\n${files.map(f => `- \`${f}\``).join("\n")}\n`)
+await write("docs/brand/GENERATED-FILES.md", `# Generated brand files\n\nRegenerate with \`npm run brand:generate\`. SVGs use canonical paths; lettering is outlined Geist Regular with a 32-unit contour weight adjustment (tagline unadjusted).\n\n${files.map(f => `- \`${f}\``).join("\n")}\n`)
 console.log(`Generated ${files.length} brand files.`)

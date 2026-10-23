@@ -1,0 +1,44 @@
+# Generated brand files
+
+Regenerate with `npm run brand:generate`. SVGs use canonical paths; lettering is outlined Geist Regular with a 32-unit contour weight adjustment (tagline unadjusted).
+
+- `src/components/brand/brand-wordmark-paths.json`
+- `public/brand/logo/prepcraft-symbol.svg`
+- `public/brand/logo/prepcraft-symbol-flat.svg`
+- `public/brand/logo/prepcraft-symbol-monochrome.svg`
+- `public/brand/logo/prepcraft-symbol-white.svg`
+- `public/brand/logo/prepcraft-symbol-black.svg`
+- `public/brand/logo/prepcraft-symbol-light.svg`
+- `public/brand/logo/prepcraft-symbol-dark.svg`
+- `public/brand/logo/prepcraft-wordmark.svg`
+- `public/brand/logo/prepcraft-horizontal.svg`
+- `public/brand/logo/prepcraft-wordmark-light.svg`
+- `public/brand/logo/prepcraft-horizontal-light.svg`
+- `public/brand/logo/prepcraft-wordmark-dark.svg`
+- `public/brand/logo/prepcraft-horizontal-dark.svg`
+- `public/brand/logo/prepcraft-wordmark-monochrome.svg`
+- `public/brand/logo/prepcraft-horizontal-monochrome.svg`
+- `public/brand/logo/prepcraft-vertical.svg`
+- `public/brand/logo/prepcraft-vertical-dark.svg`
+- `public/brand/app-icons/app-icon.svg`
+- `public/brand/app-icons/app-icon-light.svg`
+- `public/brand/app-icons/app-icon-dark.svg`
+- `public/brand/app-icons/app-icon-maskable.svg`
+- `public/brand/favicon/favicon.svg`
+- `public/brand/loading/loading-mark.svg`
+- `public/brand/loading/loading-ring.svg`
+- `public/brand/social/og-default.svg`
+- `public/brand/social/og-dark.svg`
+- `public/brand/social/twitter-card.svg`
+- `public/brand/favicon/favicon-16x16.png`
+- `public/brand/favicon/favicon-32x32.png`
+- `public/brand/favicon/favicon-48x48.png`
+- `public/brand/favicon/apple-touch-icon.png`
+- `public/brand/app-icons/app-icon-192.png`
+- `public/brand/app-icons/maskable-192.png`
+- `public/brand/app-icons/app-icon-512.png`
+- `public/brand/app-icons/maskable-512.png`
+- `public/brand/social/og-default.png`
+- `public/brand/social/og-dark.png`
+- `public/brand/social/twitter-card.png`
+- `src/app/favicon.ico`
