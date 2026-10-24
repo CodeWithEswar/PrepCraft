@@ -114,7 +114,7 @@ export function MarketingHeader() {
                   </DrawerClose>
                 </DrawerHeader>
 
-                <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-4 space-y-5 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-4 space-y-4 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-[max(1.25rem,env(safe-area-inset-bottom))]">
                   <div className="space-y-1.5">
                     <span className="text-[0.625rem] font-semibold uppercase tracking-wider text-muted-foreground/80 px-1">
                       Navigation
@@ -154,36 +154,16 @@ export function MarketingHeader() {
                     </nav>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-border/40">
-                    <span className="text-[0.625rem] font-semibold uppercase tracking-wider text-muted-foreground/80 px-1">
-                      Core Topics
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {["DSA", "Java", "SQL & DBMS", "OS", "Networks", "Projects", "Behavioral", "Timed Practice"].map(skill => (
-                        <span
-                          key={skill}
-                          className="px-2.5 py-1 text-[0.6875rem] rounded-lg border border-border/50 bg-surface-subtle/70 text-muted-foreground font-medium"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 pt-2 border-t border-border/40">
-                    <div className="flex items-center justify-between px-1">
-                      <span className="text-[0.625rem] font-semibold uppercase tracking-wider text-muted-foreground/80">
-                        Theme
-                      </span>
-                      <span className="text-[0.6875rem] text-muted-foreground capitalize">{theme ?? "system"}</span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-surface-subtle border border-border/50">
+                  <div className="flex items-center justify-between pt-3 pb-1 border-t border-border/40">
+                    <span className="text-xs font-medium text-muted-foreground">Theme</span>
+                    <div className="inline-flex items-center gap-1 p-1 rounded-xl bg-surface-subtle border border-border/50">
                       {(["light", "dark", "system"] as const).map(mode => (
                         <button
                           key={mode}
                           type="button"
                           onClick={() => setTheme(mode)}
-                          className={`flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-lg text-xs font-medium transition-all ${
+                          aria-label={`Switch to ${mode} theme`}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                             theme === mode
                               ? "bg-surface-elevated text-foreground shadow-xs border border-border/70"
                               : "text-muted-foreground hover:text-foreground"
@@ -191,15 +171,15 @@ export function MarketingHeader() {
                         >
                           <AppIcon
                             icon={mode === "light" ? "sun" : mode === "dark" ? "moon" : "system"}
-                            size={14}
+                            size={13}
                           />
-                          <span className="capitalize">{mode}</span>
+                          <span className="capitalize text-xs">{mode}</span>
                         </button>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-2 pb-3">
+                  <div className="pt-2">
                     <div onClick={() => setOpen(false)}>
                       <StartPreview label="Explore the preview" />
                     </div>
