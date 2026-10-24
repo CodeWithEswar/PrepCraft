@@ -8,7 +8,44 @@ import { ReadinessConvergence } from "../motion/signature-visuals"
 import { FocusLens } from "../motion/focus-lens"
 
 export function PracticeSection() {
-  return <section className="mk-section container-page" id="practice" aria-labelledby="practice-heading"><div className="mk-practice-grid"><div><p className="mk-kicker">Practice → reflection → retention</p><h2 className="type-heading-2" id="practice-heading">Don’t just count<br />solved questions.<br /><span className="mk-muted-heading">Understand what you missed.</span></h2><p className="mk-section-copy">Recognizing the pattern and implementing it are different skills. Track both. Turn logic gaps, missed edge cases, and complexity mistakes into a better next attempt.</p><div className="mk-pattern-note"><Image src="/brand/landing/visuals/03-pattern-thinking-studio.webp" alt="Array, tree, and graph structures connected by a highlighted recognition path" width={1200} height={900} sizes="(max-width: 767px) 40vw, 200px" /><div><strong>See the structure.<br />Then build the solution.</strong><span>Pattern recognition, made deliberate.</span></div></div><div className="mk-category-list">{["Pattern recognition", "Logic", "Edge cases", "Complexity", "Testing", "Concept gaps", "Time management"].map(label => <Badge key={label} variant="outline">{label}</Badge>)}</div></div><PracticeDemo /></div></section>
+  return (
+    <section className="mk-section container-page scroll-mt-20 md:scroll-mt-24" id="practice" aria-labelledby="practice-heading">
+      <div className="mk-practice-grid">
+        <div className="mk-practice-copy-col">
+          <p className="mk-kicker">Practice → reflection → retention</p>
+          <h2 className="type-heading-2" id="practice-heading">
+            Don’t just count <br className="mk-desktop-break" />solved questions. <br className="mk-desktop-break" />
+            <span className="mk-muted-heading">Understand what you missed.</span>
+          </h2>
+          <p className="mk-section-copy">
+            Recognizing the pattern and implementing it are different skills. Track both. Turn logic gaps, missed edge cases, and complexity mistakes into a better next attempt.
+          </p>
+          <div className="mk-pattern-note">
+            <div className="mk-pattern-note-media">
+              <Image
+                src="/brand/landing/visuals/03-pattern-thinking-studio.webp"
+                alt="Array, tree, and graph structures connected by a highlighted recognition path"
+                width={1200}
+                height={900}
+                sizes="(max-width: 640px) 110px, 160px"
+                className="mk-pattern-note-img"
+              />
+            </div>
+            <div className="mk-pattern-note-body">
+              <strong>See the structure. <br className="mk-desktop-break" />Then build the solution.</strong>
+              <span>Pattern recognition, made deliberate.</span>
+            </div>
+          </div>
+          <div className="mk-category-list">
+            {["Pattern recognition", "Logic", "Edge cases", "Complexity", "Testing", "Concept gaps", "Time management"].map(label => (
+              <Badge key={label} variant="outline">{label}</Badge>
+            ))}
+          </div>
+        </div>
+        <PracticeDemo />
+      </div>
+    </section>
+  )
 }
 
 export function ReadinessSection() {
