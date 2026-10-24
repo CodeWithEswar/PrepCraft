@@ -57,7 +57,16 @@ export function MarketingHeader() {
         </NavigationMenu>
         <div className="mk-header-actions">
           <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="ghost" size="icon" aria-label="Choose color theme" />}>
+            <DropdownMenuTrigger
+              render={
+                <Button
+                  variant="glass"
+                  size="icon-lg"
+                  aria-label="Choose color theme"
+                  className="size-9 aspect-square p-0 rounded-xl border border-border/80 bg-surface/80 backdrop-blur-md shadow-xs hover:bg-surface-elevated/90 hover:border-border text-foreground active:scale-95 transition-all inline-flex items-center justify-center shrink-0"
+                />
+              }
+            >
               <AppIcon icon="sun" size={18} />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -77,10 +86,10 @@ export function MarketingHeader() {
               <DrawerTrigger
                 render={
                   <Button
-                    variant="outline"
-                    size="icon"
+                    variant="glass"
+                    size="icon-lg"
                     aria-label="Open navigation"
-                    className="size-9 rounded-xl border-border/80 bg-surface/80 backdrop-blur-md hover:bg-surface-elevated active:scale-95 transition-all"
+                    className="size-9 aspect-square p-0 rounded-xl border border-border/80 bg-surface/80 backdrop-blur-md shadow-xs hover:bg-surface-elevated/90 hover:border-border text-foreground active:scale-95 transition-all inline-flex items-center justify-center shrink-0"
                   />
                 }
               >
@@ -103,10 +112,10 @@ export function MarketingHeader() {
                   <DrawerClose
                     render={
                       <Button
-                        variant="ghost"
-                        size="icon"
+                        variant="glass"
+                        size="icon-lg"
                         aria-label="Close navigation"
-                        className="size-8 rounded-full bg-surface-subtle hover:bg-surface-elevated text-muted-foreground hover:text-foreground active:scale-95 transition-all shrink-0 ml-3"
+                        className="size-9 aspect-square p-0 rounded-xl border border-border/80 bg-surface/80 backdrop-blur-md shadow-xs hover:bg-surface-elevated/90 hover:border-border text-foreground active:scale-95 transition-all inline-flex items-center justify-center shrink-0 ml-3 self-center"
                       />
                     }
                   >

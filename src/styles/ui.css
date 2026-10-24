@@ -1,6 +1,6 @@
 /* PrepCraft component material; shared shadcn APIs and semantics are preserved. */
 @layer components {
- [data-slot="button"] { min-height:2.5rem; border-radius:var(--radius-md); transition-property:background-color,border-color,box-shadow,transform; transition-duration:var(--duration-fast); transition-timing-function:var(--ease-standard); }
+ [data-slot="button"]:not([data-icon="true"]):not(.aspect-square) { min-height:2.5rem; border-radius:var(--radius-md); transition-property:background-color,border-color,box-shadow,transform; transition-duration:var(--duration-fast); transition-timing-function:var(--ease-standard); }
  [data-slot="button"][aria-busy="true"] { cursor:progress; }
  [data-slot="badge"] { border-radius:var(--radius-sm); font-size:.6875rem; font-weight:500; letter-spacing:.01em; }
  [data-slot="card"] { border:1px solid var(--border); box-shadow:var(--elevation-xs); --tw-ring-color:transparent; }
@@ -24,7 +24,7 @@
  [data-slot="avatar"] { box-shadow:inset 0 0 0 1px var(--border); }
  [data-slot="carousel-previous"],[data-slot="carousel-next"] { border-color:var(--border-strong); box-shadow:var(--elevation-sm); }
  @media (pointer:coarse) {
-  [data-slot="button"],[data-slot="tabs-trigger"],[data-slot="dropdown-menu-item"],[data-slot="navigation-menu-link"] { min-height:2.75rem; }
+  [data-slot="button"]:not([data-icon="true"]):not(.aspect-square),[data-slot="tabs-trigger"],[data-slot="dropdown-menu-item"],[data-slot="navigation-menu-link"] { min-height:2.75rem; }
  }
 }
 
@@ -32,5 +32,17 @@
 [data-slot]:focus-visible { outline:2px solid var(--ring); outline-offset:3px; }
 [data-slot="tabs-trigger"] { color:var(--muted-foreground); }
 [data-slot="tabs-trigger"][data-active] { color:var(--accent-foreground); }
-.pc-button { min-height:2.5rem; border-radius:var(--radius-md); transition-property:background-color,border-color,box-shadow,transform; transition-duration:var(--duration-fast); }
-@media(pointer:coarse) { .pc-button { min-height:2.75rem; min-width:2.75rem; } }
+.pc-button { border-radius:var(--radius-md); transition-property:background-color,border-color,box-shadow,transform; transition-duration:var(--duration-fast); }
+.pc-button:not([data-icon="true"]):not(.aspect-square) { min-height:2.5rem; }
+@media(pointer:coarse) { .pc-button:not([data-icon="true"]):not(.aspect-square) { min-height:2.75rem; min-width:2.75rem; } }
+
+/* Safeguard square / icon buttons against unintended min-height / min-width expansion */
+[data-slot="button"][data-icon="true"],
+.pc-button[data-icon="true"],
+[data-slot="button"].aspect-square,
+.pc-button.aspect-square {
+  min-height:0 !important;
+  min-width:0 !important;
+  aspect-ratio:1 / 1 !important;
+  padding:0 !important;
+}

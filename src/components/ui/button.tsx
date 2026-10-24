@@ -15,6 +15,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
           "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        glass:
+          "border border-border/70 bg-surface/75 backdrop-blur-md shadow-xs text-foreground hover:bg-surface-elevated/90 hover:border-border hover:shadow-sm active:scale-95",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
@@ -25,12 +27,14 @@ const buttonVariants = cva(
         xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
         lg: "h-12 gap-2 px-5",
-        icon: "size-10",
+        icon: "size-10 aspect-square p-0 shrink-0",
         "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+          "size-6 aspect-square p-0 shrink-0 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
         "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+          "size-7 aspect-square p-0 shrink-0 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-md":
+          "size-8.5 aspect-square p-0 shrink-0 rounded-xl",
+        "icon-lg": "size-9 aspect-square p-0 shrink-0 rounded-xl",
       },
     },
     defaultVariants: {
@@ -49,9 +53,11 @@ function Button({
   children,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants> & { loading?: boolean }) {
+  const isIcon = typeof size === "string" && size.startsWith("icon")
   return (
     <ButtonPrimitive
       data-slot="button"
+      data-icon={isIcon ? "true" : undefined}
       disabled={disabled || loading}
       aria-busy={loading || undefined}
       className={cn("pc-button", buttonVariants({ variant, size, className }))}
