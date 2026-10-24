@@ -48,6 +48,13 @@ test("navigation, theme, practice reflection, and start preview work", async ({ 
   await page.getByRole("navigation", { name: "Mobile navigation" }).getByRole("link", { name: "Practice", exact: true }).click()
   await expect(page.getByRole("dialog")).toBeHidden()
   await expect(page).toHaveURL(/#practice$/)
+
+  // Verify mobile drawer automatically dismisses when expanding viewport to desktop
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.getByRole("button", { name: "Open navigation" }).click()
+  await expect(page.getByRole("dialog")).toBeVisible()
+  await page.setViewportSize({ width: 1280, height: 800 })
+  await expect(page.getByRole("dialog")).toBeHidden()
 })
 
 test("product stack, preparation tabs, screenshots and theme checks", async ({ page }, testInfo) => {

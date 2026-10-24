@@ -40,6 +40,16 @@ export function MarketingHeader() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setOpen(false)
+      }
+    }
+    window.addEventListener("resize", handleResize, { passive: true })
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   return (
     <header className={`mk-header ${scrolled ? "mk-header-scrolled" : ""}`}>
       <div className="container-page mk-header-inner">
@@ -95,7 +105,7 @@ export function MarketingHeader() {
               >
                 <AppIcon icon="menu" size={18} />
               </DrawerTrigger>
-              <DrawerContent className="max-h-[88dvh] rounded-t-[1.75rem] border-t border-border/80 bg-background/98 backdrop-blur-2xl shadow-2xl p-0 flex flex-col focus:outline-none">
+              <DrawerContent className="max-h-[88dvh] rounded-t-[1.75rem] border-t border-border/80 bg-background/98 backdrop-blur-2xl shadow-2xl p-0 flex flex-col focus:outline-none lg:hidden">
                 <DrawerHeader className="px-5 pt-1 pb-3 border-b border-border/40 flex flex-row items-center justify-between text-left">
                   <div className="flex items-center gap-3 min-w-0">
                     <PrepCraftSymbol size={32} decorative />

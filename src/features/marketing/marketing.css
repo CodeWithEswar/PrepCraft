@@ -12,6 +12,15 @@
 .mk-desktop-nav [data-slot="navigation-menu-link"] { color:var(--muted-foreground); padding:.75rem 1rem; font-size:.8125rem; background:transparent; }
 .mk-desktop-nav [data-slot="navigation-menu-link"]:hover { color:var(--foreground); background:var(--surface-subtle); }
 .mk-mobile-nav { display:none; }
+@media (min-width: 1024px) {
+  [data-slot="drawer-portal"],
+  [data-slot="drawer-viewport"],
+  [data-slot="drawer-popup"],
+  [data-slot="drawer-overlay"] {
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
 .mk-mobile-links { padding:0 1rem 1rem; display:flex; flex-direction:column; }
 .mk-mobile-links a { min-height:3.5rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
 .mk-hero { display:grid; grid-template-columns:1.04fr 1fr; align-items:center; gap:3rem; padding-block:5rem 6rem; }
