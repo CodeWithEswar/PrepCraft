@@ -1,4 +1,2 @@
-export { createClient as createBrowserClient } from "./client"
-export { createClient as createServerClient } from "./server"
-export { updateSession } from "./middleware"
+// Runtime clients must be imported from /client or /server explicitly.
 export type { Database, Json } from "./types"

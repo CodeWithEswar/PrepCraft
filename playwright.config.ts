@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test"
 
 export default defineConfig({
-  testDir: "./e2e",
+  testDir: "./tests/e2e",
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
@@ -14,8 +14,17 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        // Optional installed browser for machines without Playwright downloads.
+        channel: process.env.PLAYWRIGHT_CHANNEL || undefined,
+      },
     },
+    ...(process.env.FULL_BROWSER_MATRIX ? [
+      { name: "edge", use: { ...devices["Desktop Edge"], channel: "msedge" } },
+      { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+      { name: "webkit", use: { ...devices["Desktop Safari"] } },
+    ] : []),
   ],
   webServer: {
     command: "npm run dev",

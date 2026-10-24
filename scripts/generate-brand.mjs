@@ -74,8 +74,9 @@ function appIcon(id, light = false, maskable = false) {
 }
 for (const [name, light, maskable] of [["app-icon", false, false], ["app-icon-light", true, false], ["app-icon-dark", false, false], ["app-icon-maskable", false, true]]) await write(`public/brand/app-icons/${name}.svg`, appIcon(name, light, maskable))
 
-// Flat source for all favicon sizes. High-contrast copper on opaque graphite.
-const favicon = svg("0 0 512 512", `<rect width="512" height="512" rx="108" fill="#171514"/>${mark("favicon", "flat", "#E5AC89")}`)
+// Browser favicons are transparent. Containers belong to installed app icons.
+// Copper fallback also works on custom browser tab colors; SVG adapts to OS theme.
+const favicon = svg("0 0 512 512", `<style>:root{color:#C58766}@media(prefers-color-scheme:light){:root{color:#A15F4B}}@media(prefers-color-scheme:dark){:root{color:#E5AC89}}</style>${mark("favicon", "flat", "currentColor")}`)
 await write("public/brand/favicon/favicon.svg", favicon)
 await write("public/brand/loading/loading-mark.svg", svg("0 0 512 512", mark("loading-mark", "flat")))
 const ringStyle = `<style>@keyframes prepcraft-orbit{to{transform:rotate(360deg)}}.orbit{transform-origin:256px 256px;animation:prepcraft-orbit 2.4s linear infinite}@media(prefers-reduced-motion:reduce){.orbit{animation:none}}</style>`

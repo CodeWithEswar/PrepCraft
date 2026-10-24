@@ -1,0 +1,556 @@
+{
+  "recordedAt": "2026-10-24T05:34:16.656Z",
+  "origin": "http://localhost:3031",
+  "browser": "installed Chrome",
+  "measurement": "Single local production lab run, unthrottled. LCP/CLS and event durations are lab observations; these are not field Core Web Vitals or INP.",
+  "reports": [
+    {
+      "viewport": "1440×900 desktop",
+      "lab": {
+        "lcp": 1740,
+        "cls": 0,
+        "events": [],
+        "errors": [],
+        "canvas": 0,
+        "webglReady": false,
+        "navigation": [
+          {
+            "domContentLoadedMs": 1017.5,
+            "loadMs": 1022.1999999880791
+          }
+        ],
+        "resources": [
+          {
+            "url": "/_next/static/media/07a39a8a4660cc7c-s.p.0r6juujl39pe6.woff2",
+            "type": "link",
+            "transferBytes": 23408,
+            "decodedBytes": 23108
+          },
+          {
+            "url": "/_next/static/media/605ce01b664af129-s.p.0wgildi0cnwt9.woff2",
+            "type": "link",
+            "transferBytes": 29588,
+            "decodedBytes": 29288
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F01-practice-studio.webp&w=750&q=75",
+            "type": "link",
+            "transferBytes": 75088,
+            "decodedBytes": 74788
+          },
+          {
+            "url": "/_next/static/chunks/361w87mea3yxc.css",
+            "type": "link",
+            "transferBytes": 1238,
+            "decodedBytes": 3609
+          },
+          {
+            "url": "/_next/static/chunks/24gtzcyk4dtc_.css",
+            "type": "link",
+            "transferBytes": 33618,
+            "decodedBytes": 218769
+          },
+          {
+            "url": "/_next/static/chunks/152-cste7gs_w.css",
+            "type": "link",
+            "transferBytes": 985,
+            "decodedBytes": 1799
+          },
+          {
+            "url": "/_next/static/chunks/1gwwwa1us591f.css",
+            "type": "link",
+            "transferBytes": 8928,
+            "decodedBytes": 46487
+          },
+          {
+            "url": "/_next/static/chunks/31qp8jfkw0x2h.js",
+            "type": "link",
+            "transferBytes": 7711,
+            "decodedBytes": 22142
+          },
+          {
+            "url": "/_next/static/chunks/2ape53-xvx8oa.js",
+            "type": "script",
+            "transferBytes": 48976,
+            "decodedBytes": 181603
+          },
+          {
+            "url": "/_next/static/chunks/12nt32o30285e.js",
+            "type": "script",
+            "transferBytes": 72225,
+            "decodedBytes": 229628
+          },
+          {
+            "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+            "type": "script",
+            "transferBytes": 4240,
+            "decodedBytes": 10030
+          },
+          {
+            "url": "/_next/static/chunks/07e8bfrfhhfgs.js",
+            "type": "script",
+            "transferBytes": 5180,
+            "decodedBytes": 17345
+          },
+          {
+            "url": "/_next/static/chunks/2_8tkkh65j82y.js",
+            "type": "script",
+            "transferBytes": 49263,
+            "decodedBytes": 140747
+          },
+          {
+            "url": "/_next/static/chunks/09o6_xi0vx1jb.js",
+            "type": "script",
+            "transferBytes": 21872,
+            "decodedBytes": 73759
+          },
+          {
+            "url": "/_next/static/chunks/3g5tn--jsaaa1.js",
+            "type": "script",
+            "transferBytes": 1984,
+            "decodedBytes": 3802
+          },
+          {
+            "url": "/_next/static/chunks/25buiv5q_0yzm.js",
+            "type": "script",
+            "transferBytes": 115988,
+            "decodedBytes": 348557
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F02-patterns-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 59860,
+            "decodedBytes": 59560
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F03-mistakes-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 51830,
+            "decodedBytes": 51530
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F04-revision-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 73638,
+            "decodedBytes": 73338
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F05-readiness-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 73872,
+            "decodedBytes": 73572
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F05-readiness-studio.webp&w=640&q=75",
+            "type": "img",
+            "transferBytes": 56884,
+            "decodedBytes": 56584
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F01-practice-studio.webp&w=640&q=75",
+            "type": "img",
+            "transferBytes": 59194,
+            "decodedBytes": 58894
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fvisuals%2F07-weekly-planning-studio.webp&w=640&q=75",
+            "type": "img",
+            "transferBytes": 48706,
+            "decodedBytes": 48406
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fvisuals%2F02-practice-flow-studio.webp&w=640&q=75",
+            "type": "img",
+            "transferBytes": 45562,
+            "decodedBytes": 45262
+          },
+          {
+            "url": "/brand/favicon/favicon.svg?v=2",
+            "type": "other",
+            "transferBytes": 1017,
+            "decodedBytes": 717
+          }
+        ],
+        "domNodes": 1166
+      },
+      "interactionEventDurationsMs": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        168,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        224,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136,
+        136
+      ],
+      "clientErrors": [],
+      "audits": [
+        {
+          "theme": "Light",
+          "violations": [],
+          "passes": 29,
+          "incomplete": 2
+        },
+        {
+          "theme": "Dark",
+          "violations": [],
+          "passes": 29,
+          "incomplete": 2
+        }
+      ]
+    },
+    {
+      "viewport": "390×844 touch",
+      "lab": {
+        "lcp": 424,
+        "cls": 0,
+        "events": [],
+        "errors": [],
+        "canvas": 0,
+        "webglReady": false,
+        "navigation": [
+          {
+            "domContentLoadedMs": 558,
+            "loadMs": 560.8000000119209
+          }
+        ],
+        "resources": [
+          {
+            "url": "/_next/static/media/07a39a8a4660cc7c-s.p.0r6juujl39pe6.woff2",
+            "type": "link",
+            "transferBytes": 23408,
+            "decodedBytes": 23108
+          },
+          {
+            "url": "/_next/static/media/605ce01b664af129-s.p.0wgildi0cnwt9.woff2",
+            "type": "link",
+            "transferBytes": 29588,
+            "decodedBytes": 29288
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F01-practice-studio.webp&w=750&q=75",
+            "type": "link",
+            "transferBytes": 75088,
+            "decodedBytes": 74788
+          },
+          {
+            "url": "/_next/static/chunks/361w87mea3yxc.css",
+            "type": "link",
+            "transferBytes": 1238,
+            "decodedBytes": 3609
+          },
+          {
+            "url": "/_next/static/chunks/24gtzcyk4dtc_.css",
+            "type": "link",
+            "transferBytes": 33618,
+            "decodedBytes": 218769
+          },
+          {
+            "url": "/_next/static/chunks/152-cste7gs_w.css",
+            "type": "link",
+            "transferBytes": 985,
+            "decodedBytes": 1799
+          },
+          {
+            "url": "/_next/static/chunks/1gwwwa1us591f.css",
+            "type": "link",
+            "transferBytes": 8928,
+            "decodedBytes": 46487
+          },
+          {
+            "url": "/_next/static/chunks/31qp8jfkw0x2h.js",
+            "type": "link",
+            "transferBytes": 7711,
+            "decodedBytes": 22142
+          },
+          {
+            "url": "/_next/static/chunks/2ape53-xvx8oa.js",
+            "type": "script",
+            "transferBytes": 48976,
+            "decodedBytes": 181603
+          },
+          {
+            "url": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+            "type": "script",
+            "transferBytes": 4240,
+            "decodedBytes": 10030
+          },
+          {
+            "url": "/_next/static/chunks/12nt32o30285e.js",
+            "type": "script",
+            "transferBytes": 72225,
+            "decodedBytes": 229628
+          },
+          {
+            "url": "/_next/static/chunks/07e8bfrfhhfgs.js",
+            "type": "script",
+            "transferBytes": 5180,
+            "decodedBytes": 17345
+          },
+          {
+            "url": "/_next/static/chunks/2_8tkkh65j82y.js",
+            "type": "script",
+            "transferBytes": 49263,
+            "decodedBytes": 140747
+          },
+          {
+            "url": "/_next/static/chunks/3g5tn--jsaaa1.js",
+            "type": "script",
+            "transferBytes": 1984,
+            "decodedBytes": 3802
+          },
+          {
+            "url": "/_next/static/chunks/09o6_xi0vx1jb.js",
+            "type": "script",
+            "transferBytes": 21872,
+            "decodedBytes": 73759
+          },
+          {
+            "url": "/_next/static/chunks/25buiv5q_0yzm.js",
+            "type": "script",
+            "transferBytes": 115988,
+            "decodedBytes": 348557
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F02-patterns-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 59860,
+            "decodedBytes": 59560
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F04-revision-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 73638,
+            "decodedBytes": 73338
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F03-mistakes-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 51830,
+            "decodedBytes": 51530
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F05-readiness-studio.webp&w=750&q=75",
+            "type": "img",
+            "transferBytes": 73872,
+            "decodedBytes": 73572
+          },
+          {
+            "url": "/_next/image?url=%2Fbrand%2Flanding%2Fhero-gallery%2F05-readiness-studio.webp&w=640&q=75",
+            "type": "img",
+            "transferBytes": 56884,
+            "decodedBytes": 56584
+          },
+          {
+            "url": "/brand/favicon/favicon.svg?v=2",
+            "type": "other",
+            "transferBytes": 1017,
+            "decodedBytes": 717
+          }
+        ],
+        "domNodes": 1166
+      },
+      "interactionEventDurationsMs": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        56,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "clientErrors": [],
+      "audits": [
+        {
+          "theme": "Light",
+          "violations": [],
+          "passes": 29,
+          "incomplete": 2
+        },
+        {
+          "theme": "Dark",
+          "violations": [],
+          "passes": 29,
+          "incomplete": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+// Pre-schema placeholder. Replace with Supabase-generated types after the first
+// actual application migration; this is not a snapshot of a live database.
 export type Json =
   | string
   | number

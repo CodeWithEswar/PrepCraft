@@ -1,0 +1,51 @@
+import { test, expect } from "@playwright/test"
+
+test("brand preview preserves themes, unique SVG IDs, and reduced motion", async ({ page }) => {
+  test.setTimeout(90000)
+  const errors: string[] = []
+  page.on("pageerror", error => errors.push(error.message))
+  await page.goto("/dev/brand")
+  await expect(page.getByRole("heading", { name: "Brand inspection", exact: true })).toBeVisible()
+  await expect(page.locator(".pc-inspect-page")).toHaveCSS("padding-top", "48px")
+  await expect(page.locator(".pc-inspect-grid").first()).toHaveCSS("display", "grid")
+  await page.getByRole("button", { name: "Dark", exact: true }).click()
+  await expect(page.locator("html")).toHaveClass(/dark/)
+  const autoWord = page.locator('.pc-wordmark[data-appearance="auto"]').first()
+  await expect(autoWord).toHaveCSS("--brand-word", "#faf8f5")
+  await expect(page.locator('.pc-wordmark[data-appearance="light"]').first()).toHaveCSS("--brand-word", "#171514")
+  await page.getByRole("button", { name: "Light", exact: true }).click()
+  await expect(autoWord).toHaveCSS("--brand-word", "#171514")
+  await page.emulateMedia({ colorScheme: "dark" })
+  // Explicit light class takes precedence over the operating system preference.
+  await expect(autoWord).toHaveCSS("--brand-word", "#171514")
+  await page.getByRole("button", { name: "Auto", exact: true }).click()
+  await expect(autoWord).toHaveCSS("--brand-word", "#faf8f5")
+  const integrity = await page.evaluate(() => {
+    const ids = [...document.querySelectorAll("svg [id]")].map(n => n.id)
+    const broken = [...document.querySelectorAll("svg [fill], svg [stroke], svg [clip-path]")].flatMap(n => [...n.attributes].flatMap(a => [...a.value.matchAll(/url\(#([^)]*)\)/g)].filter(m => !document.getElementById(m[1])).map(m => m[1])))
+    return { ids: ids.length, unique: new Set(ids).size, broken }
+  })
+  expect(integrity.ids).toBeGreaterThan(20)
+  expect(integrity.ids).toBe(integrity.unique)
+  expect(integrity.broken).toEqual([])
+  await page.emulateMedia({ reducedMotion: "reduce" })
+  await expect(page.locator(".pc-loader-orbit").first()).toHaveCSS("animation-name", "none")
+  expect(errors).toEqual([])
+  await page.screenshot({ path: "docs/brand/preview-desktop.png", fullPage: true })
+  await page.setViewportSize({ width: 390, height: 844 })
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.screenshot({ path: "docs/brand/preview-mobile.png", fullPage: true })
+})
+
+test("brand metadata and manifest point to valid production assets", async ({ page, request }) => {
+  await page.goto("/")
+  await expect(page.locator('meta[name="application-name"]')).toHaveAttribute("content", "PrepCraft")
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/brand\/social\/og-default.png$/)
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", /\/brand\/social\/twitter-card.png$/)
+  await expect(page.locator('meta[name="theme-color"]')).toHaveCount(2)
+  const manifestLink = await page.locator('link[rel="manifest"]').getAttribute("href")
+  const manifest = await (await request.get(manifestLink!)).json()
+  expect(manifest.name).toBe("PrepCraft")
+  for (const icon of manifest.icons) expect((await request.get(icon.src)).ok()).toBe(true)
+  for (const path of ["/favicon.ico", "/brand/favicon/favicon.svg", "/brand/social/og-default.png", "/brand/social/twitter-card.png"]) expect((await request.get(path)).ok()).toBe(true)
+})

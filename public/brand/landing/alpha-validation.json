@@ -1,0 +1,226 @@
+{
+  "verifiedAssets": 17,
+  "checks": [
+    {
+      "name": "hero-preparation-core",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 795034,
+      "partialAlphaPixels": 213207,
+      "solidPixels": 191759,
+      "passed": true
+    },
+    {
+      "name": "hero-code-layer",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 287030,
+      "partialAlphaPixels": 30861,
+      "solidPixels": 42109,
+      "passed": true
+    },
+    {
+      "name": "hero-revision-layer",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 320957,
+      "partialAlphaPixels": 33762,
+      "solidPixels": 5281,
+      "passed": true
+    },
+    {
+      "name": "hero-pattern-layer",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 324647,
+      "partialAlphaPixels": 31739,
+      "solidPixels": 3614,
+      "passed": true
+    },
+    {
+      "name": "hero-readiness-layer",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 312980,
+      "partialAlphaPixels": 36673,
+      "solidPixels": 10347,
+      "passed": true
+    },
+    {
+      "name": "hero-planner-layer",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 294994,
+      "partialAlphaPixels": 38040,
+      "solidPixels": 26966,
+      "passed": true
+    },
+    {
+      "name": "hero-depth-accent",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 293401,
+      "partialAlphaPixels": 56893,
+      "solidPixels": 9706,
+      "passed": true
+    },
+    {
+      "name": "01-focus-workspace",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 671426,
+      "partialAlphaPixels": 95838,
+      "solidPixels": 132736,
+      "passed": true
+    },
+    {
+      "name": "02-practice-flow",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 742904,
+      "partialAlphaPixels": 105209,
+      "solidPixels": 51887,
+      "passed": true
+    },
+    {
+      "name": "03-pattern-thinking",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 821736,
+      "partialAlphaPixels": 117270,
+      "solidPixels": 140994,
+      "passed": true
+    },
+    {
+      "name": "04-mistake-learning",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 884758,
+      "partialAlphaPixels": 133958,
+      "solidPixels": 61284,
+      "passed": true
+    },
+    {
+      "name": "05-revision-memory",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 782180,
+      "partialAlphaPixels": 140012,
+      "solidPixels": 37808,
+      "passed": true
+    },
+    {
+      "name": "06-readiness-path",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 719035,
+      "partialAlphaPixels": 158924,
+      "solidPixels": 82041,
+      "passed": true
+    },
+    {
+      "name": "07-weekly-planning",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 831673,
+      "partialAlphaPixels": 108425,
+      "solidPixels": 139902,
+      "passed": true
+    },
+    {
+      "name": "08-project-preparation",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 873359,
+      "partialAlphaPixels": 138443,
+      "solidPixels": 68198,
+      "passed": true
+    },
+    {
+      "name": "09-application-journey",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 757719,
+      "partialAlphaPixels": 109868,
+      "solidPixels": 32413,
+      "passed": true
+    },
+    {
+      "name": "10-ready-state",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparentPixels": 645419,
+      "partialAlphaPixels": 119513,
+      "solidPixels": 135068,
+      "passed": true
+    }
+  ]
+}

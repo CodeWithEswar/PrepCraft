@@ -1,23 +1,16 @@
+import "server-only"
 import { createServerClient } from "@supabase/ssr"
+import { getSupabaseEnvironment } from "@/lib/env/public"
 import { cookies } from "next/headers"
 import type { Database } from "./types"
 
 export async function createClient() {
   const cookieStore = await cookies()
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-  if (!supabaseUrl || !supabaseAnonKey) {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn(
-        "[Supabase] Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables."
-      )
-    }
-  }
+  const { url, key } = getSupabaseEnvironment()
 
   return createServerClient<Database>(
-    supabaseUrl ?? "https://placeholder.supabase.co",
-    supabaseAnonKey ?? "placeholder-anon-key",
+    url,
+    key,
     {
       cookies: {
         getAll() {

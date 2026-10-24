@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google"
 import { AppProviders } from "@/providers"
-import { brandMetadata, brandViewport } from "@/lib/metadata"
+import { brandMetadata, brandViewport } from "./metadata"
 import "./globals.css"
 import "@/styles/brand.css"
 

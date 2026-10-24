@@ -1,0 +1,81 @@
+{
+  "webpQuality": 82,
+  "alphaQuality": 100,
+  "assets": [
+    {
+      "name": "01-practice",
+      "src": "/brand/landing/hero-gallery/01-practice.webp",
+      "source": "/brand/landing/hero-gallery/source/01-practice.svg",
+      "width": 1000,
+      "height": 800,
+      "alt": "A code plane, reasoning sheet, timer and evaluation path form an intentional practice sequence.",
+      "bytes": 20014,
+      "alpha": true,
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/01-practice-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "02-patterns",
+      "src": "/brand/landing/hero-gallery/02-patterns.webp",
+      "source": "/brand/landing/hero-gallery/source/02-patterns.svg",
+      "width": 1000,
+      "height": 800,
+      "alt": "An irregular problem structure resolves into an aligned graph with a recognized path.",
+      "bytes": 19186,
+      "alpha": true,
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/02-patterns-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "03-mistakes",
+      "src": "/brand/landing/hero-gallery/03-mistakes.webp",
+      "source": "/brand/landing/hero-gallery/source/03-mistakes.svg",
+      "width": 1000,
+      "height": 800,
+      "alt": "An interrupted diagonal attempt isolates a cause and resolves into a clean corrected path.",
+      "bytes": 16402,
+      "alpha": true,
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/03-mistakes-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "04-revision",
+      "src": "/brand/landing/hero-gallery/04-revision.webp",
+      "source": "/brand/landing/hero-gallery/source/04-revision.svg",
+      "width": 1000,
+      "height": 800,
+      "alt": "A retained preparation plane creates four widening temporal echoes over a measured interval.",
+      "bytes": 25030,
+      "alpha": true,
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/04-revision-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "05-readiness",
+      "src": "/brand/landing/hero-gallery/05-readiness.webp",
+      "source": "/brand/landing/hero-gallery/source/05-readiness.svg",
+      "width": 1000,
+      "height": 800,
+      "alt": "Six preparation dimensions converge around a balanced folded mineral-glass readiness core.",
+      "bytes": 33426,
+      "alpha": true,
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/05-readiness-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    }
+  ]
+}

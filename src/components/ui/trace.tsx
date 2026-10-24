@@ -6,7 +6,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { ChevronRightIcon } from "lucide-react"
+import { ChevronRightIcon } from "@/components/app-icon/ui-icons"
 
 function Trace({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -134,7 +134,7 @@ function TraceCollapsibleContent({
   return (
     <CollapsibleContent
       data-slot="trace-collapsible-content"
-      className="h-(--collapsible-panel-height) min-w-0 overflow-hidden transition-[height] duration-200 data-ending-style:h-0 data-starting-style:h-0"
+      className="h-(--collapsible-panel-height) min-w-0 overflow-hidden transition-[height] duration-(--duration-normal) data-ending-style:h-0 data-starting-style:h-0"
       {...props}
     >
       <div

@@ -1,0 +1,326 @@
+{
+  "verifiedAssets": 10,
+  "verifiedExports": 20,
+  "checks": [
+    {
+      "name": "01-focus-workspace-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 750,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 482721,
+      "partial": 70323,
+      "solid": 346956,
+      "passed": true
+    },
+    {
+      "name": "01-focus-workspace-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 375,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 120907,
+      "partial": 17793,
+      "solid": 86300,
+      "passed": true
+    },
+    {
+      "name": "02-practice-flow-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 750,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 507666,
+      "partial": 78004,
+      "solid": 314330,
+      "passed": true
+    },
+    {
+      "name": "02-practice-flow-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 375,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 127120,
+      "partial": 19654,
+      "solid": 78226,
+      "passed": true
+    },
+    {
+      "name": "03-pattern-thinking-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 900,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 671697,
+      "partial": 68580,
+      "solid": 339723,
+      "passed": true
+    },
+    {
+      "name": "03-pattern-thinking-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 450,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 167531,
+      "partial": 18131,
+      "solid": 84338,
+      "passed": true
+    },
+    {
+      "name": "04-mistake-learning-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 900,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 694980,
+      "partial": 53721,
+      "solid": 331299,
+      "passed": true
+    },
+    {
+      "name": "04-mistake-learning-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 450,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 173683,
+      "partial": 13763,
+      "solid": 82554,
+      "passed": true
+    },
+    {
+      "name": "05-revision-memory-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 800,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 518794,
+      "partial": 93990,
+      "solid": 347216,
+      "passed": true
+    },
+    {
+      "name": "05-revision-memory-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 400,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 129886,
+      "partial": 23721,
+      "solid": 86393,
+      "passed": true
+    },
+    {
+      "name": "06-readiness-path-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 800,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 578608,
+      "partial": 71987,
+      "solid": 309405,
+      "passed": true
+    },
+    {
+      "name": "06-readiness-path-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 400,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 144371,
+      "partial": 18642,
+      "solid": 76987,
+      "passed": true
+    },
+    {
+      "name": "07-weekly-planning-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 900,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 553762,
+      "partial": 75342,
+      "solid": 450896,
+      "passed": true
+    },
+    {
+      "name": "07-weekly-planning-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 450,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 138535,
+      "partial": 19114,
+      "solid": 112351,
+      "passed": true
+    },
+    {
+      "name": "08-project-preparation-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 900,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 525024,
+      "partial": 93863,
+      "solid": 461113,
+      "passed": true
+    },
+    {
+      "name": "08-project-preparation-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 450,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 131991,
+      "partial": 23093,
+      "solid": 114916,
+      "passed": true
+    },
+    {
+      "name": "09-application-journey-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 750,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 587282,
+      "partial": 70154,
+      "solid": 242564,
+      "passed": true
+    },
+    {
+      "name": "09-application-journey-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 375,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 146721,
+      "partial": 18102,
+      "solid": 60177,
+      "passed": true
+    },
+    {
+      "name": "10-ready-state-studio",
+      "kind": "primary",
+      "width": 1200,
+      "height": 750,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 568119,
+      "partial": 43294,
+      "solid": 288587,
+      "passed": true
+    },
+    {
+      "name": "10-ready-state-studio",
+      "kind": "responsive",
+      "width": 600,
+      "height": 375,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": 141770,
+      "partial": 11468,
+      "solid": 71762,
+      "passed": true
+    }
+  ]
+}

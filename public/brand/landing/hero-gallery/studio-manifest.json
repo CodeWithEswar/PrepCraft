@@ -1,0 +1,87 @@
+{
+  "mode": "built-in image_gen",
+  "webpQuality": 80,
+  "alphaQuality": 100,
+  "assets": [
+    {
+      "name": "01-practice-studio",
+      "src": "/brand/landing/hero-gallery/01-practice-studio.webp",
+      "source": "docs/design/hero-gallery/masters/01-practice-studio.png",
+      "width": 1000,
+      "height": 800,
+      "bytes": 135664,
+      "alpha": true,
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/hero-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/01-practice-studio-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "02-patterns-studio",
+      "src": "/brand/landing/hero-gallery/02-patterns-studio.webp",
+      "source": "docs/design/hero-gallery/masters/02-patterns-studio.png",
+      "width": 1000,
+      "height": 800,
+      "bytes": 112078,
+      "alpha": true,
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/hero-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/02-patterns-studio-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "03-mistakes-studio",
+      "src": "/brand/landing/hero-gallery/03-mistakes-studio.webp",
+      "source": "docs/design/hero-gallery/masters/03-mistakes-studio.png",
+      "width": 1000,
+      "height": 800,
+      "bytes": 96488,
+      "alpha": true,
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/hero-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/03-mistakes-studio-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "04-revision-studio",
+      "src": "/brand/landing/hero-gallery/04-revision-studio.webp",
+      "source": "docs/design/hero-gallery/masters/04-revision-studio.png",
+      "width": 1000,
+      "height": 800,
+      "bytes": 137876,
+      "alpha": true,
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/hero-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/04-revision-studio-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    },
+    {
+      "name": "05-readiness-studio",
+      "src": "/brand/landing/hero-gallery/05-readiness-studio.webp",
+      "source": "docs/design/hero-gallery/masters/05-readiness-studio.png",
+      "width": 1000,
+      "height": 800,
+      "bytes": 138370,
+      "alpha": true,
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/hero-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/hero-gallery/responsive/05-readiness-studio-500.webp",
+        "width": 500,
+        "height": 400
+      }
+    }
+  ]
+}

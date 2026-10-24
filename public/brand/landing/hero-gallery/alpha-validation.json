@@ -1,0 +1,70 @@
+{
+  "verifiedAssets": 5,
+  "checks": [
+    {
+      "name": "01-practice",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "solidPixels": 35291,
+      "partialAlphaPixels": 56142,
+      "transparentPixels": 708567,
+      "passed": true
+    },
+    {
+      "name": "02-patterns",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "solidPixels": 4434,
+      "partialAlphaPixels": 60019,
+      "transparentPixels": 735547,
+      "passed": true
+    },
+    {
+      "name": "03-mistakes",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "solidPixels": 7063,
+      "partialAlphaPixels": 48115,
+      "transparentPixels": 744822,
+      "passed": true
+    },
+    {
+      "name": "04-revision",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "solidPixels": 10707,
+      "partialAlphaPixels": 69995,
+      "transparentPixels": 719298,
+      "passed": true
+    },
+    {
+      "name": "05-readiness",
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "solidPixels": 42074,
+      "partialAlphaPixels": 86932,
+      "transparentPixels": 670994,
+      "passed": true
+    }
+  ]
+}

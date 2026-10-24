@@ -41,6 +41,7 @@ export type AppIconName =
   | "eye"
   | "eye-off"
   | "star"
+  | "sparkles"
   | "bookmark"
   | "bell"
   | "moon"

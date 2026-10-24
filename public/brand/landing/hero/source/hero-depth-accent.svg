@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><defs>
+  <linearGradient id="paper" x2=".8" y2="1"><stop stop-color="#f4f3ef"/><stop offset="1" stop-color="#d8d7d2"/></linearGradient>
+  <linearGradient id="mineral" x2=".8" y2="1"><stop stop-color="#fbfaf6"/><stop offset=".6" stop-color="#e2e1dc"/><stop offset="1" stop-color="#bcbcb7"/></linearGradient>
+  <linearGradient id="graphite" x2=".7" y2="1"><stop stop-color="#474944"/><stop offset=".52" stop-color="#292d2a"/><stop offset="1" stop-color="#181c19"/></linearGradient>
+  <linearGradient id="edge" x2="0" y2="1"><stop stop-color="#5a5e58"/><stop offset="1" stop-color="#2c302c"/></linearGradient>
+  <linearGradient id="stoneEdge" x2="0" y2="1"><stop stop-color="#c1c2bb"/><stop offset="1" stop-color="#8a8e87"/></linearGradient>
+  <linearGradient id="copper" x2=".65" y2="1"><stop stop-color="#d4ac98"/><stop offset=".32" stop-color="#b2765f"/><stop offset=".7" stop-color="#A15F4B"/><stop offset="1" stop-color="#784736"/></linearGradient>
+  <linearGradient id="glass" x2=".9" y2="1"><stop stop-color="#ffffff" stop-opacity=".6"/><stop offset=".5" stop-color="#eeeee9" stop-opacity=".24"/><stop offset="1" stop-color="#a8afa5" stop-opacity=".48"/></linearGradient>
+  <linearGradient id="beam" x2="1" y2="0"><stop stop-color="#A15F4B" stop-opacity="0"/><stop offset=".5" stop-color="#A15F4B" stop-opacity=".11"/><stop offset="1" stop-color="#A15F4B" stop-opacity="0"/></linearGradient>
+  <radialGradient id="light"><stop stop-color="#ffffff" stop-opacity=".72"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  <filter id="shadow" x="-60%" y="-100%" width="220%" height="320%"><feGaussianBlur stdDeviation="15"/></filter>
+  <filter id="smallShadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#202720" flood-opacity=".18"/></filter>
+</defs><ellipse cx="300" cy="445" rx="155" ry="20" fill="#242424" opacity=".1" filter="url(#shadow)"/><path d="M 132 292 L 310 186 L 452 265 L 294 355 Z" fill="url(#glass)" stroke="#c5c5bf" stroke-width="1.3"/><path d="M 132 292 L 294 355 L 282 389 L 139 327 Z" fill="url(#graphite)"/><path d="M 294 355 L 452 265 L 443 300 L 282 389 Z" fill="url(#copper)"/><path d="M 135 292 L 294 355 L 448 268" fill="none" stroke="#efefeb" stroke-width="1.5"/></svg>

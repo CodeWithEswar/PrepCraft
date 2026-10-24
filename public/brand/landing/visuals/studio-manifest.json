@@ -1,0 +1,228 @@
+{
+  "mode": "built-in image_gen",
+  "webpQuality": 80,
+  "alphaQuality": 100,
+  "effort": 4,
+  "assets": [
+    {
+      "name": "01-focus-workspace-studio",
+      "src": "/brand/landing/visuals/01-focus-workspace-studio.webp",
+      "source": "docs/design/landing-studio/masters/01-focus-workspace.png",
+      "width": 1200,
+      "height": 750,
+      "bytes": 153586,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 15,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/01-focus-workspace-studio-600.webp",
+        "width": 600,
+        "height": 375,
+        "bytes": 50046
+      }
+    },
+    {
+      "name": "02-practice-flow-studio",
+      "src": "/brand/landing/visuals/02-practice-flow-studio.webp",
+      "source": "docs/design/landing-studio/masters/02-practice-flow.png",
+      "width": 1200,
+      "height": 750,
+      "bytes": 144188,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 15,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/02-practice-flow-studio-600.webp",
+        "width": 600,
+        "height": 375,
+        "bytes": 46314
+      }
+    },
+    {
+      "name": "03-pattern-thinking-studio",
+      "src": "/brand/landing/visuals/03-pattern-thinking-studio.webp",
+      "source": "docs/design/landing-studio/masters/03-pattern-thinking.png",
+      "width": 1200,
+      "height": 900,
+      "bytes": 154498,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 18,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/03-pattern-thinking-studio-600.webp",
+        "width": 600,
+        "height": 450,
+        "bytes": 50446
+      }
+    },
+    {
+      "name": "04-mistake-learning-studio",
+      "src": "/brand/landing/visuals/04-mistake-learning-studio.webp",
+      "source": "docs/design/landing-studio/masters/04-mistake-learning.png",
+      "width": 1200,
+      "height": 900,
+      "bytes": 111234,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 18,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/04-mistake-learning-studio-600.webp",
+        "width": 600,
+        "height": 450,
+        "bytes": 36530
+      }
+    },
+    {
+      "name": "05-revision-memory-studio",
+      "src": "/brand/landing/visuals/05-revision-memory-studio.webp",
+      "source": "docs/design/landing-studio/masters/05-revision-memory.png",
+      "width": 1200,
+      "height": 800,
+      "bytes": 151534,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 16,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/05-revision-memory-studio-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 48400
+      }
+    },
+    {
+      "name": "06-readiness-path-studio",
+      "src": "/brand/landing/visuals/06-readiness-path-studio.webp",
+      "source": "docs/design/landing-studio/masters/06-readiness-path.png",
+      "width": 1200,
+      "height": 800,
+      "bytes": 120312,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 16,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/06-readiness-path-studio-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 39424
+      }
+    },
+    {
+      "name": "07-weekly-planning-studio",
+      "src": "/brand/landing/visuals/07-weekly-planning-studio.webp",
+      "source": "docs/design/landing-studio/masters/07-weekly-planning.png",
+      "width": 1200,
+      "height": 900,
+      "bytes": 159602,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 18,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/07-weekly-planning-studio-600.webp",
+        "width": 600,
+        "height": 450,
+        "bytes": 50822
+      }
+    },
+    {
+      "name": "08-project-preparation-studio",
+      "src": "/brand/landing/visuals/08-project-preparation-studio.webp",
+      "source": "docs/design/landing-studio/masters/08-project-preparation.png",
+      "width": 1200,
+      "height": 900,
+      "bytes": 196078,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 18,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/08-project-preparation-studio-600.webp",
+        "width": 600,
+        "height": 450,
+        "bytes": 59450
+      }
+    },
+    {
+      "name": "09-application-journey-studio",
+      "src": "/brand/landing/visuals/09-application-journey-studio.webp",
+      "source": "docs/design/landing-studio/masters/09-application-journey.png",
+      "width": 1200,
+      "height": 750,
+      "bytes": 106218,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 15,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/09-application-journey-studio-600.webp",
+        "width": 600,
+        "height": 375,
+        "bytes": 35234
+      }
+    },
+    {
+      "name": "10-ready-state-studio",
+      "src": "/brand/landing/visuals/10-ready-state-studio.webp",
+      "source": "docs/design/landing-studio/masters/10-ready-state.png",
+      "width": 1200,
+      "height": 750,
+      "bytes": 116274,
+      "alpha": true,
+      "transparentPadding": {
+        "x": 24,
+        "y": 15,
+        "percentagePerEdge": 2
+      },
+      "medium": "AI-generated raster; built-in image_gen",
+      "promptFile": "docs/design/landing-studio-prompts.json",
+      "responsive": {
+        "src": "/brand/landing/visuals/responsive/10-ready-state-studio-600.webp",
+        "width": 600,
+        "height": 375,
+        "bytes": 37958
+      }
+    }
+  ]
+}

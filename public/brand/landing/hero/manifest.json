@@ -1,0 +1,74 @@
+{
+  "assets": [
+    {
+      "name": "hero-preparation-core",
+      "src": "/brand/landing/hero/hero-preparation-core.webp",
+      "source": "/brand/landing/hero/source/hero-preparation-core.svg",
+      "width": 1200,
+      "height": 1000,
+      "alt": "Interlocking folded graphite, mineral and glass ribbons transform preparation into a clear readiness opening.",
+      "bytes": 55008,
+      "alpha": true
+    },
+    {
+      "name": "hero-code-layer",
+      "src": "/brand/landing/hero/hero-code-layer.webp",
+      "source": "/brand/landing/hero/source/hero-code-layer.svg",
+      "width": 600,
+      "height": 600,
+      "alt": "A precise graphite practice plane connects a pair of code structures.",
+      "bytes": 9728,
+      "alpha": true
+    },
+    {
+      "name": "hero-revision-layer",
+      "src": "/brand/landing/hero/hero-revision-layer.webp",
+      "source": "/brand/landing/hero/source/hero-revision-layer.svg",
+      "width": 600,
+      "height": 600,
+      "alt": "Three mineral interval rings express resurfacing revision.",
+      "bytes": 14534,
+      "alpha": true
+    },
+    {
+      "name": "hero-pattern-layer",
+      "src": "/brand/landing/hero/hero-pattern-layer.webp",
+      "source": "/brand/landing/hero/source/hero-pattern-layer.svg",
+      "width": 600,
+      "height": 600,
+      "alt": "A branching structural path resolves a recognized pattern.",
+      "bytes": 9908,
+      "alpha": true
+    },
+    {
+      "name": "hero-readiness-layer",
+      "src": "/brand/landing/hero/hero-readiness-layer.webp",
+      "source": "/brand/landing/hero/source/hero-readiness-layer.svg",
+      "width": 600,
+      "height": 600,
+      "alt": "Aligned mineral thresholds converge on a clear readiness state.",
+      "bytes": 9198,
+      "alpha": true
+    },
+    {
+      "name": "hero-planner-layer",
+      "src": "/brand/landing/hero/hero-planner-layer.webp",
+      "source": "/brand/landing/hero/source/hero-planner-layer.svg",
+      "width": 600,
+      "height": 600,
+      "alt": "Structured planning blocks elevate two deliberate focus windows.",
+      "bytes": 14580,
+      "alpha": true
+    },
+    {
+      "name": "hero-depth-accent",
+      "src": "/brand/landing/hero/hero-depth-accent.webp",
+      "source": "/brand/landing/hero/source/hero-depth-accent.svg",
+      "width": 600,
+      "height": 600,
+      "alt": "A thin graphite and mineral-glass fold carries one restrained Sienna edge.",
+      "bytes": 11224,
+      "alpha": true
+    }
+  ]
+}

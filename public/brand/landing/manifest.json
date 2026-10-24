@@ -1,0 +1,151 @@
+{
+  "license": "Original PrepCraft artwork. Created for this project; no stock or third-party visual assets.",
+  "palette": [
+    "#A15F4B",
+    "warm mineral neutral",
+    "graphite"
+  ],
+  "webpQuality": 82,
+  "assets": [
+    {
+      "name": "01-focus-workspace",
+      "src": "/brand/landing/01-focus-workspace.webp",
+      "source": "/brand/landing/source/01-focus-workspace.svg",
+      "width": 1200,
+      "height": 750,
+      "alt": "Layered preparation blocks, a focused plan and a small progress arc arranged on a calm mineral work surface.",
+      "bytes": 12042,
+      "responsive": {
+        "src": "/brand/landing/responsive/01-focus-workspace-600.webp",
+        "width": 600,
+        "height": 375
+      }
+    },
+    {
+      "name": "02-practice-flow",
+      "src": "/brand/landing/02-practice-flow.webp",
+      "source": "/brand/landing/source/02-practice-flow.svg",
+      "width": 1200,
+      "height": 750,
+      "alt": "Four connected sculptural stations move from a question through structured thinking and code to evaluation.",
+      "bytes": 8686,
+      "responsive": {
+        "src": "/brand/landing/responsive/02-practice-flow-600.webp",
+        "width": 600,
+        "height": 375
+      }
+    },
+    {
+      "name": "03-pattern-thinking",
+      "src": "/brand/landing/03-pattern-thinking.webp",
+      "source": "/brand/landing/source/03-pattern-thinking.svg",
+      "width": 1200,
+      "height": 900,
+      "alt": "An array connects into a branching structure, with one recognized path traced in Smoked Sienna.",
+      "bytes": 12202,
+      "responsive": {
+        "src": "/brand/landing/responsive/03-pattern-thinking-600.webp",
+        "width": 600,
+        "height": 450
+      }
+    },
+    {
+      "name": "04-mistake-learning",
+      "src": "/brand/landing/04-mistake-learning.webp",
+      "source": "/brand/landing/source/04-mistake-learning.svg",
+      "width": 1200,
+      "height": 900,
+      "alt": "Separated graphite fragments become an aligned structure with a clear correction mark.",
+      "bytes": 11656,
+      "responsive": {
+        "src": "/brand/landing/responsive/04-mistake-learning-600.webp",
+        "width": 600,
+        "height": 450
+      }
+    },
+    {
+      "name": "05-revision-memory",
+      "src": "/brand/landing/05-revision-memory.webp",
+      "source": "/brand/landing/source/05-revision-memory.svg",
+      "width": 1200,
+      "height": 800,
+      "alt": "Expanding repetition intervals surround a retained preparation block, showing knowledge resurfacing over time.",
+      "bytes": 16542,
+      "responsive": {
+        "src": "/brand/landing/responsive/05-revision-memory-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    },
+    {
+      "name": "06-readiness-path",
+      "src": "/brand/landing/06-readiness-path.webp",
+      "source": "/brand/landing/source/06-readiness-path.svg",
+      "width": 1200,
+      "height": 800,
+      "alt": "Six measured stone steps rise toward a transparent readiness threshold.",
+      "bytes": 9216,
+      "responsive": {
+        "src": "/brand/landing/responsive/06-readiness-path-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    },
+    {
+      "name": "07-weekly-planning",
+      "src": "/brand/landing/07-weekly-planning.webp",
+      "source": "/brand/landing/source/07-weekly-planning.svg",
+      "width": 1200,
+      "height": 900,
+      "alt": "A rhythm of modular time blocks contains two raised focus windows within a structured week.",
+      "bytes": 20342,
+      "responsive": {
+        "src": "/brand/landing/responsive/07-weekly-planning-600.webp",
+        "width": 600,
+        "height": 450
+      }
+    },
+    {
+      "name": "08-project-preparation",
+      "src": "/brand/landing/08-project-preparation.webp",
+      "source": "/brand/landing/source/08-project-preparation.svg",
+      "width": 1200,
+      "height": 900,
+      "alt": "A central project structure connects to architecture, data, security, scaling and trade-off forms.",
+      "bytes": 12460,
+      "responsive": {
+        "src": "/brand/landing/responsive/08-project-preparation-600.webp",
+        "width": 600,
+        "height": 450
+      }
+    },
+    {
+      "name": "09-application-journey",
+      "src": "/brand/landing/09-application-journey.webp",
+      "source": "/brand/landing/source/09-application-journey.svg",
+      "width": 1200,
+      "height": 750,
+      "alt": "Six connected milestones follow a deliberate path from saved application to offer readiness.",
+      "bytes": 9978,
+      "responsive": {
+        "src": "/brand/landing/responsive/09-application-journey-600.webp",
+        "width": 600,
+        "height": 375
+      }
+    },
+    {
+      "name": "10-ready-moment",
+      "src": "/brand/landing/10-ready-moment.webp",
+      "source": "/brand/landing/source/10-ready-moment.svg",
+      "width": 1200,
+      "height": 750,
+      "alt": "A clear mineral-glass threshold and completed stepping stones express calm preparation and readiness.",
+      "bytes": 9422,
+      "responsive": {
+        "src": "/brand/landing/responsive/10-ready-moment-600.webp",
+        "width": 600,
+        "height": 375
+      }
+    }
+  ]
+}
