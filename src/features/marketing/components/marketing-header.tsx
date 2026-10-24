@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
-import { PrepCraftLogo } from "@/components/brand"
+import { PrepCraftLogo, PrepCraftSymbol } from "@/components/brand"
 import { AppIcon } from "@/components/app-icon"
 import { Button } from "@/components/ui/button"
 import {
@@ -88,14 +88,14 @@ export function MarketingHeader() {
               </DrawerTrigger>
               <DrawerContent className="max-h-[88dvh] rounded-t-[1.75rem] border-t border-border/80 bg-background/98 backdrop-blur-2xl shadow-2xl p-0 flex flex-col focus:outline-none">
                 <DrawerHeader className="px-5 pt-1 pb-3 border-b border-border/40 flex flex-row items-center justify-between text-left">
-                  <div className="flex items-center gap-3">
-                    <PrepCraftLogo size={32} decorative />
-                    <div className="flex flex-col">
-                      <DrawerTitle className="text-sm font-semibold tracking-tight text-foreground">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <PrepCraftSymbol size={32} decorative />
+                    <div className="flex flex-col min-w-0">
+                      <DrawerTitle className="text-base font-semibold tracking-tight text-foreground truncate">
                         PrepCraft
                       </DrawerTitle>
-                      <DrawerDescription className="text-xs text-muted-foreground flex items-center gap-1.5 mt-0.5">
-                        <span className="size-1.5 rounded-full bg-brand animate-pulse" />
+                      <DrawerDescription className="text-xs text-muted-foreground flex items-center gap-1.5 mt-0.5 truncate">
+                        <span className="size-1.5 rounded-full bg-brand shrink-0" />
                         Craft your way to ready.
                       </DrawerDescription>
                     </div>
@@ -106,7 +106,7 @@ export function MarketingHeader() {
                         variant="ghost"
                         size="icon"
                         aria-label="Close navigation"
-                        className="size-8 rounded-full bg-surface-subtle hover:bg-surface-elevated text-muted-foreground hover:text-foreground active:scale-95 transition-all"
+                        className="size-8 rounded-full bg-surface-subtle hover:bg-surface-elevated text-muted-foreground hover:text-foreground active:scale-95 transition-all shrink-0 ml-3"
                       />
                     }
                   >
