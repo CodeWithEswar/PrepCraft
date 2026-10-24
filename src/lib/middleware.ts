@@ -1,0 +1,56 @@
+import { createServerClient } from "@supabase/ssr"
+import { NextResponse, type NextRequest } from "next/server"
+import { getSupabaseEnvironment } from "@/lib/env/public"
+
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({
+    request,
+  })
+
+  const { url, key } = getSupabaseEnvironment()
+
+  // With Fluid compute, don't put this client in a global environment
+  // variable. Always create a new one on each request.
+  const supabase = createServerClient(
+    url,
+    key,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+          supabaseResponse = NextResponse.next({
+            request,
+          })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
+          )
+        },
+      },
+    }
+  )
+
+  // Do not run code between createServerClient and
+  // supabase.auth.getClaims(). A simple mistake could make it very hard to debug
+  // issues with users being randomly logged out.
+  const { data } = await supabase.auth.getClaims()
+  const user = data?.claims
+
+  if (
+    !user &&
+    !request.nextUrl.pathname.startsWith("/login") &&
+    !request.nextUrl.pathname.startsWith("/auth") &&
+    // the OAuth consent route sends unauthenticated visitors to the login page
+    // itself, so that it can preserve the authorization in the `next` parameter
+    request.nextUrl.pathname !== "/oauth/consent"
+  ) {
+    // no user, potentially respond by redirecting the user to the login page
+    const redirectUrl = request.nextUrl.clone()
+    redirectUrl.pathname = "/auth/login"
+    return NextResponse.redirect(redirectUrl)
+  }
+
+  return supabaseResponse
+}
