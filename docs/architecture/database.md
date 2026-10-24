@@ -1,28 +1,77 @@
-# Database architecture
+# Database Architecture & Infrastructure Contract
 
-## Source of truth
+## 1. Source of Truth
 
-Supabase PostgreSQL owns identities, workspaces, membership, canonical questions, attempts, revision schedules, plans, interview/application history and authoritative file metadata. D1 and Prisma are excluded. The empty `Database` type in `src/lib/supabase/types.ts` is explicitly a pre-schema placeholder, not generated proof of a live database.
+Supabase PostgreSQL is PrepCraft's single authoritative system of record. It owns user identities, workspaces, active membership, canonical question catalogs, user practice attempts, spaced repetition revision schedules, study plans, job applications, real interview history, and authoritative file metadata. Cloudflare D1 and Prisma are excluded from the repository.
 
-## Ownership and changes
+---
 
-- `supabase/config.toml`: local infrastructure; PostgreSQL 15 is retained from the existing setup.
-- `supabase/migrations`: timestamped immutable schema changes, constraints, indexes, functions, grants, policies and triggers.
-- `supabase/seed`: reviewed development or licensed canonical catalogs. Seeding is disabled while no seed exists. Never fabricate personal history for production.
-- `supabase/policies`: human-readable rationale; migrations are the only deployable policy source.
-- `supabase/tests/sql`: baseline platform checks now; feature constraints and transaction tests later.
-- `supabase/tests/rls`: baseline exposed-table RLS coverage now; role/tenant fixtures with each feature migration.
+## 2. Infrastructure Ownership
 
-There are currently zero application migrations. Do not add auth or workspace tables in this phase. Migration naming validation is a static check, not SQL execution. Database CI starts a fresh local Supabase stack, resets it, lints SQL and executes pgTAP, without silently skipping an empty application schema.
+All database deployment tooling and schema specifications belong under `supabase/`:
 
-## Isolation
+- `supabase/config.toml`: Local Supabase CLI configuration running PostgreSQL 15.
+- `supabase/migrations/`: Ordered, immutable, timestamped SQL migrations (`YYYYMMDDHHMMSS_name.sql`). Migrations are the sole deployment authority for tables, columns, constraints, indexes, SQL functions, triggers, and RLS policies.
+- `supabase/seed/`: Development-safe, idempotent canonical catalog seeds (DSA tracks, patterns, difficulty tiers, topics). Never place real candidate data, production secrets, or misleading test metrics in seed files.
+- `supabase/policies/`: Human-readable documentation of RLS invariants grouped by domain (`workspaces.md`, `practice.md`, `interviews.md`, `applications.md`). Migrations remain the deployment authority.
+- `supabase/functions/`: Supabase Edge Functions, used strictly when external HTTP boundaries or webhooks near Supabase are justified.
+- `supabase/tests/sql/`: Automated pgTAP tests for constraints, triggers, functions, and schema invariants.
+- `supabase/tests/rls/`: Automated pgTAP tests proving tenant isolation, owner capabilities, member permissions, and cross-workspace access rejection.
 
-Workspace-owned records require explicit ownership and RLS on every exposed table. Active membership is checked for reads and writes; insert/update policies must also prevent reassignment to another workspace. Sensitive views/functions and security-definer code need explicit grants, search paths and tests. See the [RLS matrix](../security/rls.md).
+---
 
-Canonical question content is separate from `workspace_questions` state and `question_attempts` history. Application transitions and significant user actions need append-only history. Durable asynchronous requests should be captured in the same transaction as authoritative state; a later dispatcher publishes them.
+## 3. Database Constraints & Invariants
 
-## Types and validation
+PostgreSQL enforces data integrity invariants directly at the schema layer:
+- `NOT NULL` for required domain attributes.
+- `FOREIGN KEY ... ON DELETE CASCADE` or `RESTRICT` for relational integrity.
+- `CHECK` constraints for enumerated values, positive numbers, and valid date intervals (e.g. `due_at >= created_at`).
+- `UNIQUE` constraints (e.g. `(workspace_id, user_id)` on `workspace_members`).
 
-After the first real migration, generate types with `supabase gen types typescript --local --schema public` into `src/lib/supabase/types.ts` and add generated-schema drift comparison to database CI. Until then the hand-written empty type must not be advertised as generated or used to bypass typing with `any`.
+Application validation via Zod and database constraints serve complementary roles in Defense in Depth.
 
-Tests use pgTAP transactions that roll back. The baseline does not prove tenant isolation when no product tables exist. Each first feature migration must add member/non-member/cross-workspace/disabled-member tests before the feature is complete. See [migration runbook](../runbooks/migrations.md) and [ADR 0001](../adr/0001-supabase-system-of-record.md).
+---
+
+## 4. Indexing Strategy
+
+Indexes are designed based on actual query access paths:
+- Foreign keys: `workspace_id`, `user_id`, `question_id`, `application_id`.
+- Temporal & status filtering: `due_at`, `status`, `created_at`, `stage`.
+- Composite indexes reflecting query cardinality and sorting: `(workspace_id, status, due_at)`.
+- Avoid premature indexing of every column; indexes incur storage and write latency overhead.
+
+---
+
+## 5. Workspace Isolation & RLS
+
+Every tenant table in PrepCraft must carry a direct foreign key to `workspace_id` and have Row Level Security enabled and forced:
+
+```sql
+alter table public.<table> enable row level security;
+alter table public.<table> force row level security;
+
+create policy "Tenant isolation" on public.<table>
+  for all using (
+    workspace_id in (
+      select workspace_id from public.workspace_members
+      where user_id = auth.uid()
+    )
+  );
+```
+
+Never trust a client-supplied `workspace_id` without verifying that `auth.uid()` holds active membership.
+
+---
+
+## 6. SQL Functions vs Edge Functions
+
+- **PostgreSQL Functions (in migrations)**: Internal database triggers, audit logging, atomic state transitions, and search functions running inside the PostgreSQL query engine.
+- **Supabase Edge Functions (`supabase/functions/`)**: External HTTP endpoints running on Deno at the edge. Regular application logic belongs in `src/features/<feature>/services/` or Next.js server actions.
+
+---
+
+## 7. Secrets & Security Rules
+
+1. `SUPABASE_SERVICE_ROLE_KEY` bypasses all RLS policies. It must never be exposed to the browser, stored in client environment variables, or committed to version control.
+2. Production credentials reside strictly in platform secret managers.
+3. See [Supabase Operational Manual](../../supabase/README.md) and [ADR 0001](../adr/0001-supabase-system-of-record.md).

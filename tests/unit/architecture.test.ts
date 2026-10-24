@@ -24,3 +24,21 @@ it("follows transitive client imports but permits type-only imports", () => {
 it("requires centralized environment access and server markers", () => {
   expect(checkDependencies(new Map([["src/lib/server.ts",'const secret=process.env.PRIVATE_KEY']]))).toHaveLength(2)
 })
+it("enforces domain services in services/ remain pure and portable", () => {
+  const badService = new Map([
+    ["src/features/revision/services/scheduler.ts", 'import "server-only"; export const schedule = () => {}'],
+  ])
+  const errors = checkDependencies(badService)
+  expect(errors.some(e => e.includes("domain services in services/ must remain pure and portable"))).toBe(true)
+
+  const badNextService = new Map([
+    ["src/features/revision/services/scheduler.ts", 'import { cookies } from "next/headers"; export const schedule = () => {}'],
+  ])
+  const errorsNext = checkDependencies(badNextService)
+  expect(errorsNext.some(e => e.includes("do not import Next.js server runtime"))).toBe(true)
+
+  const pureService = new Map([
+    ["src/features/revision/services/scheduler.ts", 'export const calculateInterval = (day: number) => day * 2'],
+  ])
+  expect(checkDependencies(pureService)).toEqual([])
+})

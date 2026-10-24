@@ -1,9 +1,62 @@
-# Cloudflare infrastructure
+# Cloudflare Infrastructure & Operational Contract
 
-This root owns portable contracts and future Workers/Queues/Cron/R2/KV infrastructure. It is not a second application database. PostgreSQL remains authoritative.
+Cloudflare serves as PrepCraft's **asynchronous event processing, scheduled trigger orchestration, and object storage plane**.
+Cloudflare is **NOT a primary application database**; Supabase PostgreSQL remains the single authoritative system of record.
 
-Current executable foundation: `shared/contracts/queue-envelope.ts` and its unit test. Run `npm run test` from the repository root. No worker entry point or Wrangler configuration exists because this phase has no justified edge workload; no deployment command should be invented for an empty service.
+---
 
-When the first workload is implemented: create its worker directory, add a versioned Wrangler configuration and generated binding types, validate its environment, add worker-runtime tests and define idempotency/retry/DLQ behavior. Use `wrangler dev --local` only after that configuration exists; do not enable remote bindings unintentionally. Secrets live in ignored `.dev.vars` locally and Wrangler secrets on the target environment.
+## 1. Directory Structure
 
-The [architecture document](../docs/architecture/cloudflare.md) defines future worker/queue/cron ownership, R2 metadata separation and security. [ADR 0002](../docs/adr/0002-cloudflare-async-plane.md) records why these workloads are separate from the Next application.
+```text
+cloudflare/
+├── workers/              # Independently deployable worker service boundaries
+├── queues/               # Queue consumer contracts, idempotency, retry/DLQ rules
+├── cron/                 # Scheduled triggers, bounded fan-out, timezone logic
+├── shared/               # Portable cross-worker utilities & shared contracts
+│   ├── contracts/        # Versioned event envelopes & schemas (queue-envelope.ts)
+│   ├── validation/       # Runtime payload validation & error classification
+│   ├── auth/             # Service authentication & JWT claim extraction
+│   └── observability/    # Structured logger with credential/token redaction
+├── wrangler/             # Environment configurations (dev, staging, prod)
+├── tests/                # Automated Vitest test suite for Cloudflare infrastructure
+└── README.md             # This operational guide
+```
+
+---
+
+## 2. Core Operational Principles
+
+### 1. Versioned Contracts
+All queue messages conform to versioned envelopes created via `createQueueEnvelopeSchema`:
+- Version 1 envelope includes: `version`, `type`, `eventId`, `occurredAt`, `workspaceId`, `userId`, `correlationId`, `idempotencyKey`, and `payload`.
+- Consumers reject unknown versions and unvalidated payloads before executing side effects.
+
+### 2. At-Least-Once Delivery & Idempotency
+Cloudflare Queues delivers messages at least once. Consumers MUST implement atomic idempotency checks:
+- Check whether `eventId` / `idempotencyKey` has already been recorded in PostgreSQL.
+- Acknowledge without reprocessing if duplicate delivery occurs.
+
+### 3. Error Classification
+- **RETRYABLE**: Transient network drops, timeouts, 429/503 responses → Retry with exponential backoff.
+- **TERMINAL**: Schema invalidity, malformed JSON, authorization failure → Do not retry; route to Dead-Letter Queue (DLQ).
+
+### 4. Bounded Workloads
+- Cron triggers must never loop synchronously through large numbers of candidates.
+- Cron triggers query due batches and enqueue work onto Queues for concurrent, bounded worker processing.
+
+### 5. Storage Invariants (R2 & KV)
+- **R2**: Stores private object bytes. PostgreSQL stores ownership, permissions, MIME type, size, and metadata.
+- **KV**: Optional temporary read cache or public configuration only. Never use KV as authoritative state for attempts, applications, revisions, or user balances.
+
+### 6. Secrets & Environment Isolation
+- Secrets are NEVER stored in Git or Wrangler files. Use Cloudflare Secret Store (`wrangler secret put`) and local `.dev.vars`.
+- Dev, staging, and production use prefixed resources (`prepcraft-dev-*`, `prepcraft-staging-*`, `prepcraft-prod-*`).
+
+---
+
+## 3. Running Cloudflare Tests
+
+```bash
+npm run test
+```
+The test suite validates runtime payload schemas, error classification, worker authentication, and log sanitization.

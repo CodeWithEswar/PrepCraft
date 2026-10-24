@@ -1,29 +1,97 @@
-# Cloudflare boundary
+# Cloudflare Architecture & Asynchronous Plane Contract
 
-## Purpose
+## 1. Purpose & Boundary
 
-Cloudflare is the asynchronous/edge/storage plane, not an alternative system of record or a set of mandatory microservices. Phase 03 contains only portable, versioned queue contracts and their tests. No worker, queue, cron schedule, bucket, KV namespace or Wrangler deployment configuration exists yet.
+Cloudflare serves as PrepCraft's **asynchronous event processing, scheduled trigger orchestration, and object storage plane**.
+Cloudflare is **NOT a second system of record**; Supabase PostgreSQL remains the single authoritative database.
 
-| Future boundary | Justification / ownership |
-| --- | --- |
-| `workers/api-gateway` | Only if an actual external/edge API requirement appears; not a duplicate Next API |
-| `workers/reminder-dispatcher` | Scheduled due-work selection and enqueueing |
-| `workers/analytics-processor` | Derived aggregates from durable events |
-| `workers/import-worker` | Bounded, validated long-running imports |
-| `workers/file-service` | R2 object access after authorization; metadata stays in PostgreSQL |
-| `queues/analytics-events`, `notifications`, `imports` | Delivery settings, retry/DLQ policies and workload-specific schemas |
-| `cron/daily-planner`, `revision-reminders`, `weekly-review` | Scheduling and operational ownership, created only with real handlers |
+---
 
-## Contracts and delivery
+## 2. Infrastructure Ownership
 
-`shared/contracts/queue-envelope.ts` validates a version-1 envelope with a literal event name, UUID event/workspace/correlation IDs, optional user ID, timestamp and bounded idempotency key. Each consumer supplies its strict payload schema. Reject unknown versions and invalid payloads before processing; producers validate too. Do not place credentials, raw user files or unnecessary PII in messages.
+All edge and asynchronous infrastructure belongs under `cloudflare/`:
 
-Cloudflare Queues delivers [at least once](https://developers.cloudflare.com/queues/reference/delivery-guarantees/). Consumers need a durable, atomic idempotency claim keyed by consumer/event or operation key; an in-memory Set or KV eventual read is insufficient. Commit side effects before acknowledgement. Retriable infrastructure errors get bounded retries; invalid/poison messages go to an observable dead-letter path. Outbox dispatch may duplicate delivery, so consumer idempotency is required even with producer deduplication.
+```text
+cloudflare/
+├── workers/              # Independently deployable Worker service boundaries
+├── queues/               # Queue consumer contracts, delivery guarantees, retry & DLQ rules
+├── cron/                 # Scheduled triggers, bounded fan-out orchestration, timezone logic
+├── shared/               # Portable cross-worker utilities & shared contracts
+│   ├── contracts/        # Versioned event envelopes (queue-envelope.ts)
+│   ├── validation/       # Runtime payload validation & error classification (payload-validator.ts)
+│   ├── auth/             # Service authentication & JWT claim extraction (worker-auth.ts)
+│   └── observability/    # Structured logger with credential/token redaction (structured-logger.ts)
+├── wrangler/             # Non-secret environment configurations (dev, staging, prod)
+├── tests/                # Automated Vitest test suite for Cloudflare infrastructure
+└── README.md             # Operational manual
+```
 
-## Storage and security
+---
 
-PostgreSQL owns file owner, workspace, object key, size/type and lifecycle status. R2 holds private bytes. Server-side authorization precedes short-lived upload/download authorization; user-provided object keys are never trusted as proof of ownership. Validate file sizes/types, quarantine as needed, and bound retention. KV is only for replaceable cache/config with explicit invalidation/TTL, never membership, balances or authoritative state.
+## 3. Workers Contract
 
-## Runtime and failure modes
+Each Worker has a single responsibility and defines typed bindings explicitly in `src/bindings.ts`:
+- `reminder-dispatcher`: Evaluates due revision intervals and daily plans; enqueues tasks to `notifications`.
+- `analytics-processor`: Consumes domain events; computes workspace mastery trends and activity metrics.
+- `import-worker`: Processes large CSV/catalog imports in bounded batches.
+- `file-service`: R2 object streaming and presigned URL coordination after Supabase authorization check.
 
-Workers import portable contracts, never Next.js modules or server environment files. Add Wrangler, bindings types, per-worker environment validation and worker-runtime tests with the first actual worker; test locally before configuring real queues/crons. Keep credentials in Wrangler secrets and ignored `.dev.vars`. No fake account IDs or production bindings are checked in. See [worker runbook](../runbooks/worker-failure.md) and [ADR 0002](../adr/0002-cloudflare-async-plane.md).
+Workers must remain runtime portable and must never import Next.js modules or application route code.
+
+---
+
+## 4. Queue Architecture & Delivery Guarantees
+
+```text
+PRODUCER
+   ↓
+Validate versioned envelope (QueueEnvelope<T>, Version 1)
+   ↓
+Cloudflare Queue
+   ↓
+CONSUMER
+   ↓
+Validate payload schema (Zod)
+   ↓
+Atomic idempotency check
+   ├── Already completed → Safe acknowledgment (no-op)
+   └── Not completed
+            ↓
+       Execute bounded operation
+            ↓
+       Record completion state in PostgreSQL
+            ↓
+       Acknowledge message
+```
+
+### Idempotency
+Cloudflare Queues delivers messages **at least once**. Consumers must be idempotent using deterministic `eventId` or `idempotencyKey` claims.
+
+### Retry Classification
+- **RETRYABLE**: Transient network timeouts, connection resets, 429/503 responses → Retry with backoff.
+- **TERMINAL**: Schema invalidity, malformed JSON, authorization permanent failure → Do not retry; route to Dead-Letter Queue (DLQ).
+
+---
+
+## 5. Cron Triggers & Bounded Workloads
+
+Cron triggers (`daily-planner`, `revision-reminders`, `weekly-review`) must NOT process all users synchronously.
+- **Fan-Out via Queues**: Cron queries a bounded batch of due entities and enqueues messages onto Queues. Queue workers process the batches concurrently.
+- **Occurrence Idempotency**: Scheduled tasks use occurrence keys (e.g. `reminder:revision:{userId}:{timestampWindow}`) to prevent duplicate notifications during retries.
+- **Timezone Awareness**: Candidate workspaces store their IANA timezone; human-facing morning reminders are evaluated against local time, not raw UTC.
+
+---
+
+## 6. Storage Invariants (R2 & KV)
+
+- **R2 Storage**: Stores raw object bytes. PostgreSQL stores file metadata, ownership, MIME type, size, and permissions. User-supplied object keys are never used as proof of authorization.
+- **KV Storage**: Strictly for optional, replaceable read-through cache or public configuration with explicit TTLs. Never store authoritative attempts, revisions, applications, or user balances in KV.
+
+---
+
+## 7. Security & Observability
+
+- All worker logs use `WorkerLogger` to emit structured JSON with context fields (`worker`, `requestId`, `eventId`, `queue`, `operation`, `workspaceId`, `durationMs`, `outcome`).
+- Credentials, bearer tokens, passwords, authorization headers, and private code submissions are strictly redacted by `sanitizeLogData`.
+- Secrets are stored exclusively in Cloudflare Secret Store (`wrangler secret put`) and `.dev.vars`, never in Git.
+- See [Cloudflare Operational Manual](../../cloudflare/README.md) and [ADR 0002](../adr/0002-cloudflare-async-plane.md), [ADR 0004](../adr/0004-idempotent-versioned-queue-consumers.md).

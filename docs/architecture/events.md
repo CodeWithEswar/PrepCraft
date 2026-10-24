@@ -1,34 +1,50 @@
-# Architecture — Activity & Asynchronous Events
+# Architecture — Domain Events & Asynchronous Architecture
 
-## Purpose
-Decouples primary transactional flows from downstream asynchronous processing (e.g. analytics derivation, notification dispatching, calendar sync).
+## 1. Purpose & Boundary
 
-## Canonical Domain Events
-The following material user actions emit versioned events:
+Decouples primary transactional flows in Next.js Server Mutations from downstream background operations (e.g. analytics aggregation, spaced-repetition reminder dispatching, external notification delivery).
+
+User-facing mutations commit their operational state to Supabase PostgreSQL immediately and do not block on slow asynchronous work.
+
+---
+
+## 2. Canonical Domain Events
+
+The following material domain operations emit versioned events:
 
 | Event Name | Producer | Payload Summary |
 | --- | --- | --- |
-| `workspace.created` | Workspaces | `workspaceId`, `ownerId`, `targetCompany`, `targetDeadline` |
+| `workspace.created` | Workspaces | `workspaceId`, `ownerId`, `targetRole`, `targetDeadline` |
 | `question.attempt.completed` | Attempts | `attemptId`, `questionId`, `durationMs`, `status`, `mistakes` |
 | `revision.completed` | Revision | `revisionId`, `questionId`, `rating`, `nextIntervalDays` |
 | `interview.scheduled` | Interviews | `interviewId`, `company`, `roundType`, `scheduledAt` |
 | `application.stage_changed` | Applications | `applicationId`, `fromStage`, `toStage`, `reason` |
 
-## Event Envelope Contract
-All cross-boundary asynchronous events conform to the standard envelope (`cloudflare/shared/contracts/queue-envelope.ts`):
+---
+
+## 3. Versioned Event Envelope Contract
+
+All cross-boundary asynchronous events conform to `QueueEnvelope<T>` (`cloudflare/shared/contracts/queue-envelope.ts`):
 
 ```typescript
-export interface QueueEnvelope<T> {
-  version: number;
-  eventId: string;
-  occurredAt: string;
-  workspaceId: string;
-  userId?: string;
-  payload: T;
+export interface QueueEnvelope<TPayload> {
+  version: 1
+  eventId: string          // UUID identifying this distinct event occurrence
+  type: string             // Literal event name
+  occurredAt: string       // ISO 8601 UTC timestamp with offset
+  workspaceId: string      // Scoped tenant UUID
+  userId?: string          // Originating actor UUID (if user-triggered)
+  correlationId: string    // Trace ID for end-to-end request tracing
+  idempotencyKey: string   // Unique key for deduplication
+  payload: TPayload        // Validated event payload
 }
 ```
 
-## Idempotency & Delivery Rules
-1. **At-Least-Once Delivery**: Consumers on Cloudflare Queues must assume duplicate deliveries and maintain idempotency via `eventId` tracking.
-2. **PostgreSQL Is Source of Truth**: Analytical queues produce derived read models or external alerts; authoritative operational records reside exclusively in Supabase PostgreSQL.
-3. **No Synchronous Coupling**: Feature mutations must not block database transactions on network queue deliveries.
+---
+
+## 4. Delivery & Consumption Rules
+
+1. **At-Least-Once Delivery**: Consumers on Cloudflare Queues must assume messages may be redelivered. Every consumer checks an atomic idempotency record before executing side effects.
+2. **PostgreSQL Is System of Record**: Analytical workers produce derived read views or external notifications. Operational state resides exclusively in Supabase PostgreSQL.
+3. **No Synchronous Coupling**: Server Actions must never hold open a user HTTP request waiting for queue consumers or external delivery webhooks.
+4. **Retry Classification**: Consumers distinguish `RETRYABLE` (network, timeout, 429/503) from `TERMINAL` (schema validation error, unrecoverable data). Terminal failures are routed to a Dead-Letter Queue (DLQ).

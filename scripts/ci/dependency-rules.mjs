@@ -3,6 +3,7 @@ import path from "node:path"
 
 const featureOf = file => /^src\/features\/([^/]+)\//.exec(file)?.[1]
 const serverPath = file => /\/server\/|\/(server|session)\.tsx?$|\.server\.tsx?$/.test(file)
+const servicePath = file => /^src\/features\/[^/]+\/services\//.test(file)
 
 /** Source map makes the exact production rules testable without filesystem mocks. */
 export function checkDependencies(files) {
@@ -30,7 +31,13 @@ export function checkDependencies(files) {
     visit(ast)
     graph.set(file, []); runtime.set(file, [])
     for (const { specifier, typeOnly } of imports) {
-      if (specifier === "server-only") { markedServer = true; servers.add(file); continue }
+      if (specifier === "server-only") {
+        if (servicePath(file)) errors.push(`${file}: domain services in services/ must remain pure and portable; do not import server-only`)
+        markedServer = true; servers.add(file); continue
+      }
+      if (servicePath(file) && (specifier === "next/headers" || specifier === "next/server")) {
+        errors.push(`${file}: domain services in services/ must remain pure and portable; do not import Next.js server runtime`)
+      }
       if (file.startsWith("cloudflare/") && (specifier.startsWith("node:") || specifier === "next" || specifier.startsWith("next/"))) errors.push(`${file}: worker contracts must be runtime portable`)
       if (specifier === "next/headers" || specifier === "next/server") servers.add(file)
       if (!specifier.startsWith(".") && !specifier.startsWith("@/")) continue

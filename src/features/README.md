@@ -1,30 +1,136 @@
-# PrepCraft — Feature Architecture Contract
+# PrepCraft — Feature Architecture & Engineering Contract
 
-Every business capability in PrepCraft should be encapsulated within its own feature module under `src/features/<feature-name>/`.
+Every business capability in PrepCraft is encapsulated within its own feature module under `src/features/<feature>/`.
+This directory structure represents an **engineering contract**, not a mechanical folder template.
 
-## Module Blueprint
+---
+
+## 1. Feature Module Contract
 
 ```text
 src/features/<feature>/
-├── components/           # Feature-specific UI components
-├── server/               # Server-only database queries and mutations
-│   ├── queries.ts        # Data fetching functions (Server Components / Actions)
-│   ├── mutations.ts      # Data mutations (Server Actions)
-│   └── permissions.ts    # Server-side authorization & policy assertions
-├── hooks/                # Feature-specific React hooks
-├── schemas/              # Zod validation schemas
-├── services/             # Pure business logic and domain calculations
-├── types/                # Domain-specific TypeScript types & interfaces
-├── utils/                # Feature-specific pure utility functions
-└── index.ts              # Clean public module boundary
+│
+├── components/           # Feature-specific UI presentation and interaction
+│   ├── <entity>-list.tsx
+│   ├── <entity>-detail.tsx
+│   └── <entity>-filters.tsx
+│
+├── server/               # Server-only infrastructure operations (requires import "server-only")
+│   ├── queries.ts        # Authenticated, scoped database reads (no SELECT *, paginated)
+│   ├── mutations.ts      # Authorized, validated state transitions
+│   └── permissions.ts    # Server-authoritative capability and access checks
+│
+├── services/             # Pure, portable domain business logic and calculations
+│   ├── <entity>-service.ts
+│   └── <entity>-calculator.ts
+│
+├── schemas/              # Zod validation schemas for trust boundaries
+│   ├── <entity>.schema.ts
+│   └── <entity>-filter.schema.ts
+│
+├── hooks/                # Feature-specific React hooks (client-only, created when needed)
+│   └── use-<feature>-filters.ts
+│
+├── types/                # Feature-specific TypeScript interfaces and types
+│   └── <feature>.types.ts
+│
+├── utils/                # Presentation formatting helpers (domain logic belongs in services/)
+│   └── <feature>.utils.ts
+│
+├── tests/                # Unit tests for domain services, calculations, and schemas
+│   ├── <entity>-service.test.ts
+│   └── <entity>-calculator.test.ts
+│
+└── index.ts              # Curated public module API
 ```
 
-## Rules & Principles
+### On-Demand Rule
+Directories and files are created **only when real implementation requires them**.
+- If a feature does not need client hooks, do NOT create an empty `hooks/`.
+- If a feature has no presentation formatters, do NOT create an empty `utils/`.
+- `utils/` is a warning sign: ask "Is this business logic?" If yes, it belongs in `services/`.
 
-1. **Selective Structure**: Do not force every feature to contain every folder. Only create folders and files when the feature actually needs them.
-2. **Encapsulation**: External callers use deliberate `src/features/<feature>/index.ts` or `server/index.ts` APIs. Never mix server and browser runtime exports in one barrel. Server entry points import `server-only`.
-3. **Server-First**: Database operations belong in `server/queries.ts` or `server/mutations.ts`. Never perform direct database calls from Client Components.
-4. **Validation**: All user inputs must be parsed against Zod schemas in `schemas/`.
-5. **No Universal Junk Drawers**: Keep feature-specific logic within its domain. Promote to `src/components/` or `src/lib/` only after reusable patterns emerge across multiple features.
+---
 
-Only marketing is implemented now. See [domain ownership](../../docs/features/domain-map.md) for planned capabilities and delivery order. In particular, real interview/OA tracking belongs to `interviews`, never `mocks`. The architecture checker enforces import direction, public feature entries, cycles and transitive client/server separation.
+## 2. Core Boundary: `server/` vs `services/`
+
+The distinction between `server/` and `services/` is strict:
+
+- **`server/` (Infrastructure-Facing)**:
+  - Must include `import "server-only"`.
+  - Interfaces directly with Supabase clients, cookies, headers, and Next.js server runtime.
+  - Resolves authentication sessions and verifies workspace membership.
+  - Implements `queries.ts`, `mutations.ts`, and `permissions.ts`.
+  - Never imported by Client Components.
+
+- **`services/` (Pure Business & Domain Rules)**:
+  - Framework-agnostic pure TypeScript.
+  - Implements business calculations (revision scheduling, mastery formulas, readiness evaluation, application stage transition state machines).
+  - Portable across Next.js Server Actions, Route Handlers, Cloudflare Workers, and Unit Tests.
+  - Separates calculation from orchestration.
+
+---
+
+## 3. Standard Mutation Flow
+
+Every state-changing mutation in `server/mutations.ts` follows this sequence:
+
+```text
+REQUEST
+   ↓
+AUTHENTICATE (resolve active session)
+   ↓
+VALIDATE (Zod schema in schemas/)
+   ↓
+AUTHORIZE (permissions.ts + workspace membership)
+   ↓
+EXECUTE DOMAIN RULE (call domain service in services/)
+   ↓
+PERSIST (atomic Supabase PostgreSQL operation)
+   ↓
+EMIT ACTIVITY / EVENT (Cloudflare Queue event if applicable)
+   ↓
+CACHE INVALIDATION (revalidatePath / revalidateTag)
+   ↓
+TYPED RESULT
+```
+
+---
+
+## 4. Defense-in-Depth Model
+
+Authorization is enforced across five progressive layers:
+```text
+Client capability hint (UX display)
+        ↓
+Server authorization (server/permissions.ts)
+        ↓
+Domain business constraints (services/)
+        ↓
+PostgreSQL schema constraints (NOT NULL, CHECK, UNIQUE, FOREIGN KEY)
+        ↓
+Supabase PostgreSQL Row Level Security (RLS)
+```
+
+The client is never a security boundary.
+
+---
+
+## 5. Domain Ownership & Boundaries
+
+Keep domains strictly decoupled:
+- `questions/`: Canonical question catalog.
+- `attempts/`: Candidate practice attempts & code execution logs.
+- `revision/`: Spaced repetition scheduling & due queue.
+- `mastery/`: Evidence-based mastery calculation.
+- `readiness/`: Target company readiness benchmark evaluation.
+- `interviews/`: Real interview rounds, OAs, and debriefs. (No AI mock interviews).
+- `applications/`: Job search pipeline stages and recruiter history.
+- `planning/`: Daily study plan generation & goal tracking.
+
+### Cross-Feature Communication Rule
+- External consumers import ONLY from `src/features/<feature>/index.ts` (or `server/index.ts` for server callers).
+- Deep internal imports into another feature's private modules are prohibited.
+- Circular dependencies (`A → B → A`) are strictly rejected.
+
+See [Feature Boundaries Architecture Document](../../docs/architecture/feature-boundaries.md) for full architectural specifications.
