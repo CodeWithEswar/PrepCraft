@@ -9,19 +9,34 @@ max_rows = 1000
 [db]
 port = 54322
 shadow_port = 54320
-major_version = 15
+major_version = 17
 
 [db.seed]
 enabled = false
+
+[db.pooler]
+default_pool_size = 15
+max_client_conn = 200
 
 [studio]
 port = 54323
 
 [auth]
 site_url = "http://localhost:3030"
-additional_redirect_urls = ["http://localhost:3030/auth/callback"]
+additional_redirect_urls = ["http://localhost:3030/**", "http://localhost:3030/auth/callback"]
 jwt_expiry = 3600
 enable_signup = true
 
+[auth.email]
+max_frequency = "1m0s"
+otp_length = 8
+
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
 [storage]
 file_size_limit = "50MiB"
+
+[storage.vector]
+enabled = false
