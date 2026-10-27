@@ -1,0 +1,29 @@
+{
+  "recordedAt": "2026-10-25T12:11:59.333Z",
+  "reports": [
+    {
+      "mobile": false,
+      "theme": "Light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mobile": false,
+      "theme": "Dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mobile": true,
+      "theme": "Light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mobile": true,
+      "theme": "Dark",
+      "violations": [],
+      "clientErrors": []
+    }
+  ]
+}

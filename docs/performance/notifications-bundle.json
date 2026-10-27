@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-10-27T08:30:00.578Z",
+  "chartRequestsBeforeFullReport": 0,
+  "chartRequestsAfterFullReport": 4,
+  "files": [
+    {
+      "file": "static/chunks/7202.cb30d1141e03f113.js",
+      "bytes": 332411,
+      "gzipBytes": 98639
+    },
+    {
+      "file": "static/chunks/4363.a28a90c181394b7a.js",
+      "bytes": 22119,
+      "gzipBytes": 6548
+    },
+    {
+      "file": "static/chunks/141.d26f680619d7b3d7.js",
+      "bytes": 16802,
+      "gzipBytes": 5606
+    },
+    {
+      "file": "static/chunks/8971.324256bcda063d79.js",
+      "bytes": 4192,
+      "gzipBytes": 1908
+    }
+  ]
+}

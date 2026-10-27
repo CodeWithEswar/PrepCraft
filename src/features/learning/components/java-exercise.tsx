@@ -1,0 +1,6 @@
+"use client"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
+import { AppIcon } from "@/components/app-icon"
+export function JavaExercise(){const [code,setCode]=useState('import java.util.*;\n\nclass Main {\n  public static void main(String[] args) {\n    Set<String> names = new LinkedHashSet<>();\n    names.add("Asha");\n    names.add("Milan");\n    names.add("Asha");\n    System.out.println(names);\n  }\n}');return <section className="pc-learn-lab pc-learn-java"><span className="pc-learn-eyebrow">JAVA · COLLECTION REASONING</span><h3>Read, predict, explain.</h3><p>Predict the output and explain the effect of the duplicate insertion. This editable snippet stays on this page; it is not executed or submitted.</p><label htmlFor="java-reasoning-code">Java source</label><Textarea id="java-reasoning-code" value={code} maxLength={12000} spellCheck={false} onChange={e=>setCode(e.target.value)}/><Button variant="outline" disabled><AppIcon icon="lock" size={15}/>Runner unavailable</Button><p role="status">A sandboxed Java runner is not configured. Use the assessed concept check below to record learning evidence.</p></section>}

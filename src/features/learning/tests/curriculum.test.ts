@@ -1,0 +1,14 @@
+import { describe,it,expect } from "vitest"
+import coverage from "../content/coverage.json"
+import lessons from "../content/lessons.server.json"
+import { submitSchema,stateSchema,catalogSchema } from "../schemas/learning.schema"
+import { JAVA_LIMITS,unavailableJavaRunner } from "../services/runner-contract"
+describe("versioned learning release",()=>{
+ it("has one canonical topic identity for every published lesson",()=>{expect(coverage.subjects).toHaveLength(5);expect(new Set(coverage.topics.map(t=>t.id)).size).toBe(coverage.topics.length);for(const lesson of lessons)expect(coverage.topics.some(t=>t.id===lesson.topicId&&t.subjectId===lesson.subjectId)).toBe(true)})
+ it("publishes five original, sourced checks per subject",()=>{for(const subject of coverage.subjects)expect(lessons.filter(l=>l.subjectId===subject.id)).toHaveLength(5);for(const lesson of lessons){expect(lesson.summary.length).toBeGreaterThan(30);expect(lesson.mental.length).toBeGreaterThan(30);expect(lesson.activity.solution.length).toBeGreaterThan(20);expect(lesson.source).toMatch(/^https:\/\//);expect(lesson.reviewedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)}})
+ it("keeps coverage breadth separate from publication counts",()=>{expect(coverage.topics.filter(t=>t.subjectId==="aptitude").map(t=>t.name)).toEqual(expect.arrayContaining(["Logical Reasoning","Verbal Ability","Data Interpretation"]));expect(coverage.topics.reduce((n,t)=>n+t.concepts.length,0)).toBeGreaterThan(700);expect(lessons).toHaveLength(25)})
+ it("numeric checks use finite exact values and choice keys refer to actual choices",()=>{for(const lesson of lessons){if(lesson.activity.type==="numeric_answer")expect(Number.isFinite(lesson.activity.answer)).toBe(true);else if(lesson.activity.type!=="ordering")expect(lesson.activity.options).toContain(lesson.activity.answer)}})
+ it("validates submission, confidence, bounded answers and scope at the boundary",()=>{const base={slug:"my-workspace",sessionId:"00000000-0000-4000-8000-000000000001",version:0,answer:198,confidence:4};expect(submitSchema.safeParse(base).success).toBe(true);for(const patch of [{confidence:0},{answer:Infinity},{answer:"x".repeat(4001)},{slug:"../other"},{version:-1},{mistakes:["made-up"]}])expect(submitSchema.safeParse({...base,...patch}).success).toBe(false)})
+ it("rejects oversized search and unknown note properties",()=>{expect(catalogSchema.safeParse({slug:"one",search:"a".repeat(121)}).success).toBe(false);expect(stateSchema.safeParse({slug:"one",id:"concept",version:0,requestId:"00000000-0000-4000-8000-000000000001",patch:{user_id:"other"}}).success).toBe(false)})
+ it("never substitutes an in-process Java execution path",async()=>{expect(await unavailableJavaRunner.run({code:"class Main {}",languageVersion:"25",fixtureId:"one",requestId:"test"})).toMatchObject({status:"unavailable"});expect(JAVA_LIMITS.network).toBe(false);expect(JAVA_LIMITS.outputBytes).toBeLessThanOrEqual(32000)})
+})

@@ -34,7 +34,10 @@
  --radius:.5rem; --chart-1:#a15f4b; --chart-2:#59615b; --chart-3:#879080; --chart-4:#b4baad; --chart-5:#d8ddd1;
  --duration-fast:120ms; --duration-normal:220ms; --duration-slow:420ms; --ease-standard:cubic-bezier(.2,0,0,1); --ease-enter:cubic-bezier(0,0,.2,1); --ease-exit:cubic-bezier(.4,0,1,1); --ease-spring:cubic-bezier(.2,.8,.2,1);
  --space-unit:.25rem; --section-space:clamp(3.5rem,6vw,6rem); --header-height:4rem; --container-page:74rem; --container-wide:88rem; --container-reading:42rem;
- --scrollbar-thumb:#ac9184; --scrollbar-hover:#89503f; --scrollbar-track:#eeece8;
+ --scrollbar-thumb:#ac806a; --scrollbar-hover:#89503f; --scrollbar-track:#ffffff14;
+ --scrollbar-track-border:#ffffff30; --scrollbar-sheen:#ffffff80;
+ --scrollbar-gradient:linear-gradient(180deg,#dbb89ca6,#a57259b8);
+ --scrollbar-hover-gradient:linear-gradient(180deg,#d2a586dc,#99654ddc);
 }
 .dark {
  color-scheme:dark;
@@ -45,7 +48,10 @@
  --glass:#1b1c20ed; --glass-border:#d8c5bb26; --glass-highlight:#fff6ef0d; --glass-shadow:0 16px 36px #06060955,inset 0 1px 0 var(--glass-highlight);
  --elevation-xs:0 1px 2px #070c0833; --elevation-sm:0 2px 8px #070c0840; --elevation-md:0 8px 24px #070c0855; --elevation-elevated:0 16px 48px #070c0870; --elevation-floating:0 24px 64px #070c0888;
  --chart-1:#d3a18a; --chart-2:#c7bfba; --chart-3:#aaa0a0; --chart-4:#82777c; --chart-5:#574e54;
- --scrollbar-thumb:#79655d; --scrollbar-hover:#c18b74; --scrollbar-track:#17181b;
+ --scrollbar-thumb:#ad826b; --scrollbar-hover:#d3a18a; --scrollbar-track:#ffffff06;
+ --scrollbar-track-border:#ffffff0d; --scrollbar-sheen:#f7ddca4d;
+ --scrollbar-gradient:linear-gradient(180deg,#d6ad8d9c,#91674fac);
+ --scrollbar-hover-gradient:linear-gradient(180deg,#e8c5a5bf,#b17b59d9);
 }
 @layer base {
  * { @apply border-border; }
@@ -59,17 +65,19 @@
  img { max-width:100%; }
  .no-scrollbar { scrollbar-width:none !important; -ms-overflow-style:none !important; }
  .no-scrollbar::-webkit-scrollbar { display:none !important; width:0 !important; height:0 !important; }
- @media (hover:hover) and (pointer:fine) {
-  * { scrollbar-width:thin; scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track); }
-  /* Chromium/WebKit custom thumbs; Firefox keeps the native thin fallback. */
-  @supports selector(::-webkit-scrollbar) {
-   * { scrollbar-width:auto; scrollbar-color:auto; }
-   ::-webkit-scrollbar { width:10px; height:10px; }
-   ::-webkit-scrollbar-track { background:var(--scrollbar-track); border-radius:100px; }
-   ::-webkit-scrollbar-thumb { background:var(--scrollbar-thumb); background-clip:padding-box; border:3px solid transparent; border-radius:100px; min-height:40px; }
-   ::-webkit-scrollbar-thumb:hover { background-color:var(--scrollbar-hover); }
-   ::-webkit-scrollbar-corner { background:transparent; }
-  }
+ /* Keep native scrolling; replace its stock chrome with a glass finish. */
+ * { scrollbar-width:thin; scrollbar-color:var(--scrollbar-thumb) var(--scrollbar-track); }
+ @supports selector(::-webkit-scrollbar) {
+  /* Non-auto standard properties override WebKit's custom pseudo-elements. */
+  * { scrollbar-width:auto; scrollbar-color:auto; }
+  ::-webkit-scrollbar { width:10px; height:10px; background:transparent; }
+  ::-webkit-scrollbar-track { margin-block:6px; border-radius:999px; background:var(--scrollbar-track); box-shadow:inset 0 0 0 1px var(--scrollbar-track-border); }
+  ::-webkit-scrollbar-track:horizontal { margin:0 6px; }
+  ::-webkit-scrollbar-thumb { min-height:40px; min-width:40px; border:2px solid transparent; border-radius:999px; background:var(--scrollbar-gradient); background-clip:padding-box; box-shadow:inset 0 1px 0 var(--scrollbar-sheen),inset 0 -1px 0 #573c2c26; }
+  ::-webkit-scrollbar-thumb:hover { background:var(--scrollbar-hover-gradient); background-clip:padding-box; }
+  ::-webkit-scrollbar-thumb:active { background:var(--scrollbar-hover); background-clip:padding-box; }
+  ::-webkit-scrollbar-button,::-webkit-scrollbar-button:single-button,::-webkit-scrollbar-button:double-button { display:none; width:0; height:0; padding:0; border:0; background:transparent; }
+  ::-webkit-scrollbar-corner { background:transparent; }
  }
 }
 .type-display { font-size:clamp(2.25rem,3.7vw,3.375rem); line-height:1.12; letter-spacing:-.045em; }

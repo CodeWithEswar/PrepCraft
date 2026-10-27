@@ -1,0 +1,5 @@
+"use client"
+import type { AnalyticsSnapshot } from "../../types/analytics.types"
+import { InterviewEvidence,OaEvidence,BehavioralEvidence } from "../analytics-widgets"
+import PhaseFlow from "../charts/phase-flow"
+export default function Interviews({snapshot:s,onRetry}:{snapshot:AnalyticsSnapshot;onRetry:()=>void}){return <><section className="pc-an-panel pc-an-section-intro"><span className="pc-an-eyebrow">PREPARATION, NOT PREDICTION</span><h2>Interview evidence, with its limits.</h2><p>Compare compatible persisted simulations, inspect recorded phases and review your Behavioral practice. No hiring probability or automated communication score is inferred.</p></section><InterviewEvidence key={JSON.stringify(s.filters)} snapshot={s}/><PhaseFlow snapshot={s} onRetry={onRetry}/><OaEvidence snapshot={s}/><BehavioralEvidence snapshot={s}/><section className="pc-an-panel"><h2>Source connections</h2><p>{s.interviews?.readiness.reason||"Readiness evidence is unavailable."}</p><p>{s.interviews?.tracker.reason||"Interview tracker evidence is unavailable."}</p></section></>}

@@ -1,0 +1,2 @@
+import { Skeleton } from "@/components/ui/skeleton"
+export function TodaySkeleton(){return <div className="pc-today pc-today-loading" aria-label="Loading today's preparation" aria-busy="true"><Skeleton className="h-8 w-36"/><Skeleton className="h-24 w-full"/><Skeleton className="h-48 w-full"/><div className="pc-today-body"><Skeleton className="h-64 w-full"/><Skeleton className="h-64 w-full"/></div><span className="sr-only">Updating your daily preparation.</span></div>}

@@ -8,13 +8,14 @@ const servicePath = file => /^src\/features\/[^/]+\/services\//.test(file)
 /** Source map makes the exact production rules testable without filesystem mocks. */
 export function checkDependencies(files) {
   const errors = []
-  const graph = new Map(), runtime = new Map(), clients = new Set(), servers = new Set()
+  const graph = new Map(), runtime = new Map(), clients = new Set(), servers = new Set(), actions = new Set()
   for (const [file, source] of files) {
     const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, file.endsWith("tsx") ? ts.ScriptKind.TSX : ts.ScriptKind.TS)
     const imports = []
     let markedServer = false
     for (const statement of ast.statements) {
       if (ts.isExpressionStatement(statement) && ts.isStringLiteral(statement.expression) && statement.expression.text === "use client") clients.add(file)
+      if (ts.isExpressionStatement(statement) && ts.isStringLiteral(statement.expression) && statement.expression.text === "use server") actions.add(file)
     }
     const visit = node => {
       if ((ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) && node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) {
@@ -71,6 +72,9 @@ export function checkDependencies(files) {
     const check = file => {
       if (seen.has(file)) return
       seen.add(file)
+      // Next compiles imports from file-level Server Actions into RPC stubs.
+      // Their implementation graph is never bundled into the calling client.
+      if (actions.has(file)) return
       if (servers.has(file) || serverPath(file)) errors.push(`${client}: client dependency reaches server module ${file}`)
       for (const target of runtime.get(file) ?? []) check(target)
     }

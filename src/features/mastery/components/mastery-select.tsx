@@ -1,0 +1,3 @@
+"use client"
+import { Select,SelectTrigger,SelectContent,SelectItem,SelectValue } from "@/components/ui/select"
+export function MasterySelect({label,value,onChange,options}:{label:string;value:string;onChange:(value:string)=>void;options:{value:string;label:string}[]}){return <Select value={value} items={options} onValueChange={value=>value!==null&&onChange(value)}><SelectTrigger aria-label={label}><SelectValue/></SelectTrigger><SelectContent alignItemWithTrigger={false}>{options.map(option=><SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>)}</SelectContent></Select>}

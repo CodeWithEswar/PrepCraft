@@ -1,0 +1,2 @@
+import { Skeleton } from "@/components/ui/skeleton"
+export default function BehavioralLoading(){return <div className="grid gap-4" role="status"><span className="sr-only">Loading your private story portfolio</span><Skeleton className="h-24 rounded-xl"/><div className="grid gap-4 lg:grid-cols-3"><Skeleton className="h-80 rounded-xl lg:col-span-2"/><Skeleton className="h-80 rounded-xl"/></div></div>}

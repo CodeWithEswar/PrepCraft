@@ -80,27 +80,18 @@ export class WorkerLogger {
     this.emit("WARN", message, context)
   }
 
-  error(message: string, error?: unknown, context?: Partial<LogContext>): void {
-    const errorDetails: Record<string, unknown> = {}
-    if (error instanceof Error) {
-      errorDetails.errorMessage = error.message
-      errorDetails.errorStack = error.stack
-    } else if (error) {
-      errorDetails.errorRaw = String(error)
-    }
-
-    this.emit("ERROR", message, { ...errorDetails, ...context })
+  error(message: string, _error?: unknown, context?: Partial<LogContext>): void {
+    // External errors can embed credentials, SQL, URLs or user text. Never serialize them.
+    this.emit("ERROR", message, { errorCategory:"internal_error", ...context })
   }
 
   private emit(level: "INFO" | "WARN" | "ERROR", message: string, context?: Record<string, unknown>): void {
     const timestamp = new Date().toISOString()
-    const merged = sanitizeLogData({
-      timestamp,
-      level,
-      message,
-      ...this.baseContext,
-      ...context,
-    })
+    const input={...this.baseContext,...context},safe:Record<string,unknown>={}
+    for(const key of ["worker","operation","queue","channel","outcome","errorCategory"]){const value=input[key];if(typeof value==="string"&&/^[A-Za-z0-9_.-]{1,100}$/.test(value))safe[key]=value}
+    for(const key of ["requestId","eventId","correlationId","workspaceId"]){const value=input[key];if(typeof value==="string"&&/^[a-f0-9]{8}-[a-f0-9-]{27}$/i.test(value))safe[key]=value}
+    for(const key of ["durationMs","count"]){const value=input[key];if(typeof value==="number"&&Number.isFinite(value)&&value>=0)safe[key]=value}
+    const merged={timestamp,level,message:/^[A-Za-z0-9_. -]{1,100}$/.test(message)?message:"operation_failed",...safe}
 
     const serialized = JSON.stringify(merged)
     if (level === "ERROR") {

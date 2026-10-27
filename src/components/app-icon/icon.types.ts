@@ -6,6 +6,16 @@ export type AppIconSize = "xs" | "sm" | "md" | "lg" | "xl"
 export type HugeiconData = ComponentProps<typeof HugeiconsIcon>["icon"]
 
 export type AppIconName =
+  | "database"
+  | "calculator"
+  | "cpu"
+  | "network"
+  | "coffee"
+  | "pause"
+  | "play"
+  | "flag"
+  | "hint"
+  | "keyboard"
   | "search"
   | "close"
   | "check"
@@ -51,6 +61,21 @@ export type AppIconName =
   | "more-horizontal"
   | "more-vertical"
   | "spinner"
+  | "shield"
+  | "lock"
+  | "save"
+  | "logout"
+  | "exit"
+  | "dashboard"
+  | "target"
+  | "chart"
+  | "building"
+  | "flame"
+  | "sidebar"
+  | "sidebar-close"
+  | "sidebar-open"
+  | "volume-high"
+  | "volume-mute"
 
 export interface AppIconProps extends Omit<ComponentProps<typeof HugeiconsIcon>, "icon" | "size"> {
   /**

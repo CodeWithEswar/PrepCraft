@@ -1,0 +1,8 @@
+import "server-only"
+import { z } from "zod"
+export const PRODUCTION_ORIGIN="https://prepcraft.vercel.app"
+const optional=z.preprocess(v=>v===""?undefined:v,z.string().optional())
+const schema=z.object({APP_ENV:z.enum(["local","preview","production"]).default("local"),NEXT_PUBLIC_APP_URL:optional.pipe(z.url().optional()),PLATFORM_WORKER_URL:optional.pipe(z.url().optional()),SENTRY_DSN:optional.pipe(z.url().optional()),SENTRY_RELEASE:optional,VERCEL_ENV:optional})
+export function parsePlatformEnvironment(input:Record<string,string|undefined>){const parsed=schema.safeParse(input);if(!parsed.success)throw Error("Invalid platform configuration: "+parsed.error.issues.map(i=>i.path.join(".")).join(", "));const e=parsed.data,environment=e.VERCEL_ENV==="production"?"production":e.VERCEL_ENV==="preview"?"preview":e.APP_ENV;if(environment==="production"&&e.NEXT_PUBLIC_APP_URL!==PRODUCTION_ORIGIN)throw Error("Production must use the configured PrepCraft origin.");if(e.PLATFORM_WORKER_URL&&(!e.PLATFORM_WORKER_URL.startsWith("https://")||new URL(e.PLATFORM_WORKER_URL).username||new URL(e.PLATFORM_WORKER_URL).pathname!=="/"))throw Error("Platform worker must be an HTTPS origin.");return {environment,productionOrigin:PRODUCTION_ORIGIN,workerOrigin:e.PLATFORM_WORKER_URL?.replace(/\/$/,""),sentryDsn:e.SENTRY_DSN,release:e.SENTRY_RELEASE}}
+export const platformEnv=parsePlatformEnvironment({APP_ENV:process.env.APP_ENV,VERCEL_ENV:process.env.VERCEL_ENV,NEXT_PUBLIC_APP_URL:process.env.NEXT_PUBLIC_APP_URL,PLATFORM_WORKER_URL:process.env.PLATFORM_WORKER_URL,SENTRY_DSN:process.env.SENTRY_DSN,SENTRY_RELEASE:process.env.SENTRY_RELEASE})
+export const allowLiveBackend=process.env.ALLOW_LIVE_BACKEND==="true"

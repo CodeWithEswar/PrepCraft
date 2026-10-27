@@ -1,0 +1,1 @@
+export default function ExecutionLoading(){return <main className="pc-execution-loading" role="status"><div className="pc-execution-loading-header"/><h1>Restoring session…</h1><p>Resolving the recorded timer and working state.</p><div className="pc-execution-loading-grid"><div/><div/></div></main>}

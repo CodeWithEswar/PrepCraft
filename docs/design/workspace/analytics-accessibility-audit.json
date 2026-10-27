@@ -1,0 +1,198 @@
+{
+  "recordedAt": "2026-10-25T20:20:59.807Z",
+  "widths": [
+    360,
+    390,
+    430,
+    768,
+    820,
+    1024,
+    1280,
+    1440,
+    1536,
+    1920
+  ],
+  "errors": [],
+  "reports": [
+    {
+      "name": "overview",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "dsa",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "timing",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "consistency",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "interviews",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "topics",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "overview",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "dsa",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "timing",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "consistency",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "interviews",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "topics",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "overview",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "dsa",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "timing",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "consistency",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "interviews",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "topics",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "overview",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "dsa",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "timing",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "consistency",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "interviews",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "topics",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "filter-drawer",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "attempt-drawer",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "evidence-lens",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "data-table-drawer",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "paged-evidence-drawer",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "paged-evidence-drawer",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    }
+  ]
+}

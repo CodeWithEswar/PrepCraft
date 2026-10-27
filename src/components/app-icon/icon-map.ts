@@ -1,4 +1,11 @@
 import {
+  Database02Icon,Calculator01Icon,CpuIcon,NetworkIcon,Coffee01Icon,
+  PauseIcon,PlayIcon,Flag01Icon,BulbIcon,KeyboardIcon,
+  DashboardSquare01Icon,
+  Target01Icon,
+  Analytics01Icon,
+  Building03Icon,
+  FireIcon,
   Search01Icon,
   Cancel01Icon,
   CheckmarkCircle01Icon,
@@ -43,6 +50,12 @@ import {
   MoreHorizontalIcon,
   MoreVerticalIcon,
   Loading03Icon,
+  SecurityCheckIcon,
+  SecurityLockIcon,
+  FloppyDiskIcon,
+  Logout01Icon,
+  VolumeHighIcon,
+  VolumeMute01Icon,
 } from "@hugeicons/core-free-icons"
 import type { AppIconName, AppIconSize, HugeiconData } from "./icon.types"
 
@@ -54,7 +67,31 @@ export const ICON_SIZE_MAP: Record<AppIconSize, number> = {
   xl: 32,
 }
 
+const SidebarIcon: HugeiconData = [
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "0" }],
+  ["path", { d: "M9 3v18", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "1" }],
+]
+
+const SidebarCloseIcon: HugeiconData = [
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "0" }],
+  ["path", { d: "M9 3v18", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "1" }],
+  ["path", { d: "m16 15-3-3 3-3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "2" }],
+]
+
+const SidebarOpenIcon: HugeiconData = [
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "0" }],
+  ["path", { d: "M9 3v18", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "1" }],
+  ["path", { d: "m14 9 3 3-3 3", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", key: "2" }],
+]
+
 export const APP_ICON_MAP: Record<AppIconName, HugeiconData> = {
+  database:Database02Icon,calculator:Calculator01Icon,cpu:CpuIcon,network:NetworkIcon,coffee:Coffee01Icon,
+  pause: PauseIcon,play: PlayIcon,flag: Flag01Icon,hint: BulbIcon,keyboard: KeyboardIcon,
+  dashboard: DashboardSquare01Icon,
+  target: Target01Icon,
+  chart: Analytics01Icon,
+  building: Building03Icon,
+  flame: FireIcon,
   search: Search01Icon,
   close: Cancel01Icon,
   check: CheckmarkCircle01Icon,
@@ -100,4 +137,14 @@ export const APP_ICON_MAP: Record<AppIconName, HugeiconData> = {
   "more-horizontal": MoreHorizontalIcon,
   "more-vertical": MoreVerticalIcon,
   spinner: Loading03Icon,
+  shield: SecurityCheckIcon,
+  lock: SecurityLockIcon,
+  save: FloppyDiskIcon,
+  logout: Logout01Icon,
+  exit: Logout01Icon,
+  sidebar: SidebarIcon,
+  "sidebar-close": SidebarCloseIcon,
+  "sidebar-open": SidebarOpenIcon,
+  "volume-high": VolumeHighIcon,
+  "volume-mute": VolumeMute01Icon,
 }

@@ -1,0 +1,16 @@
+# 0064: Quiet-hour deferral
+
+Status: accepted
+Date: 2026-10-26
+
+## Context
+
+Phase 18 needs reliable personal reminders across workspaces, background delivery and historical reporting, with honest source limits and no private data in transport logs.
+
+## Decision
+
+Defer noncritical delivery until the local quiet end instead of dropping it. Revalidate before send and use a dated outbox wake-up so long snoozes do not exhaust queue retries.
+
+## Consequences
+
+The notification platform owns delivery orchestration while existing domains retain preparation and evidence authority. Changes must preserve owner/live-membership checks, replay safety and explicit failure states. See docs/architecture/notification-engine.md and docs/operations/notification-delivery.md for implementation and recovery.

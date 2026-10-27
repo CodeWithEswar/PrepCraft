@@ -5,6 +5,9 @@ const contextSchema = z.object({
   eventId: z.uuid().optional(),
   code: z.enum(["validation", "unauthenticated", "forbidden", "not_found", "conflict", "rate_limited", "unavailable", "unexpected"]).optional(),
   durationMs: z.number().finite().nonnegative().optional(),
+  payloadBytes: z.number().int().nonnegative().max(100000000).optional(),
+  pointCount: z.number().int().nonnegative().max(1000).optional(),
+  view: z.enum(["overview","dsa","timing","consistency","interviews","topics"]).optional(),
 })
 
 // Allowlist fields: unknown context (tokens, body, email, error.stack) is dropped.

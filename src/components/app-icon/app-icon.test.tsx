@@ -24,4 +24,12 @@ describe("AppIcon Component", () => {
     expect(svg).toHaveAttribute("width", "16")
     expect(svg).toHaveAttribute("height", "16")
   })
+
+  it("renders sidebar-close and sidebar-open icons cleanly", () => {
+    const { container: closeContainer } = render(<AppIcon icon="sidebar-close" />)
+    expect(closeContainer.querySelector("svg")).toBeInTheDocument()
+
+    const { container: openContainer } = render(<AppIcon icon="sidebar-open" />)
+    expect(openContainer.querySelector("svg")).toBeInTheDocument()
+  })
 })

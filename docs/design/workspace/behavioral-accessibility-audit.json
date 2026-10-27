@@ -1,0 +1,126 @@
+{
+  "recordedAt": "2026-10-25T13:59:58.701Z",
+  "widths": [
+    360,
+    390,
+    430,
+    768,
+    820,
+    1024,
+    1280,
+    1440,
+    1536,
+    1920
+  ],
+  "errors": [],
+  "reports": [
+    {
+      "name": "portfolio",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "forge",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "practice",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "reflection",
+      "mobile": false,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "portfolio",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "forge",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "practice",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "reflection",
+      "mobile": false,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "portfolio",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "story-drawer",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "forge",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "practice",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "reflection",
+      "mobile": true,
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "name": "portfolio",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "story-drawer",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "forge",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "practice",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "name": "reflection",
+      "mobile": true,
+      "theme": "Dark",
+      "violations": []
+    }
+  ]
+}

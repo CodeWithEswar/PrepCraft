@@ -1,0 +1,29 @@
+{
+ "$schema":"../../node_modules/wrangler/config-schema.json",
+ "name":"prepcraft-platform-local",
+ "main":"../workers/platform/index.ts",
+ "compatibility_date":"2026-10-27",
+ "compatibility_flags":["nodejs_compat"],
+ "account_id":"f6f768c9f3a0e4bc0084751154c97e75",
+ "workers_dev":false,
+ "vars":{"ENVIRONMENT":"local","APP_ORIGIN":"http://localhost:3031","SUPABASE_URL":"http://127.0.0.1:54321"},
+ "r2_buckets":[{"binding":"FILES","bucket_name":"prepcraft-preview-files"}],
+ "ratelimits":[{"name":"FILE_LIMIT","namespace_id":"20261027","simple":{"limit":30,"period":60}}],
+ "queues":{"producers":[{"binding":"PLATFORM_JOBS","queue":"prepcraft-platform-local"}]},
+ "env":{
+  "production":{
+   "name":"prepcraft-platform","workers_dev":true,"observability":{"enabled":true},
+   "vars":{"ENVIRONMENT":"production","APP_ORIGIN":"https://prepcraft.vercel.app","SUPABASE_URL":"https://tkfqomwymkgcnjakppon.supabase.co"},
+   "r2_buckets":[{"binding":"FILES","bucket_name":"prepcraft-private-files"}],
+   "ratelimits":[{"name":"FILE_LIMIT","namespace_id":"20261028","simple":{"limit":30,"period":60}}],
+   "triggers":{"crons":["*/5 * * * *"]},
+   "queues":{
+    "producers":[{"binding":"PLATFORM_JOBS","queue":"prepcraft-platform-jobs"}],
+    "consumers":[
+     {"queue":"prepcraft-platform-jobs","max_batch_size":2,"max_batch_timeout":5,"max_retries":5,"dead_letter_queue":"prepcraft-platform-jobs-dlq","max_concurrency":1},
+     {"queue":"prepcraft-platform-jobs-dlq","max_batch_size":2,"max_retries":5,"max_concurrency":1}
+    ]
+   }
+  }
+ }
+}

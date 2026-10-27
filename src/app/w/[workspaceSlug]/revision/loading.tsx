@@ -1,0 +1,2 @@
+import { Skeleton } from "@/components/ui/skeleton"
+export default function RevisionLoading(){return <div className="grid gap-4" role="status"><span className="sr-only">Loading Revision</span><Skeleton className="h-28 rounded-xl"/><div className="grid gap-4 md:grid-cols-2"><Skeleton className="h-80 rounded-xl"/><Skeleton className="h-80 rounded-xl"/></div><Skeleton className="h-72 rounded-xl"/></div>}

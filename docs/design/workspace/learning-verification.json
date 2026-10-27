@@ -1,0 +1,18 @@
+{
+  "recordedAt": "2026-10-25T12:16:03.201Z",
+  "unitTests": 337,
+  "databaseChecks": 69,
+  "productionBrowserTests": 15,
+  "responsiveViewports": 10,
+  "accessibilityReports": 18,
+  "accessibilityViolations": 0,
+  "productionBuild": "passed",
+  "migrations": [
+    "20261025105708",
+    "20261025120035",
+    "20261025121332"
+  ],
+  "publishedConcepts": 25,
+  "publishedActivities": 25,
+  "javaRunner": "unavailable"
+}

@@ -3,6 +3,8 @@ import { createServerClient } from "@supabase/ssr"
 import { getSupabaseEnvironment } from "@/lib/env/public"
 import { NextResponse, type NextRequest } from "next/server"
 import type { Database } from "./types"
+import { platformEnv,allowLiveBackend } from "@/lib/env/platform"
+import { verifyBackendIsolation } from "@/lib/env/backend-isolation"
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -11,6 +13,7 @@ export async function updateSession(request: NextRequest) {
   const refreshHeaders = new Headers()
 
   const { url, key } = getSupabaseEnvironment()
+  verifyBackendIsolation(url,platformEnv.environment,allowLiveBackend)
 
   const supabase = createServerClient<Database>(url, key, {
     cookies: {
@@ -28,7 +31,9 @@ export async function updateSession(request: NextRequest) {
           supabaseResponse.cookies.set(name, value, options)
         )
         // SSR 0.12 supplies cache-protection headers alongside refreshed cookies.
-        for (const [name, value] of Object.entries(headers)) refreshHeaders.set(name, value)
+        if (headers) {
+          for (const [name, value] of Object.entries(headers)) refreshHeaders.set(name, value)
+        }
         refreshHeaders.forEach((value, name) => supabaseResponse.headers.set(name, value))
       },
     },

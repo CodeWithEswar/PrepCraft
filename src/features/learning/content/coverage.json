@@ -1,0 +1,1432 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "id": "aptitude",
+      "name": "Aptitude",
+      "tagline": "Build reasoning",
+      "icon": "calculator",
+      "trackId": "aptitude",
+      "source": "https://openstax.org/details/books/prealgebra-2e"
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "tagline": "Think in code",
+      "icon": "coffee",
+      "trackId": "programming-language",
+      "source": "https://docs.oracle.com/en/java/javase/25/"
+    },
+    {
+      "id": "sql-dbms",
+      "name": "SQL & DBMS",
+      "tagline": "Work with data",
+      "icon": "database",
+      "trackId": "databases-sql",
+      "source": "https://www.postgresql.org/docs/current/tutorial.html"
+    },
+    {
+      "id": "operating-systems",
+      "name": "Operating Systems",
+      "tagline": "Understand systems",
+      "icon": "cpu",
+      "trackId": "cs-fundamentals",
+      "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/"
+    },
+    {
+      "id": "networks",
+      "name": "Computer Networks",
+      "tagline": "Connect the world",
+      "icon": "network",
+      "trackId": "cs-fundamentals",
+      "source": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+    }
+  ],
+  "topics": [
+    {
+      "id": "learn-aptitude-number-systems",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Number Systems",
+      "sort": 0,
+      "concepts": [
+        "Number classification",
+        "Natural numbers",
+        "Whole numbers",
+        "Integers",
+        "Rational numbers",
+        "Irrational numbers",
+        "Real numbers",
+        "Prime numbers",
+        "Composite numbers",
+        "Even and odd numbers",
+        "Factors",
+        "Multiples",
+        "Divisibility rules",
+        "Prime factorization",
+        "HCF / GCD",
+        "LCM",
+        "Relationship between HCF and LCM",
+        "Remainders",
+        "Modular reasoning",
+        "Unit digit",
+        "Last two digits",
+        "Trailing zeros",
+        "Number of factors",
+        "Sum of factors",
+        "Perfect numbers",
+        "Cyclic patterns"
+      ]
+    },
+    {
+      "id": "learn-aptitude-percentages",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Percentages",
+      "sort": 1,
+      "concepts": [
+        "Percentage fundamentals",
+        "Fraction ↔ percentage conversion",
+        "Decimal ↔ percentage",
+        "Percentage increase",
+        "Percentage decrease",
+        "Successive percentage change",
+        "Reverse percentage",
+        "Population change",
+        "Price change",
+        "Marks and scores",
+        "Percentage comparison",
+        "Percentage-point difference",
+        "Repeated percentage changes"
+      ]
+    },
+    {
+      "id": "learn-aptitude-ratio-proportion",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Ratio & Proportion",
+      "sort": 2,
+      "concepts": [
+        "Ratio fundamentals",
+        "Equivalent ratios",
+        "Simplification",
+        "Proportion",
+        "Direct proportion",
+        "Inverse proportion",
+        "Compound ratio",
+        "Continued proportion",
+        "Division in a ratio",
+        "Partnership",
+        "Mixtures",
+        "Age problems",
+        "Ratio change problems"
+      ]
+    },
+    {
+      "id": "learn-aptitude-average",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Average",
+      "sort": 3,
+      "concepts": [
+        "Arithmetic mean",
+        "Weighted average",
+        "Combined average",
+        "Average after adding/removing values",
+        "Average speed distinction",
+        "Missing value",
+        "Age averages",
+        "Marks averages",
+        "Replacement problems"
+      ]
+    },
+    {
+      "id": "learn-aptitude-profit-loss-discount",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Profit, Loss & Discount",
+      "sort": 4,
+      "concepts": [
+        "Cost price",
+        "Selling price",
+        "Marked price",
+        "Profit",
+        "Loss",
+        "Profit percentage",
+        "Loss percentage",
+        "Discount",
+        "Successive discounts",
+        "Markup",
+        "False weights",
+        "Multiple transaction problems"
+      ]
+    },
+    {
+      "id": "learn-aptitude-simple-compound-interest",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Simple & Compound Interest",
+      "sort": 5,
+      "concepts": [
+        "Principal",
+        "Rate",
+        "Time",
+        "Simple interest",
+        "Compound interest",
+        "Annual compounding",
+        "Half-yearly compounding",
+        "Quarterly compounding",
+        "Difference between SI and CI",
+        "Growth",
+        "Depreciation"
+      ]
+    },
+    {
+      "id": "learn-aptitude-time-work",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Time & Work",
+      "sort": 6,
+      "concepts": [
+        "Work rate",
+        "Individual efficiency",
+        "Combined work",
+        "Men-days",
+        "Alternate work",
+        "Partial work",
+        "Work equivalence",
+        "Pipes and cisterns",
+        "Leak problems",
+        "Efficiency ratios",
+        "Wages proportional to work"
+      ]
+    },
+    {
+      "id": "learn-aptitude-speed-time-distance",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Speed, Time & Distance",
+      "sort": 7,
+      "concepts": [
+        "speed = distance / time",
+        "unit conversion",
+        "relative speed",
+        "average speed",
+        "trains",
+        "platforms",
+        "boats and streams",
+        "races",
+        "circular tracks",
+        "meeting problems",
+        "catch-up problems",
+        "stoppage problems"
+      ]
+    },
+    {
+      "id": "learn-aptitude-permutations-combinations",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Permutations & Combinations",
+      "sort": 8,
+      "concepts": [
+        "factorials",
+        "fundamental counting principle",
+        "permutations",
+        "combinations",
+        "arrangements",
+        "selection",
+        "repeated objects",
+        "circular permutations",
+        "restricted arrangements",
+        "digit formation",
+        "word arrangements",
+        "committee selection"
+      ]
+    },
+    {
+      "id": "learn-aptitude-probability",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Probability",
+      "sort": 9,
+      "concepts": [
+        "sample space",
+        "events",
+        "favorable outcomes",
+        "complement",
+        "mutually exclusive events",
+        "independent events",
+        "conditional probability",
+        "coins",
+        "dice",
+        "cards",
+        "selection probability",
+        "basic Bayes intuition where appropriate"
+      ]
+    },
+    {
+      "id": "learn-aptitude-algebra",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Algebra",
+      "sort": 10,
+      "concepts": [
+        "linear equations",
+        "simultaneous equations",
+        "quadratic equations",
+        "identities",
+        "inequalities",
+        "indices",
+        "surds",
+        "logarithms",
+        "functions",
+        "progressions",
+        "AP",
+        "GP",
+        "basic HP"
+      ]
+    },
+    {
+      "id": "learn-aptitude-geometry-mensuration",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Geometry & Mensuration",
+      "sort": 11,
+      "concepts": [
+        "lines and angles",
+        "triangles",
+        "quadrilaterals",
+        "polygons",
+        "circles",
+        "coordinate basics",
+        "perimeter",
+        "area",
+        "surface area",
+        "volume",
+        "2D mensuration",
+        "3D mensuration"
+      ]
+    },
+    {
+      "id": "learn-aptitude-logical-reasoning",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Logical Reasoning",
+      "sort": 12,
+      "concepts": [
+        "number series",
+        "alphabet series",
+        "analogy",
+        "classification",
+        "coding-decoding",
+        "blood relations",
+        "direction sense",
+        "ranking",
+        "ordering",
+        "seating arrangements",
+        "linear arrangements",
+        "circular arrangements",
+        "puzzles",
+        "syllogisms",
+        "Venn diagrams",
+        "statement and conclusion",
+        "statement and assumption",
+        "statement and inference",
+        "data sufficiency",
+        "logical connectives",
+        "clocks",
+        "calendars"
+      ]
+    },
+    {
+      "id": "learn-aptitude-verbal-ability",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Verbal Ability",
+      "sort": 13,
+      "concepts": [
+        "reading comprehension",
+        "sentence completion",
+        "sentence correction",
+        "error spotting",
+        "subject-verb agreement",
+        "articles",
+        "prepositions",
+        "tenses",
+        "active/passive voice",
+        "direct/indirect speech",
+        "vocabulary",
+        "synonyms",
+        "antonyms",
+        "analogies",
+        "para jumbles",
+        "sentence ordering",
+        "cloze tests",
+        "inference",
+        "tone",
+        "main idea"
+      ]
+    },
+    {
+      "id": "learn-aptitude-data-interpretation",
+      "subjectId": "aptitude",
+      "trackId": "aptitude",
+      "name": "Data Interpretation",
+      "sort": 14,
+      "concepts": [
+        "tables",
+        "bar charts",
+        "line charts",
+        "pie charts",
+        "mixed charts",
+        "caselets",
+        "percentage comparison",
+        "ratio comparison",
+        "growth",
+        "averages",
+        "approximation",
+        "multi-step DI"
+      ]
+    },
+    {
+      "id": "learn-java-fundamentals",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Fundamentals",
+      "sort": 15,
+      "concepts": [
+        "Java platform overview",
+        "JDK",
+        "JRE",
+        "JVM",
+        "source → bytecode → JVM",
+        "main method",
+        "variables",
+        "primitive types",
+        "reference types",
+        "type casting",
+        "operators",
+        "control flow",
+        "loops",
+        "arrays",
+        "strings",
+        "String immutability",
+        "StringBuilder",
+        "StringBuffer",
+        "methods",
+        "method parameters",
+        "varargs",
+        "packages",
+        "access modifiers"
+      ]
+    },
+    {
+      "id": "learn-java-oop",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "OOP",
+      "sort": 16,
+      "concepts": [
+        "class",
+        "object",
+        "constructor",
+        "this",
+        "static",
+        "final",
+        "encapsulation",
+        "inheritance",
+        "polymorphism",
+        "abstraction",
+        "interfaces",
+        "abstract classes",
+        "method overloading",
+        "method overriding",
+        "dynamic dispatch",
+        "composition",
+        "aggregation",
+        "association",
+        "IS-A",
+        "HAS-A",
+        "SOLID awareness where interview relevant"
+      ]
+    },
+    {
+      "id": "learn-java-object-model",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Object Model",
+      "sort": 17,
+      "concepts": [
+        "Object class",
+        "equals()",
+        "hashCode()",
+        "toString()",
+        "clone concepts",
+        "identity vs equality",
+        "immutable objects",
+        "records where relevant",
+        "enums"
+      ]
+    },
+    {
+      "id": "learn-java-collections-framework",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Collections Framework",
+      "sort": 18,
+      "concepts": [
+        "Collection hierarchy",
+        "List",
+        "ArrayList",
+        "LinkedList",
+        "Vector awareness",
+        "Stack awareness",
+        "Set",
+        "HashSet",
+        "LinkedHashSet",
+        "TreeSet",
+        "Queue",
+        "Deque",
+        "PriorityQueue",
+        "Map",
+        "HashMap",
+        "LinkedHashMap",
+        "TreeMap",
+        "Hashtable awareness",
+        "ConcurrentHashMap"
+      ]
+    },
+    {
+      "id": "learn-java-hashmap-deep-dive",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "HashMap Deep Dive",
+      "sort": 19,
+      "concepts": [
+        "hashing",
+        "hashCode",
+        "bucket selection",
+        "collision",
+        "equals",
+        "load factor",
+        "capacity",
+        "resize",
+        "collision chains/treeification concept",
+        "mutable keys",
+        "HashMap vs Hashtable",
+        "HashMap vs ConcurrentHashMap"
+      ]
+    },
+    {
+      "id": "learn-java-generics",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Generics",
+      "sort": 20,
+      "concepts": [
+        "generic classes",
+        "generic methods",
+        "type parameters",
+        "bounded types",
+        "wildcards",
+        "? extends",
+        "? super",
+        "PECS",
+        "type erasure",
+        "generic limitations"
+      ]
+    },
+    {
+      "id": "learn-java-exceptions",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Exceptions",
+      "sort": 21,
+      "concepts": [
+        "Throwable",
+        "Error",
+        "Exception",
+        "checked exceptions",
+        "unchecked exceptions",
+        "try",
+        "catch",
+        "finally",
+        "throw",
+        "throws",
+        "multiple catch",
+        "custom exceptions",
+        "try-with-resources",
+        "exception propagation",
+        "best practices"
+      ]
+    },
+    {
+      "id": "learn-java-memory-jvm",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Memory & JVM",
+      "sort": 22,
+      "concepts": [
+        "JVM architecture overview",
+        "class loading",
+        "heap",
+        "stack",
+        "metaspace",
+        "program counter",
+        "native method stack",
+        "object allocation",
+        "references",
+        "garbage collection basics",
+        "reachability",
+        "strong/weak references awareness",
+        "JIT",
+        "bytecode",
+        "class loaders"
+      ]
+    },
+    {
+      "id": "learn-java-concurrency",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Concurrency",
+      "sort": 23,
+      "concepts": [
+        "process vs thread",
+        "Thread",
+        "Runnable",
+        "Callable",
+        "Future",
+        "ExecutorService",
+        "thread lifecycle",
+        "race conditions",
+        "critical sections",
+        "synchronized",
+        "locks",
+        "volatile",
+        "atomic classes",
+        "deadlock",
+        "livelock",
+        "starvation",
+        "thread pools",
+        "ConcurrentHashMap",
+        "producer-consumer",
+        "wait/notify",
+        "happens-before basics"
+      ]
+    },
+    {
+      "id": "learn-java-modern-java-fundamentals",
+      "subjectId": "java",
+      "trackId": "programming-language",
+      "name": "Modern Java Fundamentals",
+      "sort": 24,
+      "concepts": [
+        "lambdas",
+        "functional interfaces",
+        "method references",
+        "streams",
+        "Optional",
+        "records",
+        "switch expressions",
+        "basic CompletableFuture awareness"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-fundamentals",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Fundamentals",
+      "sort": 25,
+      "concepts": [
+        "database",
+        "table",
+        "row",
+        "column",
+        "schema",
+        "data types",
+        "NULL",
+        "CREATE",
+        "ALTER",
+        "DROP",
+        "TRUNCATE",
+        "INSERT",
+        "UPDATE",
+        "DELETE",
+        "SELECT",
+        "WHERE",
+        "ORDER BY",
+        "DISTINCT",
+        "LIMIT / equivalent concept"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-filtering",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Filtering",
+      "sort": 26,
+      "concepts": [
+        "comparison operators",
+        "AND",
+        "OR",
+        "NOT",
+        "BETWEEN",
+        "IN",
+        "LIKE",
+        "wildcards",
+        "IS NULL",
+        "IS NOT NULL"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-aggregation",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Aggregation",
+      "sort": 27,
+      "concepts": [
+        "COUNT",
+        "SUM",
+        "AVG",
+        "MIN",
+        "MAX",
+        "GROUP BY",
+        "HAVING",
+        "conditional aggregation"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-joins",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Joins",
+      "sort": 28,
+      "concepts": [
+        "INNER JOIN",
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "FULL OUTER JOIN",
+        "CROSS JOIN",
+        "SELF JOIN",
+        "multiple joins",
+        "join conditions",
+        "duplicate amplification",
+        "NULL behavior"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-subqueries",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Subqueries",
+      "sort": 29,
+      "concepts": [
+        "scalar subquery",
+        "multi-row subquery",
+        "correlated subquery",
+        "EXISTS",
+        "NOT EXISTS",
+        "IN vs EXISTS concepts"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-ctes",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "CTEs",
+      "sort": 30,
+      "concepts": [
+        "WITH",
+        "multiple CTEs",
+        "recursive CTE concept",
+        "CTE vs subquery tradeoffs"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-window-functions",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Window Functions",
+      "sort": 31,
+      "concepts": [
+        "OVER",
+        "PARTITION BY",
+        "ORDER BY",
+        "ROW_NUMBER",
+        "RANK",
+        "DENSE_RANK",
+        "LAG",
+        "LEAD",
+        "FIRST_VALUE",
+        "LAST_VALUE",
+        "running totals",
+        "moving aggregates"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-interview-patterns",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Interview Patterns",
+      "sort": 32,
+      "concepts": [
+        "Nth highest salary",
+        "second highest salary",
+        "duplicates",
+        "remove duplicates",
+        "top N per group",
+        "running total",
+        "consecutive records",
+        "gaps",
+        "employee-manager hierarchy",
+        "customers with no orders",
+        "latest record per group",
+        "retention-style queries",
+        "conditional aggregation"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-dbms-fundamentals",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "DBMS Fundamentals",
+      "sort": 34,
+      "concepts": [
+        "DBMS vs file system",
+        "data abstraction",
+        "schemas",
+        "instances",
+        "data models",
+        "relational model",
+        "keys",
+        "super key",
+        "candidate key",
+        "primary key",
+        "foreign key",
+        "composite key",
+        "constraints",
+        "referential integrity"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-er-modeling",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "ER Modeling",
+      "sort": 35,
+      "concepts": [
+        "entities",
+        "attributes",
+        "relationships",
+        "cardinality",
+        "participation",
+        "weak entities",
+        "ER → relational mapping"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-normalization",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Normalization",
+      "sort": 36,
+      "concepts": [
+        "functional dependencies",
+        "partial dependency",
+        "transitive dependency",
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF",
+        "decomposition",
+        "lossless decomposition",
+        "dependency preservation",
+        "denormalization tradeoffs"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-indexes",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Indexes",
+      "sort": 37,
+      "concepts": [
+        "why indexes exist",
+        "B-tree concept",
+        "hash index concept",
+        "clustered/nonclustered concept with vendor caveats",
+        "single-column index",
+        "composite index",
+        "leftmost-prefix concept where applicable",
+        "covering index concept",
+        "selectivity",
+        "cardinality",
+        "index scan",
+        "table scan",
+        "write cost",
+        "over-indexing"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-transactions",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Transactions",
+      "sort": 38,
+      "concepts": [
+        "transaction",
+        "ACID",
+        "atomicity",
+        "consistency",
+        "isolation",
+        "durability",
+        "COMMIT",
+        "ROLLBACK",
+        "SAVEPOINT"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-concurrency-problems",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Concurrency Problems",
+      "sort": 39,
+      "concepts": [
+        "dirty read",
+        "non-repeatable read",
+        "phantom read",
+        "lost update",
+        "write skew awareness"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-isolation-levels",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Isolation Levels",
+      "sort": 40,
+      "concepts": [
+        "Read Uncommitted",
+        "Read Committed",
+        "Repeatable Read",
+        "Serializable"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-locks",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Locks",
+      "sort": 41,
+      "concepts": [
+        "shared lock",
+        "exclusive lock",
+        "row/table concepts",
+        "lock compatibility",
+        "blocking",
+        "deadlocks",
+        "deadlock detection",
+        "optimistic concurrency",
+        "pessimistic concurrency"
+      ]
+    },
+    {
+      "id": "learn-sql-dbms-query-optimization-fundamentals",
+      "subjectId": "sql-dbms",
+      "trackId": "databases-sql",
+      "name": "Query Optimization Fundamentals",
+      "sort": 42,
+      "concepts": [
+        "execution plans",
+        "scan vs seek concept",
+        "join algorithms awareness",
+        "indexes",
+        "filter selectivity",
+        "avoiding unnecessary columns",
+        "N+1 application query problem",
+        "pagination",
+        "sorting cost"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-foundations",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Foundations",
+      "sort": 43,
+      "concepts": [
+        "what is an operating system",
+        "kernel",
+        "user mode",
+        "kernel mode",
+        "system calls",
+        "interrupts",
+        "exceptions/traps",
+        "monolithic kernel",
+        "microkernel concept",
+        "boot process overview"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-processes",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Processes",
+      "sort": 44,
+      "concepts": [
+        "program vs process",
+        "process states",
+        "PCB",
+        "context switching",
+        "process creation",
+        "process termination",
+        "parent/child processes",
+        "zombie",
+        "orphan",
+        "IPC overview"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-threads",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Threads",
+      "sort": 45,
+      "concepts": [
+        "process vs thread",
+        "user threads",
+        "kernel threads",
+        "multithreading",
+        "thread states",
+        "context switching",
+        "thread safety",
+        "shared address space"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-cpu-scheduling",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "CPU Scheduling",
+      "sort": 46,
+      "concepts": [
+        "FCFS",
+        "SJF",
+        "SRTF",
+        "Priority Scheduling",
+        "Round Robin",
+        "multilevel queue",
+        "multilevel feedback queue",
+        "turnaround time",
+        "waiting time",
+        "response time",
+        "throughput",
+        "starvation",
+        "aging"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-synchronization",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Synchronization",
+      "sort": 47,
+      "concepts": [
+        "race condition",
+        "critical section",
+        "mutual exclusion",
+        "mutex",
+        "semaphore",
+        "binary semaphore",
+        "counting semaphore",
+        "monitor concept",
+        "spinlock awareness",
+        "condition variables",
+        "producer-consumer",
+        "readers-writers",
+        "dining philosophers"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-deadlocks",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Deadlocks",
+      "sort": 48,
+      "concepts": [
+        "deadlock definition",
+        "mutual exclusion",
+        "hold and wait",
+        "no preemption",
+        "circular wait",
+        "resource allocation graph",
+        "prevention",
+        "avoidance",
+        "detection",
+        "recovery",
+        "Banker's Algorithm"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-memory-management",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Memory Management",
+      "sort": 49,
+      "concepts": [
+        "logical address",
+        "physical address",
+        "address translation",
+        "contiguous allocation",
+        "fragmentation",
+        "internal fragmentation",
+        "external fragmentation",
+        "paging",
+        "page table",
+        "TLB",
+        "segmentation",
+        "paging vs segmentation"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-virtual-memory",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "Virtual Memory",
+      "sort": 50,
+      "concepts": [
+        "virtual memory",
+        "demand paging",
+        "page fault",
+        "page replacement",
+        "FIFO",
+        "Optimal",
+        "LRU",
+        "Belady's anomaly",
+        "thrashing",
+        "working-set concept",
+        "locality"
+      ]
+    },
+    {
+      "id": "learn-operating-systems-file-systems",
+      "subjectId": "operating-systems",
+      "trackId": "cs-fundamentals",
+      "name": "File Systems",
+      "sort": 51,
+      "concepts": [
+        "file",
+        "directory",
+        "metadata",
+        "file allocation",
+        "inode concept",
+        "free-space management",
+        "permissions",
+        "journaling concept"
+      ]
+    },
+    {
+      "id": "learn-networks-foundations",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "Foundations",
+      "sort": 52,
+      "concepts": [
+        "network",
+        "LAN",
+        "WAN",
+        "internet",
+        "protocol",
+        "packet",
+        "frame",
+        "segment",
+        "bandwidth",
+        "latency",
+        "throughput",
+        "jitter",
+        "packet loss"
+      ]
+    },
+    {
+      "id": "learn-networks-osi-tcp-ip",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "OSI & TCP/IP",
+      "sort": 53,
+      "concepts": [
+        "OSI layers",
+        "TCP/IP model",
+        "encapsulation",
+        "decapsulation",
+        "layer responsibilities",
+        "common protocols by layer"
+      ]
+    },
+    {
+      "id": "learn-networks-physical-data-link-fundamentals",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "Physical/Data Link Fundamentals",
+      "sort": 54,
+      "concepts": [
+        "MAC address",
+        "Ethernet",
+        "switch",
+        "ARP",
+        "frame",
+        "collision concepts",
+        "VLAN awareness"
+      ]
+    },
+    {
+      "id": "learn-networks-ip",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "IP",
+      "sort": 55,
+      "concepts": [
+        "IPv4",
+        "IPv6 awareness",
+        "IP address",
+        "subnet mask",
+        "CIDR",
+        "subnetting",
+        "private addresses",
+        "public addresses",
+        "NAT",
+        "routing",
+        "default gateway",
+        "TTL"
+      ]
+    },
+    {
+      "id": "learn-networks-tcp",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "TCP",
+      "sort": 56,
+      "concepts": [
+        "connection-oriented transport",
+        "three-way handshake",
+        "sequence numbers",
+        "acknowledgements",
+        "retransmission",
+        "flow control",
+        "congestion control overview",
+        "sliding window concept",
+        "connection termination",
+        "TIME_WAIT",
+        "reliability"
+      ]
+    },
+    {
+      "id": "learn-networks-udp",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "UDP",
+      "sort": 57,
+      "concepts": [
+        "connectionless transport",
+        "datagrams",
+        "no delivery guarantee",
+        "ordering",
+        "lower overhead",
+        "common use cases",
+        "TCP vs UDP"
+      ]
+    },
+    {
+      "id": "learn-networks-dns",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "DNS",
+      "sort": 58,
+      "concepts": [
+        "domain names",
+        "resolver",
+        "recursive query",
+        "iterative query",
+        "root server",
+        "TLD",
+        "authoritative nameserver",
+        "A",
+        "AAAA",
+        "CNAME",
+        "MX",
+        "TXT",
+        "TTL",
+        "DNS caching"
+      ]
+    },
+    {
+      "id": "learn-networks-http",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "HTTP",
+      "sort": 59,
+      "concepts": [
+        "request",
+        "response",
+        "methods",
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "HEAD",
+        "status codes",
+        "headers",
+        "body",
+        "content types",
+        "idempotency",
+        "safe methods",
+        "HTTP/1.1",
+        "HTTP/2 concepts",
+        "HTTP/3 awareness"
+      ]
+    },
+    {
+      "id": "learn-networks-https-tls",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "HTTPS & TLS",
+      "sort": 60,
+      "concepts": [
+        "HTTP vs HTTPS",
+        "TLS purpose",
+        "certificate",
+        "certificate authority",
+        "public/private keys",
+        "symmetric encryption",
+        "asymmetric encryption",
+        "TLS handshake high-level flow",
+        "certificate validation"
+      ]
+    },
+    {
+      "id": "learn-networks-sockets",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "Sockets",
+      "sort": 61,
+      "concepts": [
+        "socket",
+        "IP + port",
+        "client socket",
+        "server socket",
+        "bind",
+        "listen",
+        "accept",
+        "connect",
+        "send",
+        "receive",
+        "TCP socket",
+        "UDP socket"
+      ]
+    },
+    {
+      "id": "learn-networks-rest",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "REST",
+      "sort": 62,
+      "concepts": [
+        "resource-oriented APIs",
+        "HTTP methods",
+        "status codes",
+        "statelessness",
+        "idempotency",
+        "representation",
+        "REST constraints at interview depth"
+      ]
+    },
+    {
+      "id": "learn-networks-cookies-sessions",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "Cookies & Sessions",
+      "sort": 63,
+      "concepts": [
+        "Cookie header",
+        "Set-Cookie",
+        "session ID",
+        "server-side session",
+        "expiration",
+        "Secure",
+        "HttpOnly",
+        "SameSite",
+        "session fixation awareness"
+      ]
+    },
+    {
+      "id": "learn-networks-jwt",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "JWT",
+      "sort": 64,
+      "concepts": [
+        "header",
+        "payload",
+        "signature",
+        "claims",
+        "expiration",
+        "verification",
+        "JWT vs session",
+        "revocation tradeoffs",
+        "storage concerns"
+      ]
+    },
+    {
+      "id": "learn-networks-cors",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "CORS",
+      "sort": 65,
+      "concepts": [
+        "same-origin policy",
+        "origin",
+        "simple request",
+        "preflight",
+        "OPTIONS",
+        "Access-Control-Allow-Origin",
+        "credentials",
+        "common misconceptions"
+      ]
+    },
+    {
+      "id": "learn-networks-cdn",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "CDN",
+      "sort": 66,
+      "concepts": [
+        "edge caching",
+        "origin",
+        "cache hit",
+        "cache miss",
+        "TTL",
+        "static content",
+        "latency reduction",
+        "cache invalidation"
+      ]
+    },
+    {
+      "id": "learn-networks-load-balancing",
+      "subjectId": "networks",
+      "trackId": "cs-fundamentals",
+      "name": "Load Balancing",
+      "sort": 67,
+      "concepts": [
+        "load balancer",
+        "Layer 4",
+        "Layer 7",
+        "round robin",
+        "least connections",
+        "health checks",
+        "sticky sessions",
+        "reverse proxy",
+        "horizontal scaling"
+      ]
+    }
+  ]
+}

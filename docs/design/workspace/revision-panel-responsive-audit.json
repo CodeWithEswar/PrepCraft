@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-10-25T10:32:02.360Z",
+  "reports": [
+    {
+      "width": 240,
+      "overflow": false,
+      "circleWidth": 18,
+      "circleHeight": 18,
+      "markerOffset": 0.015625,
+      "columns": "288px"
+    },
+    {
+      "width": 280,
+      "overflow": false,
+      "circleWidth": 18,
+      "circleHeight": 18,
+      "markerOffset": 0.015625,
+      "columns": "288px"
+    },
+    {
+      "width": 310,
+      "overflow": false,
+      "circleWidth": 18,
+      "circleHeight": 18,
+      "markerOffset": 0.0078125,
+      "columns": "218px"
+    },
+    {
+      "width": 350,
+      "overflow": false,
+      "circleWidth": 18,
+      "circleHeight": 18,
+      "markerOffset": 0.015625,
+      "columns": "248px"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "circleWidth": 18,
+      "circleHeight": 18,
+      "markerOffset": 0.015625,
+      "columns": "288px"
+    },
+    {
+      "width": 480,
+      "overflow": false,
+      "circleWidth": 18,
+      "circleHeight": 18,
+      "markerOffset": 0.015625,
+      "columns": "163.5px 163.5px"
+    }
+  ]
+}

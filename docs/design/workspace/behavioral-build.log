@@ -1,0 +1,101 @@
+
+> prepcraft@0.1.0 build:webpack
+> next build --webpack
+
+▲ Next.js 16.4.3 (webpack)
+- Environments: .env.local
+✓ Running next.config.ts took 127ms
+- Cache Components enabled
+- Partial Prefetching enabled
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 39.6s
+  Running TypeScript ...
+  Finished TypeScript in 9.7s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/63) ...
+  Generating static pages using 11 workers (15/63) 
+  Generating static pages using 11 workers (31/63) 
+  Generating static pages using 11 workers (47/63) 
+✓ Generating static pages using 11 workers (63/63) in 7.8s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /auth/callback
+├ ○ /dev/brand
+├ ◐ /login
+├ ◐ /onboarding
+├ ◐ /onboarding/commitment
+├ ◐ /onboarding/language
+├ ◐ /onboarding/profile
+├ ◐ /onboarding/ready
+├ ◐ /onboarding/target
+├ ◐ /onboarding/target-date
+├ ◐ /onboarding/welcome
+├ ◐ /onboarding/workspace
+├ ƒ /preview
+├   /preview/[section]
+│ ├ ◐ /preview/[section]
+│ ├ ƒ /preview/behavioral
+│ ├ ƒ /preview/learn
+│ └ ◐ [+16 more paths]
+├ ƒ /preview/behavioral/practice
+├   /preview/behavioral/stories/[storyId]
+│ └ ◐ /preview/behavioral/stories/[storyId]
+├   /preview/learn/concept/[conceptId]
+│ └ ◐ /preview/learn/concept/[conceptId]
+├ ○ /preview/learn/guide
+├ ○ /robots.txt
+├ ƒ /settings
+├ ƒ /settings/workspaces
+├   /w/[workspaceSlug]/applications
+│ └ ◐ /w/[workspaceSlug]/applications
+├   /w/[workspaceSlug]/interview
+│ └ ◐ /w/[workspaceSlug]/interview
+├   /w/[workspaceSlug]/interview/behavioral
+│ └ ◐ /w/[workspaceSlug]/interview/behavioral
+├   /w/[workspaceSlug]/interview/behavioral/practice/[sessionId]
+│ └ ◐ /w/[workspaceSlug]/interview/behavioral/practice/[sessionId]
+├   /w/[workspaceSlug]/interview/behavioral/stories/[storyId]
+│ └ ◐ /w/[workspaceSlug]/interview/behavioral/stories/[storyId]
+├   /w/[workspaceSlug]/learn
+│ └ ◐ /w/[workspaceSlug]/learn
+├   /w/[workspaceSlug]/learn/[subject]
+│ └ ◐ /w/[workspaceSlug]/learn/[subject]
+├   /w/[workspaceSlug]/learn/activity/[sessionId]
+│ └ ◐ /w/[workspaceSlug]/learn/activity/[sessionId]
+├   /w/[workspaceSlug]/learn/concept/[conceptId]
+│ └ ◐ /w/[workspaceSlug]/learn/concept/[conceptId]
+├   /w/[workspaceSlug]/learn/guide
+│ └ ◐ /w/[workspaceSlug]/learn/guide
+├   /w/[workspaceSlug]/plan
+│ └ ◐ /w/[workspaceSlug]/plan
+├   /w/[workspaceSlug]/practice
+│ └ ◐ /w/[workspaceSlug]/practice
+├   /w/[workspaceSlug]/progress
+│ └ ◐ /w/[workspaceSlug]/progress
+├   /w/[workspaceSlug]/progress/mastery
+│ └ ◐ /w/[workspaceSlug]/progress/mastery
+├   /w/[workspaceSlug]/revision
+│ └ ◐ /w/[workspaceSlug]/revision
+├   /w/[workspaceSlug]/revision/[revisionItemId]
+│ └ ◐ /w/[workspaceSlug]/revision/[revisionItemId]
+├   /w/[workspaceSlug]/session/[sessionId]
+│ └ ◐ /w/[workspaceSlug]/session/[sessionId]
+├   /w/[workspaceSlug]/settings
+│ └ ◐ /w/[workspaceSlug]/settings
+├   /w/[workspaceSlug]/templates
+│ └ ◐ /w/[workspaceSlug]/templates
+└   /w/[workspaceSlug]/today
+  └ ◐ /w/[workspaceSlug]/today
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)             prerendered as static content
+◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+ƒ  (Dynamic)            server-rendered on demand
+

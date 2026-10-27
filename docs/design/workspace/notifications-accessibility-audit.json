@@ -1,0 +1,99 @@
+{
+  "recordedAt": "2026-10-27T12:06:40.037Z",
+  "widths": [
+    320,
+    360,
+    390,
+    430,
+    768,
+    820,
+    1024,
+    1280,
+    1440,
+    1536,
+    1920
+  ],
+  "reports": [
+    {
+      "name": "inbox-Dark-1536",
+      "violations": []
+    },
+    {
+      "name": "context-Dark-1536",
+      "violations": []
+    },
+    {
+      "name": "settings-Dark-1536",
+      "violations": []
+    },
+    {
+      "name": "reminder-Dark-1536",
+      "violations": []
+    },
+    {
+      "name": "report-Dark-1536",
+      "violations": []
+    },
+    {
+      "name": "inbox-Dark-390",
+      "violations": []
+    },
+    {
+      "name": "context-Dark-390",
+      "violations": []
+    },
+    {
+      "name": "settings-Dark-390",
+      "violations": []
+    },
+    {
+      "name": "reminder-Dark-390",
+      "violations": []
+    },
+    {
+      "name": "report-Dark-390",
+      "violations": []
+    },
+    {
+      "name": "inbox-Light-1536",
+      "violations": []
+    },
+    {
+      "name": "context-Light-1536",
+      "violations": []
+    },
+    {
+      "name": "settings-Light-1536",
+      "violations": []
+    },
+    {
+      "name": "reminder-Light-1536",
+      "violations": []
+    },
+    {
+      "name": "report-Light-1536",
+      "violations": []
+    },
+    {
+      "name": "inbox-Light-390",
+      "violations": []
+    },
+    {
+      "name": "context-Light-390",
+      "violations": []
+    },
+    {
+      "name": "settings-Light-390",
+      "violations": []
+    },
+    {
+      "name": "reminder-Light-390",
+      "violations": []
+    },
+    {
+      "name": "report-Light-390",
+      "violations": []
+    }
+  ],
+  "errors": []
+}

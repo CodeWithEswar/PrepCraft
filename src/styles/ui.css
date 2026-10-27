@@ -30,6 +30,22 @@
 
 /* Unlayered focus and text safeguards override primitive utility opacity. */
 [data-slot]:focus-visible { outline:2px solid var(--ring); outline-offset:3px; }
+
+/* Stacking hierarchy: Floating overlays sit firmly above modals, sheets, and dialogs */
+[data-slot="select-positioner"],
+[data-slot="select-content"],
+[data-slot="dropdown-menu-positioner"],
+[data-slot="dropdown-menu-content"],
+[data-slot="popover-positioner"],
+[data-slot="popover-content"],
+[data-slot="combobox-positioner"],
+[data-slot="combobox-content"],
+[data-slot="tooltip-positioner"],
+[data-slot="tooltip-content"],
+[data-slot="context-menu-positioner"],
+[data-slot="context-menu-content"] {
+  z-index: 100 !important;
+}
 [data-slot="tabs-trigger"] { color:var(--muted-foreground); }
 [data-slot="tabs-trigger"][data-active] { color:var(--accent-foreground); }
 .pc-button { border-radius:var(--radius-md); transition-property:background-color,border-color,box-shadow,transform; transition-duration:var(--duration-fast); }

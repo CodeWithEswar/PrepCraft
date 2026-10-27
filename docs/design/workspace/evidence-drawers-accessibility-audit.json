@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-25T10:45:19.322Z",
+  "reports": [
+    {
+      "feature": "revision",
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "feature": "revision",
+      "theme": "Dark",
+      "violations": []
+    },
+    {
+      "feature": "mastery",
+      "theme": "Light",
+      "violations": []
+    },
+    {
+      "feature": "mastery",
+      "theme": "Dark",
+      "violations": []
+    }
+  ]
+}

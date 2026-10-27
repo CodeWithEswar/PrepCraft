@@ -1,0 +1,27 @@
+-- Scheduled task reminders belong to Planning; no Interview Tracker source is inferred.
+create or replace function private.notification_source(r public.reminders,p_at timestamptz) returns jsonb language plpgsql stable security definer set search_path='' as $$
+declare w public.workspaces%rowtype;t public.daily_tasks%rowtype;n integer;minutes integer;target date;category text;anchor timestamptz;begin
+ select * into w from public.workspaces where id=r.workspace_id;
+ if w.status<>'active' or not exists(select 1 from public.workspace_members where workspace_id=r.workspace_id and user_id=r.user_id and status='active') then return jsonb_build_object('valid',false,'code','workspace_unavailable');end if;
+ if r.archived_at is not null or not r.enabled then return jsonb_build_object('valid',false,'code','reminder_disabled');end if;
+ if r.source_type='task' then select * into t from public.daily_tasks where id=r.source_id and workspace_id=r.workspace_id;if t.id is null or t.status in ('completed','cancelled','deferred','skipped') or t.scheduled_start is null then return jsonb_build_object('valid',false,'code','source_handled');end if;anchor:=t.scheduled_start;if r.type='upcoming_session' and anchor<=p_at then return jsonb_build_object('valid',false,'code','source_past');end if;
+ elsif r.source_type='target' then select target_date into target from public.workspace_targets where workspace_id=r.workspace_id;if target is null or target<(p_at at time zone w.timezone)::date then return jsonb_build_object('valid',false,'code','source_past');end if;anchor:=(target+time '09:00') at time zone w.timezone;end if;
+ category:=case r.type when 'daily_plan' then 'plan' when 'revision_due' then 'revision' when 'weekly_target' then 'plan' when 'weekly_report' then 'report' when 'upcoming_session' then 'plan' when 'target_deadline' then 'workspace' else 'custom' end;
+ if r.type='daily_plan' then
+  select count(*),sum(x.estimated_minutes) into n,minutes from public.daily_tasks x join public.daily_plans p on p.id=x.daily_plan_id where p.workspace_id=r.workspace_id and p.plan_date=(p_at at time zone w.timezone)::date and p.status='active' and x.status in ('planned','in_progress') and not exists(select 1 from public.planning_availability_overrides o where o.workspace_id=p.workspace_id and o.plan_date=p.plan_date and o.rest);
+  if n=0 then return jsonb_build_object('valid',false,'code','plan_handled');end if;
+  return jsonb_build_object('valid',true,'category',category,'title','Your plan is ready for today.','body',n||' preparation tasks are planned.','reason','These tasks are still open in today''s workspace plan. Estimated minutes are planned time, not recorded focus.','action','view_today','count',n,'estimateMinutes',minutes,'expiresAt',(((p_at at time zone w.timezone)::date+1)::timestamp at time zone w.timezone));
+ elsif r.type='revision_due' then
+  select count(*) into n from public.revision_items where workspace_id=r.workspace_id and user_id=r.user_id and state in ('scheduled','snoozed') and due_at<=p_at;
+  if n=0 then return jsonb_build_object('valid',false,'code','revision_handled');end if;
+  return jsonb_build_object('valid',true,'category',category,'title','Revision is ready when you are.','body',n||' questions or concepts are due for revision.','reason','These items reached the interval scheduled by the shared Revision engine.','action','start_revision','count',n,'expiresAt',p_at+interval '1 day');
+ elsif r.type='weekly_target' then
+  select count(*) into n from public.daily_tasks x join public.daily_plans p on p.id=x.daily_plan_id where p.workspace_id=r.workspace_id and p.plan_date between date_trunc('week',p_at at time zone w.timezone)::date and date_trunc('week',p_at at time zone w.timezone)::date+6 and p.status='active' and x.status in ('planned','in_progress');
+  if n=0 then return jsonb_build_object('valid',false,'code','plan_handled');end if;
+  return jsonb_build_object('valid',true,'category',category,'title','A moment to review your week.','body',n||' workspace tasks remain in this week''s plan.','reason','Your enabled weekly reminder checks the authoritative plan. It does not infer missed-session reasons or goal completion from estimates.','action','view_weekly_plan','count',n,'expiresAt',((date_trunc('week',p_at at time zone w.timezone)::date+7)::timestamp at time zone w.timezone));
+ elsif r.type='upcoming_session' then return jsonb_build_object('valid',true,'category',category,'title','A planned session is coming up.','body',t.title,'reason','You scheduled a reminder relative to this task. Changes to its scheduled time update the reminder.','action','view_task','anchorAt',anchor,'expiresAt',anchor);
+ elsif r.type='target_deadline' then return jsonb_build_object('valid',true,'category',category,'title','Your target date is approaching.','body','Review the next preparation step for your workspace.','reason','This reminder follows the target date saved in your workspace.','action','view_target','anchorAt',anchor,'expiresAt',anchor+interval '1 day');
+ elsif r.type='weekly_report' then return jsonb_build_object('valid',true,'category',category,'action','view_report');
+ end if;
+ return jsonb_build_object('valid',true,'category','custom','title',r.title,'body',r.body,'reason','You created this reminder and selected its schedule.','action',case r.source_type when 'task' then 'view_task' when 'target' then 'view_target' else 'open_workspace' end,'anchorAt',anchor,'expiresAt',coalesce(anchor+interval '1 day',p_at+interval '7 days'));
+end $$;

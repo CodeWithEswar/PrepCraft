@@ -1,0 +1,61 @@
+{
+  "recordedAt": "2026-10-24T17:44:25.015Z",
+  "reports": [
+    {
+      "mobile": false,
+      "theme": "Light",
+      "control": "select",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": false,
+      "theme": "Light",
+      "control": "workspace",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": false,
+      "theme": "Dark",
+      "control": "select",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": false,
+      "theme": "Dark",
+      "control": "workspace",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "theme": "Light",
+      "control": "select",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "theme": "Light",
+      "control": "workspace",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "theme": "Dark",
+      "control": "select",
+      "violations": [],
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "theme": "Dark",
+      "control": "workspace",
+      "violations": [],
+      "errors": []
+    }
+  ]
+}

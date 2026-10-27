@@ -1,0 +1,64 @@
+{
+  "verifiedAt": "2026-10-27T08:06:57.591Z",
+  "worker": "https://prepcraft-notifications.nxtqr.workers.dev",
+  "workerVersion": "52996ef6-54da-4af9-a979-34e62f9e727f",
+  "cron": "Every minute",
+  "queues": [
+    "prepcraft-notification-delivery",
+    "prepcraft-notification-reports",
+    "prepcraft-notification-delivery-dlq",
+    "prepcraft-notification-reports-dlq"
+  ],
+  "runtime": {
+    "lastSuccessAt": "2026-10-27T08:06:32.545067+00:00",
+    "lastDispatchAt": "2026-10-27T08:06:32.168292+00:00",
+    "pushConfigured": true,
+    "emailConfigured": false,
+    "dispatcherEnabled": true
+  },
+  "oldestDueSeconds": 0,
+  "sqlNotificationLintIssues": 0,
+  "unitAndComponentTests": 434,
+  "databaseChecks": 77,
+  "emailProvider": "Unconfigured placeholder; sending disabled",
+  "realProviderMessagesSentForVerification": 0,
+  "endToEndTests": 7,
+  "accessibilityStates": 20,
+  "viewportWidths": [
+    320,
+    360,
+    390,
+    430,
+    768,
+    820,
+    1024,
+    1280,
+    1440,
+    1536,
+    1920
+  ],
+  "accessibilityViolations": 0,
+  "browserErrors": [],
+  "chartRequestsBeforeFullReport": 0,
+  "chartGzipBytes": 112701,
+  "preExistingOtherSqlLintFunctions": 5,
+  "notificationSecurityAdvisors": 0,
+  "preExistingOtherSecurityAdvisors": 17,
+  "appliedMigrations": [
+    "20261025203311",
+    "20261027073947",
+    "20261027081645",
+    "20261027083236"
+  ],
+  "localSecretFileRemoved": true,
+  "completedAt": "2026-10-27T08:38:57.178Z",
+  "lastFullUnitSuite": {
+    "tests": 433,
+    "files": 52
+  },
+  "postChangeFocusedUnitSuite": {
+    "tests": 16,
+    "newTests": 1
+  },
+  "build": "Passed"
+}

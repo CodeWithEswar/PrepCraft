@@ -1,0 +1,5 @@
+# Explicit partial config: omitted provider, mail and database settings stay unchanged.
+project_id = "prepcraft"
+[auth]
+site_url = "https://prepcraft.vercel.app"
+additional_redirect_urls = ["https://prepcraft.vercel.app/auth/callback", "http://localhost:3030/auth/callback", "http://localhost:3031/auth/callback"]

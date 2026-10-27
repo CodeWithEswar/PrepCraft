@@ -1,0 +1,20 @@
+{
+  "createdWith": "built-in image_gen",
+  "source": "C:/Users/hp/.codex/generated_images/01a16a25-39eb-7153-9b04-5d78fadaad7f/exec-bcae23c3-34ff-403d-8001-b772ed48724b.png",
+  "assets": [
+    {
+      "path": "/brand/workspace/alpine-dusk.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 61956
+    },
+    {
+      "path": "/brand/workspace/alpine-dusk-mobile.webp",
+      "width": 960,
+      "height": 540,
+      "bytes": 26338
+    }
+  ],
+  "purpose": "Distinct slate-and-copper dusk landscape for the dark workspace shell",
+  "prompt": "Use case: photorealistic-natural. Asset type: a premium dark-mode wallpaper for PrepCraft, a charcoal and smoked-sienna preparation workspace with glass panels. Generate a new cinematic landscape photograph, wide 16:9 composition, 2560x1440 if possible. Scene: a quiet alpine lake at blue hour just after sunset, a distinct broad sweeping mountain range in the distance and very dark pine forest silhouettes framing the far left and right edges; subtle low mist drifting along the still water, soft natural reflections. Refined neutral slate and graphite tones rather than saturated blue, with a thin restrained warm copper/sienna glow low on the distant horizon. The top half should have gently layered mountains and open low-detail sky; keep the middle and lower scene understated and calm so dashboard content will be readable on top. Natural photographic detail, clean contemporary editorial landscape, balanced exposure that is dark but not crushed black. This must be a real photographic background only, no interface, no panels, no text, no symbols, no logos, no people, no buildings, no bright moon, no stars, no neon, no artificial glows, no excessive vignette. Mood: focused, premium, serene, nocturnal. Avoid the warm orange sunrise look of a light theme wallpaper."
+}

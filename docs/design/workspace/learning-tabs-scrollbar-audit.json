@@ -1,0 +1,270 @@
+[
+  {
+    "viewport": 360,
+    "width": 288,
+    "height": 97,
+    "scrollWidth": 288,
+    "scrollHeight": 97,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 390,
+    "width": 318,
+    "height": 97,
+    "scrollWidth": 318,
+    "scrollHeight": 97,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 430,
+    "width": 358,
+    "height": 97,
+    "scrollWidth": 358,
+    "scrollHeight": 97,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 768,
+    "width": 672,
+    "height": 44,
+    "scrollWidth": 672,
+    "scrollHeight": 44,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 1024,
+    "width": 700,
+    "height": 44,
+    "scrollWidth": 700,
+    "scrollHeight": 44,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 1280,
+    "width": 603,
+    "height": 44,
+    "scrollWidth": 603,
+    "scrollHeight": 44,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 1440,
+    "width": 728,
+    "height": 44,
+    "scrollWidth": 728,
+    "scrollHeight": 44,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 1536,
+    "width": 824,
+    "height": 44,
+    "scrollWidth": 824,
+    "scrollHeight": 44,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "viewport": 1920,
+    "width": 1125,
+    "height": 44,
+    "scrollWidth": 1125,
+    "scrollHeight": 44,
+    "labels": [
+      {
+        "text": "Aptitude",
+        "visible": true
+      },
+      {
+        "text": "Java",
+        "visible": true
+      },
+      {
+        "text": "SQL & DBMS",
+        "visible": true
+      },
+      {
+        "text": "Operating Systems",
+        "visible": true
+      },
+      {
+        "text": "Computer Networks",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "scrollbar": {
+      "width": "auto",
+      "thumb": "linear-gradient(rgba(214, 173, 141, 0.61), rgba(145, 103, 79, 0.675))",
+      "buttons": "none"
+    }
+  }
+]

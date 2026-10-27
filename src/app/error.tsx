@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { PrepCraftLogo } from "@/components/brand"
 import { Button } from "@/components/ui/button"
+import { captureException } from "@sentry/nextjs"
 
 export default function RootError({
   error,
@@ -13,8 +14,7 @@ export default function RootError({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log error to observability pipeline if present
-    console.error("PrepCraft application error:", error)
+    captureException(error,{tags:{code:"route_error"}})
   }, [error])
 
   return (
@@ -34,7 +34,7 @@ export default function RootError({
           )}
         </div>
         <div className="flex items-center justify-center gap-3 pt-2">
-          <Button variant="outline" render={<Link href="/" />}>
+          <Button variant="outline" nativeButton={false} render={<Link href="/" />}>
             Go to home
           </Button>
           <Button onClick={() => reset()}>

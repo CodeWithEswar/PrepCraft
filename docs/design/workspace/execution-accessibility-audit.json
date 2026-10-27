@@ -1,0 +1,165 @@
+{
+  "recordedAt": "2026-10-25T05:57:15.713Z",
+  "reports": [
+    {
+      "mode": "Practice",
+      "mobile": false,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Practice",
+      "mobile": false,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Practice",
+      "mobile": true,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Practice",
+      "mobile": true,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Interview practice",
+      "mobile": false,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Interview practice",
+      "mobile": false,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Interview practice",
+      "mobile": true,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Interview practice",
+      "mobile": true,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "OA round",
+      "mobile": false,
+      "theme": "light",
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "nodes": [
+            {
+              "target": [
+                "button[aria-current=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".pc-execution-question-navigator > button:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".pc-execution-question-navigator > button:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "clientErrors": []
+    },
+    {
+      "mode": "OA round",
+      "mobile": false,
+      "theme": "dark",
+      "violations": [
+        {
+          "id": "label-content-name-mismatch",
+          "nodes": [
+            {
+              "target": [
+                "button[aria-current=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".pc-execution-question-navigator > button:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".pc-execution-question-navigator > button:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ],
+      "clientErrors": []
+    },
+    {
+      "mode": "OA round",
+      "mobile": true,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "OA round",
+      "mobile": true,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Debrief",
+      "mobile": false,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Debrief",
+      "mobile": false,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Debrief",
+      "mobile": true,
+      "theme": "light",
+      "violations": [],
+      "clientErrors": []
+    },
+    {
+      "mode": "Debrief",
+      "mobile": true,
+      "theme": "dark",
+      "violations": [],
+      "clientErrors": []
+    }
+  ]
+}

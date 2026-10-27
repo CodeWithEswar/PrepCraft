@@ -1,0 +1,3 @@
+"use client"
+import { Select,SelectTrigger,SelectValue,SelectContent,SelectItem } from "@/components/ui/select"
+export function RevisionSelect({label,value,onChange,options}:{label:string;value:string;onChange:(value:string)=>void;options:{value:string;label:string}[]}){return <Select value={value} onValueChange={value=>value!==null&&onChange(value)} items={options}><SelectTrigger aria-label={label}><SelectValue/></SelectTrigger><SelectContent alignItemWithTrigger={false}>{options.map(option=><SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>)}</SelectContent></Select>}

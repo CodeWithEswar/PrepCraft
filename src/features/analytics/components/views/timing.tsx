@@ -1,0 +1,11 @@
+"use client"
+import type { AnalyticsSnapshot,AnalyticsEvidenceMetric } from "../../types/analytics.types"
+import { ChartFrame } from "@/components/charts"
+import { chartEvidence } from "../../services/chart-evidence"
+import { formatDuration } from "../../services/analytics-policy"
+import { QuestionTimingEvidence } from "../analytics-widgets"
+import TimingCorridor from "../charts/timing-corridor"
+import SpeedOutcome from "../charts/speed-outcome"
+import TargetVariance from "../charts/target-variance"
+import CalibrationPlot from "../charts/calibration-plot"
+export default function Timing(props:{snapshot:AnalyticsSnapshot;onEvidence:(metric?:AnalyticsEvidenceMetric)=>void;onRetry:()=>void}){const s=props.snapshot,c=s.core?.current;return <><TimingCorridor {...props} onEvidence={()=>props.onEvidence("timing")}/><div className="pc-an-chart-pair"><TargetVariance {...props}/><SpeedOutcome {...props}/></div><ChartFrame title="Timing context" question="What sits behind a single median?" evidence={chartEvidence(s,"timing",c?.timed||0,s.core?c?.timed?"ready":"empty":"error")} summary="P90 needs 20 valid timings. Hint latency uses item focus intervals before the first reveal, excluding pauses and other items. Long valid attempts remain in the data. Best time is not a learning score." columns={[{key:"p90Ms",label:"P90 · n ≥ 20",format:"duration"},{key:"firstHintMs",label:"Median focused time before first hint",format:"duration"},{key:"hinted",label:"Hinted attempts",format:"number"},{key:"repeats",label:"Known repeated identities",format:"number"},{key:"untrackedIdentity",label:"Untracked question identity",format:"number"}]} rows={c?[{...c}]:[]}><div className="pc-an-facts"><div><strong>{formatDuration(c?.p90Ms)}</strong><span>P90 · n ≥ 20 timings</span></div><div><strong>{formatDuration(c?.firstHintMs)}</strong><span>Focused time before first hint</span></div><div><strong>{c?.repeats??"No evidence"}</strong><span>Known recorded repeats</span></div><div><strong>{c?.untrackedIdentity??"No evidence"}</strong><span>Identity not tracked</span></div></div></ChartFrame><QuestionTimingEvidence snapshot={s}/><CalibrationPlot {...props}/></>}

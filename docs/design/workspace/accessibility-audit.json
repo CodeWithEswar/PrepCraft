@@ -1,0 +1,38 @@
+{
+  "origin": "http://localhost:3030",
+  "recordedAt": "2026-10-24T17:21:02.053Z",
+  "reports": [
+    {
+      "viewport": "1536×960",
+      "theme": "Light",
+      "violations": [],
+      "passes": 28,
+      "incomplete": 1,
+      "errors": []
+    },
+    {
+      "viewport": "1536×960",
+      "theme": "Dark",
+      "violations": [],
+      "passes": 28,
+      "incomplete": 1,
+      "errors": []
+    },
+    {
+      "viewport": "390×844",
+      "theme": "Light",
+      "violations": [],
+      "passes": 29,
+      "incomplete": 1,
+      "errors": []
+    },
+    {
+      "viewport": "390×844",
+      "theme": "Dark",
+      "violations": [],
+      "passes": 29,
+      "incomplete": 1,
+      "errors": []
+    }
+  ]
+}

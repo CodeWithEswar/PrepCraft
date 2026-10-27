@@ -1,0 +1,23 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { useMemo } from "react";
+import Link from "next/link";
+import { analyticsInsights, ProgressNarrative, AnalyticsReportTiming, type AnalyticsSnapshot } from "@/features/analytics";
+import { Button } from "@/components/ui/button";
+import { AppIcon } from "@/components/app-icon";
+import type { Report, ReportSnapshot } from "../types";
+export function WeeklyReport({ report, preview = false, compact = false }: {
+    report: Report;
+    preview?: boolean;
+    compact?: boolean;
+}) {
+    const router=useRouter(),frozen = report.snapshot;
+    const snapshot = useMemo(() => { if (!frozen)
+        return null; const s: AnalyticsSnapshot = { view: "overview", filters: frozen.filters, context: frozen.context, core: frozen.core, activity: frozen.activity, interviews: frozen.interviews, mastery: null, masteryWindow: 7, sources: { core: frozen.core ? "ready" : "unavailable", activity: frozen.activity ? "ready" : "unavailable", interviews: frozen.interviews ? "ready" : "unavailable", mastery: "unavailable" }, catalog: { tracks: [], topics: [] }, insights: [], generatedAt: frozen.generatedAt, preview }; s.insights = analyticsInsights(s); return s; }, [frozen, preview]);
+    const base = preview ? "/preview" : `/w/${frozen?.workspace.slug}`;
+    if (report.status !== "ready" || !frozen || !snapshot)
+        return <section className="pc-not-empty"><AppIcon icon={report.status === "failed" ? "alert-circle" : "clock"} size={26}/><h3>{report.status === "failed" ? "This report could not be generated." : "Your report is being prepared."}</h3><p>{report.status === "failed" ? "Other notifications remain available. Retry the report from reminder settings." : "The report will appear after its source snapshot has been saved."}</p></section>;
+    const a = frozen.activity?.summary, c = frozen.core?.current;
+    return <article className="pc-not-report pc-analytics"><div className="pc-not-report-banner"><span className="pc-not-eyebrow">YOUR WEEK, WITH CONTEXT</span><h2>Preparation report</h2><p>{report.periodStart} – {report.periodEnd}</p><small>{report.timezone}{preview ? " · illustrative sample" : " · frozen snapshot"}</small></div><div className="pc-not-report-facts"><div><strong>{a ? `${Math.floor(a.focusMs / 3600000)}h ${Math.floor(a.focusMs % 3600000 / 60000)}m` : "Unavailable"}</strong><span>Recorded focus</span></div><div><strong>{a ? `${a.completed} / ${a.planned}` : "Unavailable"}</strong><span>Workspace tasks</span></div><div><strong>{a?.activeDays ?? "—"}</strong><span>Active days</span></div><div><strong>{frozen.activity?.revision.reviews ?? "—"}</strong><span>Revisions</span></div></div><ProgressNarrative snapshot={snapshot}/>{snapshot.insights.map(i => <section className="pc-not-card" key={i.kind}><span className="pc-not-eyebrow">{i.kind === "constraint" ? "CURRENT EVIDENCE CONSTRAINT" : i.kind === "comparison" ? "PERIOD COMPARISON" : "OBSERVATION"}</span><h3>{i.title}</h3><p>{i.detail}</p><small>{i.sample} observations · {i.source}</small><Button variant="outline" render={<Link href={i.href}/>}>{i.action}<AppIcon icon="arrow-right" size={14}/></Button></section>)}{!snapshot.insights.length && <section className="pc-not-card"><h3>Your next signal starts with practice.</h3><p>{c?.eligible ? "More comparable timings are needed before making a trend claim." : "No eligible coding attempts were recorded in this period. Other activity is shown separately."}</p></section>}{!compact && snapshot.core && <AnalyticsReportTiming snapshot={snapshot} onEvidence={() => { router.push(`${base}/analytics/timing?range=custom&from=${report.periodStart}&to=${report.periodEnd}&granularity=day`); }} onRetry={() => { }}/>}<section id="pc-report-provenance" className="pc-not-card"><h3>Source coverage</h3><ul className="pc-not-coverage">{Object.entries(frozen.coverage).map(([name, state]) => <li key={name}><span>{name}</span><small>{state === "available" ? "Source connected" : "Unavailable"}</small></li>)}</ul><p className="pc-not-caption">{frozen.policyVersion} · {frozen.analyticsPolicyVersion}. Generated {new Date(frozen.generatedAt).toISOString().slice(0, 16).replace("T", " ")} UTC. Live due counts and current framework coverage were captured at generation; they do not reconstruct historical readiness. Plans describe the shared workspace; attempts and focus are personal records.</p></section><div className="pc-not-actions"><Button render={<Link href={`${base}/analytics`}/>}>Explore Analytics<AppIcon icon="arrow-right" size={15}/></Button><Button variant="outline" render={<Link href={`${base}/plan`}/>}>Open plan</Button></div></article>;
+}
+export type { ReportSnapshot };

@@ -1,19 +1,7 @@
-# RLS policy and test contract
+# RLS audit
 
-Supabase RLS is the final database enforcement layer. Server authorization improves intent/errors but cannot replace it. Migrations define policies and grants; `supabase/policies` only explains their rationale.
+All new public/private platform tables enable and force RLS. Owner-plus-live-membership policies permit file/audit reads only. Authenticated direct writes and anonymous access are denied. Public worker/replay facades are invokers granted only to service_role.
 
-Every workspace-owned table must prove:
+Tests cover cross-workspace denial, same-workspace other-user isolation, direct write denial, upload verification, duplicate leases, one-use downloads, stale deletion versions and membership revocation during upload. Live rolled-back verification tested the scoped bootstrap guard.
 
-| Actor / operation | Expected evidence |
-| --- | --- |
-| Anonymous | No private reads/writes |
-| Active owner | Allowed intended operations within their workspace |
-| Active member | Only role-permitted operations |
-| Non-member | Reads and writes denied |
-| Member of workspace A | Cannot read/write workspace B by changing IDs or slugs |
-| Disabled/removed member | Access denied, including existing sessions |
-| Update/insert | Cannot reassign records to another workspace or forge ownership |
-
-Feature migrations add real fixtures and tests using actual caller roles/JWT claims; never test everything as the service role. Cover foreign keys, parent-child workspace consistency, joins/views, security-definer functions and indirect storage access. Test SELECT, INSERT, UPDATE and DELETE separately.
-
-The present `table-coverage.sql` only detects exposed public application tables with RLS disabled. With no application tables, it is an infrastructure baseline—not proof that membership rules work. Authentication/workspace phases must create the full matrix before releasing protected features. No policy is disabled to make a test pass.
+The latest security advisor review retains six warnings for intentionally authenticated legacy SECURITY DEFINER workspace functions plus leaked-password protection disabled. Anonymous execution warnings were repaired. These remaining warnings require review; do not claim a clean advisor report.

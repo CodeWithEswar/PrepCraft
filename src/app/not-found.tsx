@@ -17,7 +17,7 @@ export default function NotFound() {
           </p>
         </div>
         <div className="pt-2">
-          <Button render={<Link href="/" />}>
+          <Button nativeButton={false} render={<Link href="/" />}>
             Return to PrepCraft
           </Button>
         </div>

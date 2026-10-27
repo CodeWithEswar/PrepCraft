@@ -1,0 +1,16 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+set local search_path=public,extensions;
+select plan(10);
+select has_table('public','daily_plans','Daily plans exist');
+select has_table('public','daily_tasks','Daily task projections exist');
+select has_table('public','today_activity_events','Transactional activity exists');
+select is((select count(*)::integer from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relname in ('daily_plans','daily_tasks','today_activity_events') and c.relrowsecurity and c.relforcerowsecurity),3,'All Today tables enable and force RLS');
+select ok(not has_table_privilege('anon','public.daily_tasks','SELECT'),'Anonymous callers cannot read tasks');
+select ok(has_table_privilege('authenticated','public.daily_tasks','SELECT'),'Members can reach the RLS-protected read API');
+select ok(not has_table_privilege('authenticated','public.daily_tasks','UPDATE'),'Direct completion bypass is forbidden');
+select ok(not has_table_privilege('authenticated','public.daily_tasks','INSERT'),'Direct task creation bypass is forbidden');
+select ok(not (select prosecdef from pg_proc where oid='public.mutate_today(text,date,jsonb)'::regprocedure),'Public RPC is security invoker');
+select ok(not has_function_privilege('anon','public.mutate_today(text,date,jsonb)','EXECUTE'),'Anonymous callers cannot execute mutations');
+select * from finish();
+rollback;

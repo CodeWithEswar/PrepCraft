@@ -1,16 +1,20 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 import { getSupabaseEnvironment } from "@/lib/env/public"
+import { platformEnv,allowLiveBackend } from "@/lib/env/platform"
+import { verifyBackendIsolation } from "@/lib/env/backend-isolation"
 
 export async function updateSession(request: NextRequest) {
+  // Isolated samples and public content need no database or identity refresh.
+  if(request.nextUrl.pathname.startsWith("/preview")||!["/w/","/onboarding","/login","/signup","/auth/","/settings"].some(prefix=>request.nextUrl.pathname.startsWith(prefix)))return NextResponse.next()
   let supabaseResponse = NextResponse.next({
     request,
   })
+  const refreshHeaders = new Headers()
 
   const { url, key } = getSupabaseEnvironment()
+  verifyBackendIsolation(url,platformEnv.environment,allowLiveBackend)
 
-  // With Fluid compute, don't put this client in a global environment
-  // variable. Always create a new one on each request.
   const supabase = createServerClient(
     url,
     key,
@@ -19,37 +23,44 @@ export async function updateSession(request: NextRequest) {
         getAll() {
           return request.cookies.getAll()
         },
-        setAll(cookiesToSet) {
+        setAll(cookiesToSet, headers) {
+          const previousCookies = supabaseResponse.cookies.getAll()
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({
             request,
           })
+          previousCookies.forEach((cookie) => supabaseResponse.cookies.set(cookie))
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options)
           )
+          // SSR supplies cache-protection headers alongside refreshed cookies
+          if (headers) {
+            for (const [name, value] of Object.entries(headers)) {
+              refreshHeaders.set(name, value)
+            }
+          }
+          refreshHeaders.forEach((value, name) => supabaseResponse.headers.set(name, value))
         },
       },
     }
   )
 
-  // Do not run code between createServerClient and
-  // supabase.auth.getClaims(). A simple mistake could make it very hard to debug
-  // issues with users being randomly logged out.
-  const { data } = await supabase.auth.getClaims()
-  const user = data?.claims
+  // IMPORTANT: Avoid writing logic between createServerClient and supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith("/login") &&
-    !request.nextUrl.pathname.startsWith("/auth") &&
-    // the OAuth consent route sends unauthenticated visitors to the login page
-    // itself, so that it can preserve the authorization in the `next` parameter
-    request.nextUrl.pathname !== "/oauth/consent"
-  ) {
-    // no user, potentially respond by redirecting the user to the login page
-    const redirectUrl = request.nextUrl.clone()
-    redirectUrl.pathname = "/auth/login"
-    return NextResponse.redirect(redirectUrl)
+  const pathname = request.nextUrl.pathname
+
+  // Protect workspace and onboarding routes at the network edge
+  // Server Components and Server Actions perform authoritative verification
+  const isProtectedRoute = pathname.startsWith("/w/") || pathname.startsWith("/onboarding")
+
+  if (!user && isProtectedRoute) {
+    const loginUrl = new URL("/login", request.url)
+    loginUrl.searchParams.set("reason", "unauthenticated")
+    loginUrl.searchParams.set("returnTo", pathname + request.nextUrl.search)
+    return NextResponse.redirect(loginUrl)
   }
 
   return supabaseResponse

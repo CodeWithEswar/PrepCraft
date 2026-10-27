@@ -1,0 +1,9 @@
+*.data binary
+*.wasm binary
+*.woff binary
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary

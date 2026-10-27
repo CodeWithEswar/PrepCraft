@@ -11,6 +11,8 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "**/.wrangler/**",
+    "public/learning/runtime/**", // Vendored PGlite browser distribution; verify via its integrity manifest.
     "next-env.d.ts",
   ]),
 ]);

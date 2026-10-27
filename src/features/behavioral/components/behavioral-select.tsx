@@ -1,0 +1,3 @@
+"use client"
+import { Select,SelectTrigger,SelectValue,SelectContent,SelectItem } from "@/components/ui/select"
+export function BehavioralSelect({label,value,items,onChange,disabled=false}:{label:string;value:string;items:{value:string;label:string}[];onChange:(value:string)=>void;disabled?:boolean}){return <Select disabled={disabled} value={value} onValueChange={v=>{if(v!==null)onChange(String(v))}}><SelectTrigger aria-label={label} className="pc-bh-select-trigger"><SelectValue>{items.find(i=>i.value===value)?.label||label}</SelectValue></SelectTrigger><SelectContent className="pc-bh-select-popover">{items.map(i=><SelectItem key={i.value} value={i.value} className="pc-bh-select-item">{i.label}</SelectItem>)}</SelectContent></Select>}

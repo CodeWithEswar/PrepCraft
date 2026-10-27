@@ -1,0 +1,4 @@
+import "server-only"
+import { createClient } from "@/lib/supabase/server"
+/** Read-only metadata contract. Behavioral owns stories; Today never writes practice evidence. */
+export async function getBehavioralCandidates(slug:string,workspaceId:string){const db=await createClient(),{data,error}=await db.rpc("behavioral_story_rows",{p_slug:slug,p_filters:{status:"active"}});if(error)throw new Error("Behavioral contribution unavailable");const rows=data as unknown as {id:string;title:string;status:string;practice_count:number;due_at:string|null}[];return {workspaceId,actions:(rows||[]).filter(s=>s.status==="practice_ready"&&(s.practice_count===0||s.due_at&&Date.parse(s.due_at)<=Date.now())).slice(0,2).map(s=>({id:s.id,title:`Practice ${s.title}`,detail:s.practice_count===0?"Story ready for its first meaningful practice":"Behavioral recall is due in shared Revision",href:`/w/${slug}/interview/behavioral/stories/${s.id}`}))}}

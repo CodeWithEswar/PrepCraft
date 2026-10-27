@@ -1,0 +1,9 @@
+# Planning authorization and storage
+
+All schedule, goals, availability, review and activity data carry workspace scope. Every new table enables and forces RLS and grants authenticated member SELECT only. Anonymous access and direct authenticated writes are revoked. Composite foreign keys protect goal-container and carryover lineage tenant identity. Canonical topic/track references are foreign keys, never arbitrary JSON curriculum IDs.
+
+The public mutation RPC is a SECURITY INVOKER wrapper around a private, fixed-search-path SECURITY DEFINER transaction. It checks `auth.uid()`, locks the live workspace and membership, denies archived/disabled access, validates the selected local week, checks the context and monotonic revision, and validates bounded typed operations. It cannot complete attempts, edit mastery or rewrite revision deadlines. Proposal content from a browser is never trusted by the server; the authorized proposal is recomputed. SQL still verifies capacity and protected-task invariants against direct RPC callers.
+
+User input is validated with Zod before the action and with relational constraints/transaction validation in PostgreSQL. Local retries reuse request IDs; events retain bounded audit changes, actor and policy version. Reused identifiers with different payloads/actors conflict. Closed review summaries and task history are immutable through application paths. No service role key reaches the browser.
+
+Verification: `node scripts/database/test-planning.mjs` executes actual PostgreSQL migrations, RLS role transitions, cross-workspace denial, disabled/archive denial, rollback, capacity/window conflicts, idempotency, lineage and review guards in an isolated PGlite database. Full Supabase extension/pgTAP execution needs the normal Docker-backed CI environment, unavailable locally. Browser audits verify both themes and responsive layouts; tests do not fabricate production progress.

@@ -1,17 +1,21 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import localFont from "next/font/local"
 import { AppProviders } from "@/providers"
 import { brandMetadata, brandViewport } from "./metadata"
 import "./globals.css"
 import "@/styles/brand.css"
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "../../public/fonts/geist-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 })
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../../public/fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 })
 
 export const metadata = brandMetadata
@@ -26,6 +30,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">

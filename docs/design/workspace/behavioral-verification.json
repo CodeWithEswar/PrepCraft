@@ -1,0 +1,77 @@
+{
+  "recordedAt": "2026-10-25T14:13:46.917Z",
+  "build": "npm run build:webpack: passed; installed Next 16.4.3 docs followed; Windows sandbox required the existing Webpack fallback outside the sandbox",
+  "typecheck": "passed in production build",
+  "lint": "passed for Behavioral, shared draft hook, Today integration and new routes/tests",
+  "architecture": {
+    "modules": 455,
+    "result": "passed"
+  },
+  "database": {
+    "engine": "Pinned PGlite 0.5.11, ephemeral PostgreSQL with Auth scaffolding",
+    "checks": 65,
+    "result": "passed",
+    "limitation": "Not full Docker Supabase CI or a scale benchmark"
+  },
+  "deployment": {
+    "migration": "20261025124046_behavioral_story_system.sql",
+    "result": "applied via Supabase CLI; all 19 local/remote migrations aligned; live schema/grant verification passed; no personal stories seeded"
+  },
+  "advisors": {
+    "behavioralWarnings": 0,
+    "existingWarnings": 22,
+    "details": "behavioral-advisors.json",
+    "changedExistingSettings": false
+  },
+  "browser": {
+    "tests": 6,
+    "result": "passed",
+    "command": "npx playwright test tests/e2e/behavioral.spec.ts tests/e2e/learning.spec.ts --config=playwright.production.config.ts --workers=1 --timeout=120000",
+    "note": "The initial 6-worker regression run timed out starting the disposable SQL lab; sequential rerun completed in 24.7s."
+  },
+  "accessibility": {
+    "states": 18,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "widths": [
+      360,
+      390,
+      430,
+      768,
+      820,
+      1024,
+      1280,
+      1440,
+      1536,
+      1920
+    ],
+    "violations": 0,
+    "clientErrors": 0
+  },
+  "learnScrollbar": {
+    "widths": 9,
+    "fullLabels": 5,
+    "arrows": "hidden",
+    "thumb": "glass gradient",
+    "userTab": "refreshed and visually verified"
+  },
+  "preview": "http://localhost:3031/preview/behavioral",
+  "limits": [
+    "Self-practice and self-ratings only; no AI interviewer, recording or hiring prediction",
+    "Preview stories are illustrative; production portfolios start empty",
+    "Custom frameworks can be created and selected; a platform publication editor is not included",
+    "Behavioral evidence remains separate from DSA Mastery"
+  ],
+  "unitAndComponent": {
+    "tests": 358,
+    "files": 46,
+    "result": "passed"
+  },
+  "finalPreview": {
+    "origin": "http://localhost:3031",
+    "behavioralTab": "opened and refreshed in the in-app browser",
+    "archivedControls": "mutation controls disabled; existing database protection retained"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-10-25T12:12:16.402Z",
+  "reports": [
+    {
+      "surface": "mobile drawer",
+      "theme": "Light",
+      "tab": "Learn",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Light",
+      "tab": "Examples",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Light",
+      "tab": "Practice",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Light",
+      "tab": "Interview",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Light",
+      "tab": "Notes",
+      "violations": []
+    },
+    {
+      "surface": "concept with scheduler",
+      "theme": "Light",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "surface": "concept with scheduler",
+      "theme": "Light",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Dark",
+      "tab": "Learn",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Dark",
+      "tab": "Examples",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Dark",
+      "tab": "Practice",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Dark",
+      "tab": "Interview",
+      "violations": []
+    },
+    {
+      "surface": "mobile drawer",
+      "theme": "Dark",
+      "tab": "Notes",
+      "violations": []
+    },
+    {
+      "surface": "concept with scheduler",
+      "theme": "Dark",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "surface": "concept with scheduler",
+      "theme": "Dark",
+      "width": 1440,
+      "violations": []
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+"use client"
+import { Select,SelectTrigger,SelectContent,SelectItem,SelectValue } from "@/components/ui/select"
+export function ExecutionSelect({value,onChange,label,items,disabled=false}:{value:string;onChange:(value:string)=>void;label:string;items:{value:string;label:string}[];disabled?:boolean}){return <Select value={value} onValueChange={value=>{if(value!==null)onChange(value)}} items={items} disabled={disabled}><SelectTrigger aria-label={label}><SelectValue/></SelectTrigger><SelectContent alignItemWithTrigger={false}>{items.map(item=><SelectItem key={item.value} value={item.value}>{item.label}</SelectItem>)}</SelectContent></Select>}

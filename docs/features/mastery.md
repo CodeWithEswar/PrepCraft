@@ -1,22 +1,11 @@
-# Feature: Mastery & Readiness Evaluation
+# Mastery & Evidence Intelligence
 
-## Purpose
-Evaluates candidate evidence across multiple dimensions and computes objective readiness against target goals.
+Mastery interprets observable preparation evidence. It does not own execution, revision scheduling, curriculum templates, correctness or interview readiness. /w/[workspaceSlug]/progress/mastery is canonical; Progress currently hosts the same surface without competing navigation. /preview/progress is a clearly labelled illustrative sample.
 
-## Ownership
-- `src/features/mastery/` (algorithmic topic evidence calculation)
-- `src/features/readiness/` (target criteria comparison & readiness signals)
-- Target route: `src/app/(workspace)/w/[workspaceSlug]/progress/`
+The page provides a Preparation Profile, Mastery Terrain, Highest-Leverage Action, Reliable Strengths, searchable/filterable Topic & Pattern Breakdown, Evidence Lens, Weakness Constellation, Evidence Spine and Mastery Delta. Terrain heights encode qualitative levels; dashed/solid markers encode confidence; Sienna marks selection. Mobile moves the next action before Terrain and opens the Lens in a Drawer. There is no global mastery percentage, rainbow heatmap, Three.js or LLM call.
 
-## Key Capabilities
-- Dimension-based mastery scoring:
-  - DSA & Problem Solving
-  - CS Fundamentals & Language Internals
-  - System Design & Trade-offs
-  - Behavioral & Communication
-- Evidence-based metrics: solves, retention rates, mistake frequencies, timed attempt consistency
-- Readiness convergence: highlights unaddressed gaps relative to an upcoming interview date
+Interpretation uses the current effective pinned workspace curriculum. Topic evidence requires an explicit Execution-owned canonical attribution; free-text labels and question titles are never guessed. Pattern evidence uses the canonical pattern explicitly selected in the committed debrief. Organize evidence can associate up to 20 displayed unassigned prompt identities; their linked revisions inherit the origin attribution. Assignments are first-write/idempotent; different reassignment requires a reviewed repair, not a silent overwrite.
 
-## Invariants
-- Readiness is an objective signal of preparation evidence, never a vanity completion percentage or guarantee of an offer.
-- Mastery calculation is derived from historical attempt records and does not overwrite primary operational state.
+Only saved, completed/expired, reflected attempts with at least 30 seconds of active work are meaningful. Pending reflections, abandonment and very short records are excluded. Attempts and revisions remain the authoritative source. Self-reported mistake tags are distinguished from the unavailable Mistake Journal adapter.
+
+See [policy](../architecture/mastery-policy.md), [evidence](../architecture/mastery-evidence.md), [aggregation](../architecture/mastery-aggregation.md), [confidence](evidence-confidence.md), [weaknesses](weaknesses.md), [actions](mastery-actions.md), [authorization](../security/mastery-authorization.md) and [recalculation](../runbooks/mastery-recalculation.md).

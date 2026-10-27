@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-27T12:13:04.911Z",
+  "origin": "https://prepcraft.vercel.app",
+  "supabaseProject": "tkfqomwymkgcnjakppon",
+  "migrationsApplied": [
+    "20261027093444",
+    "20261027095015",
+    "20261027114028"
+  ],
+  "platformWorker": "https://prepcraft-platform.nxtqr.workers.dev",
+  "platformVersion": "ab288848-f699-4063-8304-422cdc9fa968",
+  "notificationVersion": "d0742a55-30bf-4b66-8a3e-d87ad33b10ac",
+  "privateR2RoundTrip": {
+    "upload": "verified",
+    "download": "matched",
+    "replay": "denied",
+    "queuedDelete": "confirmed",
+    "fixtureRemoved": true
+  },
+  "tests": {
+    "fullUnit": 446,
+    "platformSQL": 27,
+    "notificationsSQL": 77,
+    "analyticsSQL": 70,
+    "architecture": "passed",
+    "lint": "passed",
+    "productionBuild": "passed",
+    "filesAccessibilityStates": 10,
+    "filesAccessibilityViolations": 0,
+    "notificationAccessibilityStates": 20,
+    "notificationAccessibilityViolations": 0
+  },
+  "runtime": {
+    "jobs": null,
+    "oldestDueSeconds": 0,
+    "runtime": {
+      "filesEnabled": true,
+      "lastDispatchAt": "2026-10-27T12:10:09.515073+00:00",
+      "lastSuccessAt": "2026-10-27T12:10:09.515073+00:00"
+    }
+  },
+  "securityAdvisorWarnings": 7,
+  "monitoring": "Sentry adapters installed; no DSN supplied",
+  "email": "disabled; provider placeholder",
+  "vercel": "CodeWithEswar project linked; production variables saved; deployment pending",
+  "legacyDatabaseLintFindings": 5
+}

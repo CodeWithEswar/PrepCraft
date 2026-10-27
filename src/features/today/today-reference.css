@@ -1,0 +1,128 @@
+/* Reference composition: target ribbon above a featured action and an operational two-column canvas. */
+.light .pc-shell[data-surface="today"]::before { background:linear-gradient(100deg,#18191d8a,#29221c54 50%,#14151982); }
+.light .pc-shell[data-surface="today"] .pc-shell-frame { background:linear-gradient(145deg,#17181c40,#18171a20); border-color:#ffffff36; }
+.light .pc-shell[data-surface="today"] .pc-shell-sidebar { background:linear-gradient(160deg,#222225ed,#18191bee); border-color:#ffffff24; }
+.pc-shell[data-surface="today"] .pc-shell-topbar .pc-shell-search { margin-left:auto; }
+.pc-shell[data-surface="today"] .pc-shell-topbar .pc-shell-preview-badge { display:none; }
+.light .pc-shell[data-surface="today"] .pc-shell-topbar { --shell-ink:#f3eee8; --shell-muted:#d7c9be; --shell-line:#ffffff26; }
+.light .pc-shell[data-surface="today"] .pc-shell-topbar .pc-shell-search { color:#f3eee8; background:#242327c9; border-color:#ffffff20; }
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button,
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile),
+.pc-shell[data-surface="today"] .pc-shell-action-btn { color:rgba(255,255,255,.9)!important; }
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button:hover,
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile):hover,
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button[aria-expanded="true"],
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile)[aria-expanded="true"],
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button[data-popup-open],
+.pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile)[data-popup-open],
+.pc-shell[data-surface="today"] .pc-shell-action-btn:hover,
+.pc-shell[data-surface="today"] .pc-shell-action-btn[aria-expanded="true"] {
+  background:rgba(255,255,255,.18)!important; border-color:rgba(255,255,255,.3)!important; color:#ffffff!important; box-shadow:0 4px 16px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.2)!important; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+}
+.dark .pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button:hover,
+.dark .pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile):hover,
+.dark .pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button[aria-expanded="true"],
+.dark .pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile)[aria-expanded="true"],
+.dark .pc-shell[data-surface="today"] .pc-shell-topbar-actions .pc-button[data-popup-open],
+.dark .pc-shell[data-surface="today"] .pc-shell-topbar-actions button:not(.pc-shell-profile)[data-popup-open],
+.dark .pc-shell[data-surface="today"] .pc-shell-action-btn:hover,
+.dark .pc-shell[data-surface="today"] .pc-shell-action-btn[aria-expanded="true"] {
+  background:rgba(255,255,255,.14)!important; border-color:rgba(255,255,255,.22)!important; color:#ffffff!important; box-shadow:0 4px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.15)!important; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+}
+.light .pc-shell[data-surface="today"] .pc-today-header { --shell-ink:#fff7ed; --shell-muted:#eee0d1; }
+.pc-today { gap:14px; max-width:1600px; }
+.pc-today-header { min-height:78px; padding:0 12px 6px; align-items:flex-start; }
+.pc-today-greeting { font-size:13px; color:var(--shell-ink); opacity:.8; margin-bottom:8px; }
+.pc-today-date-line { display:flex; gap:15px; align-items:baseline; flex-wrap:wrap; }
+.pc-today-date-line h1 { margin:0; font-size:32px; }
+.pc-today-date-line>p { font-size:12px; color:var(--shell-ink); opacity:.85; }
+.pc-today-preview-note { display:block; color:var(--shell-muted); font-size:9px; margin-top:6px; }
+.pc-today-context { padding-top:10px; gap:5px; }
+.pc-today-context q { color:var(--shell-ink); opacity:.8; font-size:11px; line-height:1.8; }
+.pc-today-context>span { font-size:9px; }
+.pc-today-target-ribbon { display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr auto; gap:0; padding:0; border:1px solid #f4e9df2e; border-radius:13px; background:linear-gradient(110deg,#3b332cbd,#302a25a3); color:#f7f2ed; overflow:hidden; }
+.pc-today-target-ribbon>div { display:flex; align-items:center; gap:12px; padding:14px 17px; min-width:0; border-right:1px solid #ffffff16; }
+.pc-today-target-ribbon>div>span:first-child { display:grid; place-items:center; flex:none; width:43px; height:43px; border-radius:10px; background:#ffffff0b; color:#ead9cb; }
+.pc-today-target-ribbon>div>div { min-width:0; }
+.pc-today-target-ribbon strong { display:block; font-size:12px; font-weight:500; line-height:1.6; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; }
+.pc-today-target-ribbon small { display:block; color:#d4c6bb; font-size:9px; line-height:1.7; }
+.pc-today-target-identity>svg:last-child { margin-left:auto; flex:none; }
+.pc-today-target-ribbon>.pc-button { margin:17px; align-self:center; min-height:36px; border:1px solid #ffffff20; background:#a8795b35; color:#fff5ed; font-size:11px; }
+.pc-today-canvas { display:grid; grid-template-columns:minmax(0,2.2fr) minmax(305px,1fr); gap:13px; padding:12px; border-radius:20px; background:color-mix(in srgb,var(--surface-subtle) 94%,transparent); border:1px solid var(--border); box-shadow:0 7px 30px #17100c15,inset 0 1px 0 #ffffff25; }
+.pc-today-primary,.pc-today-insights { display:flex; flex-direction:column; gap:13px; min-width:0; }
+.pc-today-decision { min-height:260px; grid-template-columns:65px minmax(0,1fr); gap:18px; align-items:center; padding:29px; color:#fff8f1; border:1px solid #d9a080; border-radius:15px; box-shadow:0 4px 15px #482d201c,inset 0 0 0 2px #fff1e20a; background:linear-gradient(90deg,#322722dc 0%,#382923b3 50%,#35272013 100%),url('/brand/workspace/today-summit.webp') center/cover no-repeat; overflow:hidden; }
+.pc-today-decision::before { position:absolute; content:""; inset:0; background:linear-gradient(130deg,#d4a48720,transparent 50%); pointer-events:none; }
+.pc-today-decision-mark { position:relative; width:65px; height:74px; border-radius:15px; background:linear-gradient(145deg,#bb8264c9,#704631d9); color:#fff6ed; border:1px solid #efc2a45c; box-shadow:inset 0 1px #ffe7d930; }
+.pc-today-decision-mark>svg { width:32px; height:32px; }
+.pc-today-decision-copy { position:relative; z-index:1; max-width:520px; padding-right:90px; }
+.pc-today-decision-copy .pc-today-eyebrow { color:#f3d4bc; letter-spacing:.11em; font-size:10px; }
+.pc-today-decision-copy h2 { color:#fff7f0; font-size:26px; margin-top:15px; }
+.pc-today-decision-copy>p:not(.pc-today-eyebrow) { color:#eee1d5; font-size:12px; line-height:1.8; }
+.pc-today-decision-actions>.pc-button:first-child { background:linear-gradient(130deg,#ad7152,#88543c); border:1px solid #e8b3917d; box-shadow:inset 0 1px #ffe4cc3b,0 3px 10px #0002; color:#fff9f1; min-height:43px; padding-inline:22px; }
+.pc-today-decision-actions .pc-button[data-variant="ghost"] { color:#eee1d5; }
+.pc-today-context-ribbon { gap:6px; }
+.pc-today-context-ribbon>span { color:#f0e0d3; padding:5px 8px; border:1px solid #efd5bc25; border-radius:7px; background:#8e665a30; font-size:9px; }
+.pc-today-context-ribbon>span+span { padding-left:8px; }
+.pc-today-decision-aside { display:block; position:absolute; right:22px; bottom:22px; padding:0; border:0; width:145px; text-align:right; }
+.pc-today-decision-aside p { color:#ead3bf; font-size:10px; line-height:1.7; margin:0; }
+.pc-today-focus { flex:1; padding:21px 19px; background:color-mix(in srgb,var(--surface) 85%,transparent); border-radius:13px; border-color:var(--border); }
+.pc-today-focus .pc-today-section-title { margin-bottom:22px; }
+.pc-today-focus .pc-today-section-title .pc-today-eyebrow { display:none; }
+.pc-today-focus .pc-today-section-title h2 { font-size:16px; }
+.pc-today-rail { margin-left:58px; }
+.pc-today-rail>li { margin-bottom:0; padding:0 0 12px 23px; gap:6px; }
+.pc-today-rail>li>div:nth-child(2) { background:color-mix(in srgb,var(--surface-elevated) 76%,transparent); border:1px solid var(--border); border-radius:10px; padding:14px 46px 14px 16px; min-height:90px; }
+.pc-today-rail-node { width:13px; height:13px; left:-7px; top:24px; }
+.pc-today-rail>li[data-current="true"] .pc-today-rail-node { box-shadow:none; width:15px; height:15px; left:-8px; }
+.pc-today-rail>li[data-complete="true"] .pc-today-rail-node { top:24px; }
+.pc-today-rail-label { position:static; margin-bottom:7px; font-size:8px; letter-spacing:.035em; }
+.pc-today-rail-label>span { font-size:9px; }
+.pc-today-rail h3 { font-size:13px; }
+.pc-today-rail-actions { position:absolute; right:7px; top:13px; }
+.pc-today-rail-reason { font-size:10px; }
+.pc-today-pulse,.pc-today-week,.pc-today-attention,.pc-today-upcoming { display:block; padding:19px; background:color-mix(in srgb,var(--surface-elevated) 75%,transparent); border:1px solid var(--border); border-radius:13px; }
+.pc-today-pulse>h2 { font-size:13px; font-weight:550; letter-spacing:-.025em; margin-bottom:18px; }
+.pc-today-pulse-body { display:flex; align-items:center; gap:16px; }
+.pc-today-pulse-ring { position:relative; width:116px; height:116px; border-radius:50%; padding:8px; flex:none; }
+.pc-today-pulse-ring>div { display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; border-radius:50%; background:var(--surface); text-align:center; }
+.pc-today-pulse-ring strong { font-size:19px; font-weight:550; letter-spacing:-.03em; }
+.pc-today-pulse-ring span { font-size:9px; line-height:1.6; color:var(--muted-foreground); margin-top:4px; max-width:88px; }
+.pc-today-status-label { display:flex; align-items:center; gap:7px; font-size:16px; font-weight:500; line-height:1.4; margin-bottom:13px; letter-spacing:-.025em; }
+.pc-today-status-label>svg { color:var(--accent-foreground); flex:none; }
+.pc-today-pulse-detail>p { display:flex; align-items:flex-start; gap:7px; font-size:9px; line-height:1.6; margin-top:10px; }
+.pc-today-pulse-detail>p>svg { color:var(--accent-foreground); flex:none; margin-top:1px; }
+.pc-today-pulse-explanation { color:var(--muted-foreground); font-size:9px; line-height:1.8; margin-top:13px; }
+.pc-today-week .pc-today-section-title { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; gap:10px; width:100%; min-width:0; }
+.pc-today-week h2 { font-size:15px; font-weight:600; letter-spacing:-.015em; color:var(--foreground); margin:0; white-space:nowrap; flex-shrink:0; }
+.pc-today-week [data-slot="select-trigger"] { width:auto!important; min-width:92px!important; height:28px!important; min-height:28px!important; max-height:28px!important; font-size:11px!important; padding:2px 8px 2px 10px!important; border-radius:8px!important; background:var(--surface-subtle); border:1px solid var(--border); flex-shrink:0!important; }
+.pc-today-week-total { display:flex; align-items:baseline; gap:6px; border:0!important; padding:0!important; margin-bottom:14px; }
+.pc-today-week-total strong { font-size:18px; font-weight:600; letter-spacing:-.02em; color:var(--foreground); line-height:1; }
+.pc-today-week-total>span { font-size:11px; color:var(--muted-foreground); white-space:nowrap; }
+.pc-today-week-strip { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; width:100%; align-items:flex-end; margin-bottom:14px; }
+.pc-today-week-strip>div { display:flex; flex-direction:column; align-items:center; min-width:0; width:100%; }
+.pc-today-week-track { width:100%; height:48px; border:1px solid var(--border-subtle); background:color-mix(in srgb,var(--foreground) 6%,transparent); border-radius:6px; overflow:hidden; }
+.pc-today-week-track>i { background:linear-gradient(180deg,var(--sienna-300),var(--sienna-500)); border-radius:4px; min-height:0; }
+.pc-today-week-strip small { font-size:10px; color:var(--muted-foreground); white-space:nowrap; }
+.pc-today-week-strip [data-current="true"] small { color:var(--foreground); font-weight:600; }
+.pc-today-week-note { display:flex; gap:9px; align-items:center; background:color-mix(in srgb,var(--foreground) 3.5%,transparent); border:1px solid var(--border-subtle); border-radius:10px; padding:10px 12px; font-size:11px; line-height:1.5; margin:0; color:var(--muted-foreground); }
+.pc-today-week-note>svg { color:var(--accent-foreground); flex:none; }
+.pc-today-attention .pc-today-section-title,.pc-today-upcoming .pc-today-section-title { margin-bottom:13px; }
+.pc-today-attention li strong { font-size:11px; }
+.pc-today-attention li p { margin-top:2px; }
+.pc-today-revision-note { padding-top:12px; margin-top:12px; }
+.pc-today-upcoming .pc-today-readiness { margin-top:14px; padding-top:13px; }
+.dark .pc-today-target-ribbon { background:linear-gradient(110deg,#282729ed,#252326df); }
+.dark .pc-today-canvas { background:#1d1e22eb; border-color:#ffffff1c; }
+.dark .pc-today-focus,.dark .pc-today-pulse,.dark .pc-today-week,.dark .pc-today-attention,.dark .pc-today-upcoming { background:#242529ed; }
+.dark .pc-today-rail>li>div:nth-child(2) { background:#2c2c30b3; }
+@media(min-width:1280px) { .pc-today-canvas { grid-template-columns:minmax(0,2.25fr) minmax(325px,1fr); } }
+@media(max-width:1279px) { .pc-today-canvas { grid-template-columns:minmax(0,1.75fr) minmax(280px,1fr); } .pc-today-pulse-body { flex-direction:column; align-items:flex-start; } .pc-today-pulse-ring { width:100px; height:100px; } .pc-today-target-ribbon { grid-template-columns:1.2fr 1fr 1fr; } .pc-today-target-ribbon>div:nth-child(4) { display:none; } .pc-today-target-ribbon>.pc-button { display:none; } .pc-today-decision-copy { padding-right:20px; } .pc-today-decision-aside { display:none; } .pc-today-decision { grid-template-columns:minmax(0,1fr); padding:25px; min-height:265px; } .pc-today-decision-mark { display:none; } .pc-today-rail { margin-left:6px; } }
+@media(max-width:819px) { .pc-today-canvas { grid-template-columns:minmax(0,1fr); } .pc-today-insights { display:grid; grid-template-columns:1fr 1fr; } .pc-today-pulse-body { flex-direction:row; } .pc-today-decision-copy { max-width:600px; padding-right:100px; } }
+@media(max-width:639px) {
+ .pc-today-header { padding:0 3px 5px; min-height:76px; } .pc-today-greeting { font-size:11px; } .pc-today-date-line { gap:9px; } .pc-today-date-line h1 { font-size:29px; } .pc-today-date-line>p { font-size:10px; } .pc-today-context { display:none; }
+ .pc-today-target-ribbon { order:1; grid-template-columns:1fr 1fr; border-radius:11px; } .pc-today-target-ribbon>div { padding:12px; gap:9px; } .pc-today-target-ribbon>div>span:first-child { width:31px; height:35px; } .pc-today-target-ribbon>div>span:first-child>svg { width:20px; } .pc-today-target-ribbon strong { font-size:10px; } .pc-today-target-ribbon small { font-size:8px; } .pc-today-target-ribbon>div:nth-child(3) { display:none; }
+ .pc-today-canvas { order:3; padding:8px; gap:12px; border-radius:15px; display:flex; flex-direction:column; } .pc-today-primary,.pc-today-insights { display:contents; } .pc-today-decision { order:1; border-radius:11px; min-height:270px; padding:23px 18px; background-position:65% center; } .pc-today-decision-copy { padding-right:0; max-width:100%; } .pc-today-decision-copy h2 { font-size:23px; } .pc-today-decision-copy>p:not(.pc-today-eyebrow) { font-size:11px; max-width:95%; } .pc-today-decision-actions { margin-top:19px; } .pc-today-decision-actions>.pc-button:first-child { min-height:44px; }
+ .pc-today-focus { order:3; padding:18px 13px; } .pc-today-pulse { order:2; padding:18px; } .pc-today-pulse-body { flex-direction:row; gap:15px; } .pc-today-pulse-ring { width:105px; height:105px; } .pc-today-status-label { font-size:15px; } .pc-today-attention { order:4; } .pc-today-week { order:5; } .pc-today-upcoming { order:6; } .pc-today-rail { margin-left:4px; } .pc-today-rail>li { padding-left:16px; } .pc-today-rail>li>div:nth-child(2) { padding:12px 38px 12px 12px; } .pc-today-rail h3 { font-size:12px; } .pc-today-rail-actions { right:0; top:6px; } .pc-today-week [data-slot="select-trigger"] { min-height:28px!important; height:28px!important; font-size:11px!important; } .pc-today-footer { order:8; }
+}
+
+.pc-today-attention a{display:inline-flex;align-items:center;gap:5px;margin-top:6px;color:var(--primary);font-size:10px}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "prepcraft-notifications",
+  "main": "../workers/notifications/index.ts",
+  "compatibility_date": "2026-10-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "f6f768c9f3a0e4bc0084751154c97e75",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": { "EMAIL_ENABLED": "false" },
+  "queues": {
+    "producers": [
+      { "binding": "NOTIFICATION_DELIVERY", "queue": "prepcraft-notification-delivery" },
+      { "binding": "NOTIFICATION_REPORTS", "queue": "prepcraft-notification-reports" }
+    ],
+    "consumers": [
+      { "queue": "prepcraft-notification-delivery", "max_batch_size": 5, "max_batch_timeout": 5, "max_retries": 5, "dead_letter_queue": "prepcraft-notification-delivery-dlq", "max_concurrency": 2 },
+      { "queue": "prepcraft-notification-reports", "max_batch_size": 2, "max_batch_timeout": 5, "max_retries": 5, "dead_letter_queue": "prepcraft-notification-reports-dlq", "max_concurrency": 1 },
+      { "queue": "prepcraft-notification-delivery-dlq", "max_batch_size": 5, "max_retries": 5, "max_concurrency": 1 },
+      { "queue": "prepcraft-notification-reports-dlq", "max_batch_size": 5, "max_retries": 5, "max_concurrency": 1 }
+    ]
+  }
+}

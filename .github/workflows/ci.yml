@@ -20,6 +20,9 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test
+      - run: npm run test:platform:db
+      - run: npx wrangler deploy --config cloudflare/wrangler/platform.jsonc --env production --dry-run
+      - run: npx wrangler deploy --config cloudflare/wrangler/notifications.jsonc --dry-run
       - run: npm run brand:validate
       - run: npm run landing:validate
       - run: npm run build

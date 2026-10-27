@@ -1,0 +1,18 @@
+
+> prepcraft@0.1.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v5.0.5 D:/PrepCraft
+
+······································································································································································································································································································································································
+
+ Test Files  46 passed (46)
+      Tests  358 passed (358)
+   Start at  19:36:59
+   Duration  94.91s (import 57%, environment 28%, setup 11%, tests 3%, transform 1%, worker 1%)
+
+Environment  jsdom was created 46 times · 267.94s total, 28% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

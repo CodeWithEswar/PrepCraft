@@ -24,6 +24,16 @@ it("follows transitive client imports but permits type-only imports", () => {
 it("requires centralized environment access and server markers", () => {
   expect(checkDependencies(new Map([["src/lib/server.ts",'const secret=process.env.PRIVATE_KEY']]))).toHaveLength(2)
 })
+it("allows Next Server Action RPC imports without admitting ordinary server modules",()=>{
+  const files=new Map([
+    ["src/features/demo/components/client.tsx",'"use client"; import {save} from "../server/actions"'],
+    ["src/features/demo/server/actions.ts",'"use server"; import "server-only"; import "@/lib/server"; export async function save() {}'],
+    ["src/lib/server.ts",'import "server-only"; export const secret=1'],
+  ])
+  expect(checkDependencies(files)).toEqual([])
+  files.set("src/features/demo/components/client.tsx",'"use client"; import "@/lib/server"')
+  expect(checkDependencies(files).some(error=>error.includes("client dependency reaches"))).toBe(true)
+})
 it("enforces domain services in services/ remain pure and portable", () => {
   const badService = new Map([
     ["src/features/revision/services/scheduler.ts", 'import "server-only"; export const schedule = () => {}'],

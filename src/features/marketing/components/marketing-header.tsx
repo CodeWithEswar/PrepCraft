@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/drawer"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu"
+import Link from "next/link"
 import { landingContent } from "../content/landing-content"
 import { StartPreview } from "./start-preview"
 
@@ -88,6 +89,12 @@ export function MarketingHeader() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          <Link
+            href="/login"
+            className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors px-2.5 py-1.5 rounded-lg hover:bg-surface/60"
+          >
+            Sign in
+          </Link>
           <div className="mk-desktop-cta">
             <StartPreview label="Get started" />
           </div>
@@ -198,7 +205,14 @@ export function MarketingHeader() {
                     </div>
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-2 space-y-2">
+                    <Link
+                      href="/login"
+                      onClick={() => setOpen(false)}
+                      className="w-full flex items-center justify-center h-10 rounded-xl border border-border/80 bg-surface/80 text-xs font-medium text-foreground hover:bg-surface-elevated transition-colors"
+                    >
+                      Sign in
+                    </Link>
                     <div onClick={() => setOpen(false)}>
                       <StartPreview label="Explore the preview" />
                     </div>

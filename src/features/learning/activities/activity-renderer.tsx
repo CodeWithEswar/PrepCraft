@@ -1,0 +1,15 @@
+"use client"
+import { useId } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { RadioGroup,RadioGroupItem } from "@/components/ui/radio-group"
+import { Checkbox } from "@/components/ui/checkbox"
+import { AppIcon } from "@/components/app-icon"
+import type { LearningActivity,LearningAnswer,ActivityType } from "../types/learning.types"
+interface Props{activity:LearningActivity;answer:LearningAnswer|null;onAnswer:(value:LearningAnswer|null)=>void;disabled:boolean}
+function Choice({activity,answer,onAnswer,disabled}:Props){const id=useId();return <RadioGroup value={typeof answer==="string"?answer:""} onValueChange={v=>onAnswer(String(v))} disabled={disabled} aria-label="Answer choices" className="pc-learn-choices">{activity.options.map((option,i)=><label key={option} htmlFor={`${id}-${i}`}><RadioGroupItem value={option} id={`${id}-${i}`}/><span>{option}</span></label>)}</RadioGroup>}
+function Numeric({answer,onAnswer,disabled}:Props){return <label className="pc-learn-number"><span>Your numeric answer</span><Input type="number" inputMode="decimal" value={typeof answer==="number"?answer:""} disabled={disabled} onChange={e=>{if(e.target.value==="")onAnswer(null);else if(Number.isFinite(e.target.valueAsNumber))onAnswer(e.target.valueAsNumber)}} placeholder="Enter a value"/></label>}
+function Multi({activity,answer,onAnswer,disabled}:Props){const values=Array.isArray(answer)?answer:[];return <div className="pc-learn-choices">{activity.options.map(option=><label key={option}><Checkbox disabled={disabled} checked={values.includes(option)} onCheckedChange={checked=>onAnswer(checked?[...values,option]:values.filter(v=>v!==option))}/><span>{option}</span></label>)}</div>}
+function Ordering({activity,answer,onAnswer,disabled}:Props){const values=Array.isArray(answer)?answer:activity.options;const move=(i:number,delta:number)=>{const next=[...values];[next[i],next[i+delta]]=[next[i+delta],next[i]];onAnswer(next)};return <div><p className="pc-learn-footnote">Move each stage into the correct sequence. Use the arrow buttons with touch or keyboard.</p><ol className="pc-learn-ordering">{values.map((value,i)=><li key={value}><span>{i+1}</span><strong>{value}</strong><Button size="icon-sm" variant="outline" disabled={disabled||i===0} aria-label={`Move ${value} earlier`} onClick={()=>move(i,-1)}><AppIcon icon="arrow-up" size={16}/></Button><Button size="icon-sm" variant="outline" disabled={disabled||i===values.length-1} aria-label={`Move ${value} later`} onClick={()=>move(i,1)}><AppIcon icon="arrow-down" size={16}/></Button></li>)}</ol></div>}
+const renderers:Partial<Record<ActivityType,(props:Props)=>React.ReactNode>>={multiple_choice:Choice,true_false:Choice,scenario:Choice,multiple_select:Multi,numeric_answer:Numeric,ordering:Ordering,matching:Ordering}
+export function ActivityRenderer(props:Props){const Renderer=renderers[props.activity.activity_type];return Renderer?<Renderer {...props}/>:<p role="status">This activity needs an evaluator that is not available yet. No attempt will be recorded.</p>}

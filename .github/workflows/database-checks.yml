@@ -16,13 +16,12 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - uses: supabase/setup-cli@v3
-        with:
-          version: 2.84.2
       - run: npm run db:check
-      - run: supabase start
-      - run: supabase db reset --local
+      - run: npx supabase start
+      - run: npx supabase db reset --local
+      - run: npm run db:types:check
+      - run: npm run test:platform:db
       - run: npm run db:lint
       - run: npm run db:test
       - if: always()
-        run: supabase stop --no-backup
+        run: npx supabase stop --no-backup

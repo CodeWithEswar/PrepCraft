@@ -1,0 +1,80 @@
+{
+  "recordedAt": "2026-10-25T20:21:16.324Z",
+  "lazyViews": 6,
+  "relationshipRequestsBefore": 0,
+  "relationshipRequestsAfter": 1,
+  "files": [
+    {
+      "file": "static/chunks/7202.cb30d1141e03f113.js",
+      "bytes": 332411,
+      "gzipBytes": 98639,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/4945.4fc2172455534ee4.js",
+      "bytes": 17714,
+      "gzipBytes": 6068,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/4363.a28a90c181394b7a.js",
+      "bytes": 22119,
+      "gzipBytes": 6548,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/3497.fefe403e80fa150f.js",
+      "bytes": 3744,
+      "gzipBytes": 1660,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/7484.d69c97a6c6e4077e.js",
+      "bytes": 3721,
+      "gzipBytes": 1573,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/1190.d2eade908726312b.js",
+      "bytes": 3370,
+      "gzipBytes": 1619,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/1563.4aff935707a7ab9b.js",
+      "bytes": 27832,
+      "gzipBytes": 8184,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/6814.b161201a7870379d.js",
+      "bytes": 8284,
+      "gzipBytes": 3245,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/3513.8abf58328d092317.js",
+      "bytes": 5126,
+      "gzipBytes": 1970,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/5842.330c66bc1b519265.js",
+      "bytes": 5872,
+      "gzipBytes": 2194,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/6426.2141c7021eb7a4b1.js",
+      "bytes": 8014,
+      "gzipBytes": 3279,
+      "relationshipOnly": false
+    },
+    {
+      "file": "static/chunks/5578.863756468db1171f.js",
+      "bytes": 16348,
+      "gzipBytes": 6466,
+      "relationshipOnly": true
+    }
+  ]
+}
