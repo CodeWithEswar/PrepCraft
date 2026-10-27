@@ -2,7 +2,7 @@
 
 **Craft your way to ready.** A software-engineering interview preparation and tracking workspace: plan, learn, practice, reflect, revise, prepare for real interviews and track applications.
 
-Today the application is a working marketing preview. Phase 03 establishes repository ownership and engineering foundations. Authentication, saved workspaces and product modules are later phases; AI mock interviews are outside scope.
+Live at [prepcraft.vercel.app](https://prepcraft.vercel.app). PrepCraft includes Google sign-in, saved workspaces, Today and Planning, recorded Practice and Revision, learning, behavioral preparation, Mastery, Analytics, Notifications and private files. Isolated preview routes use sample data. Live mock recording and external code execution remain unavailable; the interface does not claim those operations were saved or executed.
 
 ## Architecture in one minute
 
@@ -14,7 +14,7 @@ Today the application is a working marketing preview. Phase 03 establishes repos
 | src/lib | Environment validation, Supabase clients, technical contracts and observability |
 | src/providers | Shared React providers |
 | supabase | Authoritative relational/auth infrastructure, migrations and database tests |
-| cloudflare | Portable contracts and future justified edge/async/storage workloads |
+| cloudflare | Private R2 transfer, queues, reconciliation and notification delivery |
 | tests | Cross-feature unit/integration/component/browser checks |
 | docs | Living product, architecture, security and operational decisions |
 
@@ -22,7 +22,7 @@ Routes compose features; features own behavior; shared modules cannot depend upw
 
 ## Stack
 
-Next.js 16 App Router, React 19, strict TypeScript, Tailwind, shadcn/Base UI, Hugeicons, Motion and next-themes. Data/form tools are TanStack Query/Table, React Hook Form and Zod; date-fns, Recharts and D3 are available. Supabase SSR clients are prepared but authentication is not activated. Vitest, Testing Library, Playwright and ESLint provide checks. Sentry and Cloudflare runtime integrations are planned, not installed/deployed services.
+Next.js 16 App Router, React 19, strict TypeScript, Tailwind, shadcn/Base UI, Hugeicons, Motion and next-themes. TanStack Query/Table, React Hook Form and Zod manage remote state and forms. Supabase owns identity and relational state; Cloudflare Workers, Queues, Cron and private R2 handle asynchronous work and bytes. Sentry adapters are installed with content redaction, but reporting stays disabled until real DSNs are supplied. Vitest, Testing Library, Playwright and ESLint provide checks.
 
 ## Local setup
 
@@ -48,14 +48,14 @@ Install a Playwright browser with npx playwright install chromium before E2E. Us
 
 ## Supabase and Cloudflare
 
-Database development requires Docker and Supabase CLI 2.84.2 (the version pinned in CI). Run supabase start, then the database checks. No product migrations or seeds exist yet; seeding is disabled. Add immutable migrations with RLS and isolation tests, then generate database types once real schema exists. See the migration runbook before resetting any local state.
+Database development uses Docker and the pinned Supabase CLI 2.122.0. Run npm run db:start, then the local database checks. The repository contains 29 immutable product migrations with RLS and domain isolation tests. Generate database types from the reset local schema and run npm run db:types:check. Never reset production. Local access to the live project requires an explicit ALLOW_LIVE_BACKEND=true opt-in; preview deployments require a separate backend.
 
-Cloudflare currently contains validated queue contracts and tests only. No worker or Wrangler configuration exists yet, so there is no pretend worker start/deploy command. Create runtime configuration, bindings and worker tests with the first justified workload. Keep secrets in ignored .dev.vars or deployment secret stores.
+Cloudflare configurations live in cloudflare/wrangler/platform.jsonc and notifications.jsonc. The platform default uses emulated local resources; deployment requires an explicit production environment. Keep service credentials in encrypted Worker secrets. Both R2 buckets are private. Email delivery remains disabled while the provider is a placeholder. See [platform architecture](docs/architecture/platform.md) and [verification evidence](docs/operations/platform-verification.json).
 
 ## Contribution and deployment
 
 Preserve the Graphite Monochrome × Smoked Sienna × Mineral Glass design and existing landing behavior during architecture work. Create only meaningful directories. Domain logic belongs in feature services, not route files, shared UI or giant utils files. Use explicit server-only boundaries, validated trust-boundary inputs and authorization backed by RLS. Report checks actually executed, including unavailable ones.
 
-CI covers application checks, browser journeys, database checks and dependency auditing. No public deployment or production migration runs automatically. Select a compatible Next host/runtime before adding deployment-specific configuration; Cloudflare worker hosting is a separate boundary.
+CI covers application checks, browser journeys, local database contracts and dependency auditing. GitHub main is connected to the CodeWithEswar/prepcraft Vercel project for production builds. Vercel variables are configured separately from Worker secrets; never upload local env files. Database migrations and Worker deployments remain explicit operations. Sentry reporting and email sending require their own real provider configuration.
 
 Start with [documentation](docs/README.md), [system overview](docs/architecture/system-overview.md), [local development](docs/runbooks/local-development.md), [migrations](docs/runbooks/migrations.md), [deployment/rollback](docs/runbooks/deployment.md), [feature ownership](docs/features/domain-map.md), and [ADRs](docs/adr/README.md).

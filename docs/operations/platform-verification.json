@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-27T12:13:04.911Z",
+  "checkedAt": "2026-10-27T12:29:32.159Z",
   "origin": "https://prepcraft.vercel.app",
   "supabaseProject": "tkfqomwymkgcnjakppon",
   "migrationsApplied": [
@@ -42,6 +42,43 @@
   "securityAdvisorWarnings": 7,
   "monitoring": "Sentry adapters installed; no DSN supplied",
   "email": "disabled; provider placeholder",
-  "vercel": "CodeWithEswar project linked; production variables saved; deployment pending",
-  "legacyDatabaseLintFindings": 5
+  "vercel": {
+    "project": "code-with-eswar/prepcraft",
+    "projectId": "prj_QiK3o2Yr70bmSOArdYMRwMSCPb5f",
+    "productionUrl": "https://prepcraft.vercel.app",
+    "deploymentId": "dpl_8oavHk6wzgPvzQtatM4gQAzGEMT1",
+    "status": "READY",
+    "githubConnected": true,
+    "productionEnvironmentNames": [
+      "APP_ENV",
+      "NEXT_PUBLIC_APP_ENV",
+      "NEXT_PUBLIC_APP_URL",
+      "NEXT_PUBLIC_SUPABASE_URL",
+      "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+      "PLATFORM_WORKER_URL",
+      "ENABLE_BRAND_PREVIEW"
+    ]
+  },
+  "legacyDatabaseLintFindings": 5,
+  "liveChecks": {
+    "home": 200,
+    "login": 200,
+    "filesPreview": 200,
+    "protectedRedirect": 307,
+    "oauthProviderTextRedacted": true,
+    "browser": {
+      "title": "PrepCraft — Craft your way to ready",
+      "landingWidths": [
+        390,
+        1440
+      ],
+      "previewHydrated": true,
+      "previewDownloadDisabled": true,
+      "browserErrors": []
+    }
+  },
+  "git": {
+    "repository": "https://github.com/CodeWithEswar/PrepCraft",
+    "implementationCommit": "0688e9313eacf4460b6352bbccdf504dca30fd91"
+  }
 }
