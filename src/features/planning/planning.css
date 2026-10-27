@@ -157,7 +157,14 @@
 .pc-plan-review textarea { background:color-mix(in srgb,var(--plan-card) 80%,transparent); }
 .pc-plan-review>.pc-button { align-self:flex-start; }
 .pc-plan-text-link { display:flex; align-items:center; gap:7px; font-size:11px; color:var(--plan-accent); }
-.pc-planning-loading { min-height:250px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:15px; }
+.pc-planning-loading { min-height:280px; padding:32px 20px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px; text-align:center; }
+.pc-planning-loading-symbol { width:76px; height:76px; display:grid; place-items:center; border-radius:50%; border:1px solid color-mix(in srgb,var(--plan-accent) 16%,transparent); background:radial-gradient(circle,color-mix(in srgb,var(--plan-accent) 10%,transparent),transparent 72%); }
+.pc-planning-loading-copy p { margin:0; color:var(--plan-ink); font-size:14px; font-weight:550; }
+.pc-planning-loading-copy>span { display:block; margin-top:6px; color:var(--plan-muted); font-size:12px; line-height:1.6; }
+.pc-planning-loading-track { display:block; width:132px; height:3px; overflow:hidden; border-radius:99px; background:var(--plan-line); }
+.pc-planning-loading-track>span { display:block; width:44px; height:100%; border-radius:inherit; background:linear-gradient(90deg,transparent,var(--plan-accent),transparent); animation:pc-plan-loading-sweep 1.6s cubic-bezier(.45,0,.55,1) infinite; }
+@keyframes pc-plan-loading-sweep { from { transform:translateX(-100%); } to { transform:translateX(300%); } }
+@media(prefers-reduced-motion:reduce) { .pc-planning-loading-track>span { animation:none; margin-inline:auto; } }
 .pc-planning-sheet { width:min(500px,95vw)!important; max-width:500px!important; padding:0; overflow-y:auto; background:var(--surface-elevated); border-color:var(--border); }
 .pc-planning-sheet [data-slot="sheet-header"] { padding:28px 24px 20px; }
 .pc-planning-sheet [data-slot="sheet-description"],.pc-planning-drawer [data-slot="drawer-description"] { font-size:12px; line-height:1.8; }
